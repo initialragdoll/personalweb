@@ -2330,6 +2330,6 @@ input, select, textarea {
 
 		}
 
-#intro p strong::before {
+#intro p::before {
     content: none !important;
 }

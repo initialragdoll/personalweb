@@ -2330,10 +2330,6 @@ input, select, textarea {
 
 		}
 
-body::before,
-body::after,
-html::before,
-html::after {
+body::before {
     content: none !important;
-    display: none !important;
 }

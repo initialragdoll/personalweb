@@ -2243,13 +2243,24 @@ input, select, textarea {
 
 /* Intro */
 
-	#intro {
-		background: url("images/overlay.png"), url("../../images/intro.jpg");
-		background-size: 256px 256px, cover;
-		background-attachment: fixed, fixed;
-		background-position: top left, bottom center;
-		background-repeat: repeat, no-repeat;
-	}
+#intro {
+	/* The background property is removed here */
+	position: relative; /* This is crucial for positioning the video */
+	overflow: hidden; /* This hides any video content that extends beyond the section's borders */
+}
+
+#bg-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100; /* Puts the video layer behind your text and buttons */
+	transform: translate(-50%, -50%); /* Centers the video on the screen */
+	object-fit: cover; /* This makes the video fill the entire space without stretching */
+}
 
 /* One */
 

@@ -2329,3 +2329,7 @@ input, select, textarea {
 			}
 
 		}
+
+.square {
+  display: none !important;
+}

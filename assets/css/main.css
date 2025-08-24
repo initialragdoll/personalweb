@@ -2243,12 +2243,12 @@ input, select, textarea {
 
 /* Intro */
 #intro .content {
-    position: relative;
-    z-index: 10;
+    position: relative;
+    z-index: 10;
 }
 
 #intro .content strong::after {
-    content: none !important;
+    content: none !important;
 }
 
 #intro {

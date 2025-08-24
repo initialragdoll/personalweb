@@ -2242,6 +2242,10 @@ input, select, textarea {
 		}
 
 /* Intro */
+#intro .content {
+    position: relative;
+    z-index: 10;
+}
 
 #intro {
 	/* The background property is removed here */

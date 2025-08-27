@@ -2242,20 +2242,17 @@ input, select, textarea {
 		}
 
 /* Intro */
-#intro .content {
-    position: relative;
-    z-index: 10;
-}
-
-#intro .content strong::after {
-    content: none !important;
-}
-
 #intro {
 	/* The background property is removed here */
 	position: relative; /* This is crucial for positioning the video */
 	overflow: hidden; /* This hides any video content that extends beyond the section's borders */
 }
+
+#intro .content {
+    position: relative;
+    z-index: 10;
+}
+
 
 #bg-video {
 	position: absolute;
@@ -2268,6 +2265,20 @@ input, select, textarea {
 	z-index: -100; /* Puts the video layer behind your text and buttons */
 	transform: translate(-50%, -50%); /* Centers the video on the screen */
 	object-fit: cover; /* This makes the video fill the entire space without stretching */
+}
+
+#bg-video-mobile {
+  display: none;
+}
+
+/* Hide the desktop video on smaller screens */
+@media (max-width: 768px) {
+  #bg-video-desktop {
+    display: none;
+  }
+  #bg-video-mobile {
+    display: block;
+  }
 }
 
 /* One */

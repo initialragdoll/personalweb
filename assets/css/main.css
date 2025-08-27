@@ -2249,11 +2249,11 @@ input, select, textarea {
 }
 
 #intro .content {
-    position: relative;
-    z-index: 10;
+    position: relative;
+    z-index: 10;
 }
 
-#bg-video-desktop {
+#bg-video {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -2267,18 +2267,7 @@ input, select, textarea {
 }
 
 #bg-video-mobile {
-    display: none;
-    position: absolute;
-    top: 0; /* Changed from 50% to 0 to align to the top */
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%); /* Removed translateY to align to the top */
-    object-fit: cover;
-    object-position: center top; /* Position it correctly */
+  display: none;
 }
 
 /* Hide the desktop video on smaller screens */
@@ -2288,8 +2277,10 @@ input, select, textarea {
     }
     #bg-video-mobile {
         display: block;
+        object-position: center top; /* New rule to control video cropping */
     }
 }
+
 
 /* One */
 

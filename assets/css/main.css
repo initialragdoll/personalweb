@@ -2266,17 +2266,20 @@ z-index: -100; /* Puts the video layer behind your text and buttons */
 transform: translate(-50%, -50%); /* Centers the video on the screen */
 object-fit: cover; /* This makes the video fill the entire space without stretching */
 }
+
 #bg-video-mobile {
   display: none;
 }
+
 /* Hide the desktop video on smaller screens */
 @media (max-width: 768px) {
   #bg-video-desktop {
     display: none;
   }
   #bg-video-mobile {
-    display: block;
-  }
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 /* One */

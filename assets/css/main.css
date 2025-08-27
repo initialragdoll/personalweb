@@ -2253,7 +2253,6 @@ input, select, textarea {
     z-index: 10;
 }
 
-
 #bg-video {
 	position: absolute;
 	top: 50%;
@@ -2268,17 +2267,18 @@ input, select, textarea {
 }
 
 #bg-video-mobile {
-  display: none;
+  display: none;
 }
 
 /* Hide the desktop video on smaller screens */
 @media (max-width: 768px) {
-  #bg-video-desktop {
-    display: none;
-  }
-  #bg-video-mobile {
-    display: block;
-  }
+    #bg-video-desktop {
+        display: none;
+    }
+    #bg-video-mobile {
+        display: block;
+        object-position: center top; /* New rule to control video cropping */
+    }
 }
 
 

@@ -2267,6 +2267,20 @@ input, select, textarea {
 	object-fit: cover; /* This makes the video fill the entire space without stretching */
 }
 
+#bg-video-mobile {
+  display: none;
+}
+
+/* Hide the desktop video on smaller screens */
+@media (max-width: 768px) {
+  #bg-video-desktop {
+    display: none;
+  }
+  #bg-video-mobile {
+    display: block;
+  }
+}
+
 
 /* One */
 

@@ -2343,3 +2343,17 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
 			}
 
 		}
+/* Force loading background images on section #one and #two */
+	#one {
+    background: url("../../images/one.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+#two {
+    background: url("../../images/two.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+	

@@ -439,9 +439,9 @@ input, select, textarea {
 			font-weight: normal;
 			text-transform: none !important;
 			color: #e5e6e7;
-		
+			/* Following content cause a square symbol
 			content: '\f1ce';
-			
+			*/
 			cursor: default;
 			display: block;
 			font-size: 2em;
@@ -2343,10 +2343,3 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
 			}
 
 		}
-/*
-body::before,
-body::after {
-    content: none !important;
-    display: none !important;
-}
-*/

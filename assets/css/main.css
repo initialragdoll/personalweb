@@ -2342,6 +2342,7 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
 
 		}
 
-body::before {
+body::before,
+body::after {
     content: none !important;
 }

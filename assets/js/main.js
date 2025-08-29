@@ -230,12 +230,13 @@ const projects = [
         webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/',
     },
-	/* In coming projects
+	
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
         webUrl: 'https://www.google.com/', // Added for a complete example
         steamUrl: 'https://store.steampowered.com/app/2',
     },
+	/* In coming projects
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
         webUrl: 'https://www.youtube.com/', // Added for a complete example
@@ -322,6 +323,7 @@ function prevProject() {
     updateWebLink();
 }
 })(jQuery);
+
 
 
 

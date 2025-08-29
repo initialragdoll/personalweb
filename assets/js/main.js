@@ -1,6 +1,5 @@
 /*
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
+	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
@@ -232,6 +231,7 @@ const steamLink = document.getElementById('steamLink');
 const projects = [
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
+		webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/app/1928980/Nightingale/',
     },
     {
@@ -320,6 +320,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

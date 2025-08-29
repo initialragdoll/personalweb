@@ -2282,11 +2282,13 @@ input, select, textarea {
 	}
 /* --- START GAME PROJECT CAROUSEL STYLES --- */
 
-/* Full-screen carousel container */
-.carousel-container {
-    width: 100vw;
-    height: calc(100vh - 4.5rem); /* This subtracts the header height */
-    position: relative;
+/* Add this to force the carousel container to fill the parent section's height */
+#projects .carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow: hidden;
     background: #111;
 }
@@ -2295,14 +2297,14 @@ input, select, textarea {
 .carousel-track {
     display: flex;
     width: 100%;
-    height: 100%; /* Now set to 100% of its parent's height */
+    height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 /* Individual slides */
 .carousel-slide {
     flex: 0 0 100vw;
-    height: 100%; /* Now set to 100% of its parent's height */
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -12,12 +12,12 @@
 
 	// Breakpoints.
 		breakpoints({
-			xxlarge: [ '1681px',  '1920px' ],
-			xlarge:  [ '1281px',  '1680px' ],
-			large:   [ '1001px',  '1280px' ],
-			medium:  [ '737px',   '1000px' ],
-			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ]
+			xxlarge: [ '1681px',  '1920px' ],
+			xlarge:  [ '1281px',  '1680px' ],
+			large:   [ '1001px',  '1280px' ],
+			medium:  [ '737px',   '1000px' ],
+			small:   [ '481px',   '736px'  ],
+			xsmall:  [ null,      '480px'  ]
 		});
 
 	// Play initial animations on page load.
@@ -225,107 +225,109 @@ const websiteLink = document.getElementById('websiteLink');
 
 // This array holds the data for your game projects.
 const projects = [
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
-        webUrl: 'https://unseal.fr/',
-        steamUrl: 'https://store.steampowered.com/',
-    },
+    {
+        // Corrected image URL to a relative path.
+        image: 'images/initial-ragdoll.jpg',
+        webUrl: 'https://initialragdoll.com/',
+        // Corrected Steam URL format.
+        steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
+    },
 	
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
-        webUrl: 'https://www.google.com/', // Added for a complete example
-        steamUrl: 'https://store.steampowered.com/app/2',
-    }
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
+        webUrl: 'https://www.google.com/', 
+        steamUrl: 'https://store.steampowered.com/app/2',
+    }
 	/* In coming projects
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
-        webUrl: 'https://www.youtube.com/', // Added for a complete example
-        steamUrl: 'https://store.steampowered.com/app/3',
-    },
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
-        webUrl: 'https://www.twitch.tv/', // Added for a complete example
-        steamUrl: 'https://store.steampowered.com/app/4',
-    }
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
+        webUrl: 'https://www.youtube.com/', 
+        steamUrl: 'https://store.steampowered.com/app/3',
+    },
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
+        webUrl: 'https://www.twitch.tv/', 
+        steamUrl: 'https://store.steampowered.com/app/4',
+    }
 	*/
 ];
 
 let currentProjectIndex = 0;
 
 /**
- * Renders the carousel slides and updates the links.
- */
+ * Renders the carousel slides and updates the links.
+ */
 function renderCarousel() {
-    // Clear existing slides
-    carouselTrack.innerHTML = '';
+    // Clear existing slides
+    carouselTrack.innerHTML = '';
 
-    projects.forEach((project, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        slide.style.backgroundImage = `url('${project.image}')`;
-        slide.dataset.index = index;
-        carouselTrack.appendChild(slide);
-    });
-    updateCarouselPosition();
-    updateSteamLink();
-    updateWebLink();
+    projects.forEach((project, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        slide.style.backgroundImage = `url('${project.image}')`;
+        slide.dataset.index = index;
+        carouselTrack.appendChild(slide);
+    });
+    updateCarouselPosition();
+    updateSteamLink();
+    updateWebLink();
 }
 
 /**
- * Updates the carousel's position based on the current index.
- */
+ * Updates the carousel's position based on the current index.
+ */
 function updateCarouselPosition() {
-    const offset = -currentProjectIndex * 100;
-    carouselTrack.style.transform = `translateX(${offset}vw)`;
+    const offset = -currentProjectIndex * 100;
+    carouselTrack.style.transform = `translateX(${offset}vw)`;
 }
 
 /**
 * Updates the web link to the URL of the current project.*/
 function updateWebLink() {
-    if (projects[currentProjectIndex] && websiteLink) {
-        // Set the href attribute to the project's web URL
-        websiteLink.href = projects[currentProjectIndex].webUrl;
-    }
+    if (projects[currentProjectIndex] && websiteLink) {
+        // Set the href attribute to the project's web URL
+        websiteLink.href = projects[currentProjectIndex].webUrl;
+    }
 }
-    
- /* Updates the Steam link to the URL of the current project.*/
+    
+ /* Updates the Steam link to the URL of the current project.*/
 function updateSteamLink() {
-    if (projects[currentProjectIndex]) {
-        steamLink.href = projects[currentProjectIndex].steamUrl;
-    }
+    if (projects[currentProjectIndex]) {
+        steamLink.href = projects[currentProjectIndex].steamUrl;
+    }
 }
 
 /**
- * Moves to the next project in the carousel.
- */
+ * Moves to the next project in the carousel.
+ */
 function nextProject() {
-    if (currentProjectIndex < projects.length - 1) {
-        currentProjectIndex++;
-    } else {
-        currentProjectIndex = 0; // Loop back to the beginning
-    }
-    updateCarouselPosition();
-    updateSteamLink();
-    updateWebLink();
+    if (currentProjectIndex < projects.length - 1) {
+        currentProjectIndex++;
+    } else {
+        currentProjectIndex = 0; // Loop back to the beginning
+    }
+    updateCarouselPosition();
+    updateSteamLink();
+    updateWebLink();
 }
 
 /**
- * Moves to the previous project in the carousel.
- */
+ * Moves to the previous project in the carousel.
+ */
 function prevProject() {
-    if (currentProjectIndex > 0) {
-        currentProjectIndex--;
-    } else {
-        currentProjectIndex = projects.length - 1; // Loop to the end
-    }
-    updateCarouselPosition();
-    updateSteamLink();
-    updateWebLink();
+    if (currentProjectIndex > 0) {
+        currentProjectIndex--;
+    } else {
+        currentProjectIndex = projects.length - 1; // Loop to the end
+    }
+    updateCarouselPosition();
+    updateSteamLink();
+    updateWebLink();
 }
+// Event listeners for navigation buttons
+prevBtn.addEventListener('click', prevProject);
+nextBtn.addEventListener('click', nextProject);
+
+// Initial render when the page loads
+window.addEventListener('load', renderCarousel);
 })(jQuery);
-
-
-
-
-
-

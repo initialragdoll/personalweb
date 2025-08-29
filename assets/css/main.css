@@ -2052,8 +2052,9 @@ input, select, textarea {
 				background: #f5f6f7;
 			}
 
+/* Intro text color */
 		.main.dark {
-			color: #00ff00;
+			color: #000000;
 		}
 
 			.main.dark a {

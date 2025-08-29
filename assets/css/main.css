@@ -439,9 +439,9 @@ input, select, textarea {
 			font-weight: normal;
 			text-transform: none !important;
 			color: #e5e6e7;
-			/* Following content cause a square symbol
+			/* Following content cause a square symbol*/
 			content: '\f1ce';
-			*/
+			
 			cursor: default;
 			display: block;
 			font-size: 2em;
@@ -2107,7 +2107,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.main > .content br {
-				display: 80%;
+				display: none;
 			}
 
 			.main.fullscreen {

@@ -2349,16 +2349,7 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
 }
 /* Force loading background images on section #one and #two  */
 @media screen and (min-width: 737px) {
-    #one, #two {
-        display: block !important;
-        height: 100vh !important;
-        background: url("../../images/overlay.png"), url("../../images/one.jpg") !important;
-        background-size: 256px 256px, cover !important;
-    }
-    #two {
-        background: url("../../images/overlay.png"), url("../../images/two.jpg") !important;
-        background-size: 256px 256px, cover !important;
-        background-attachment: fixed, fixed !important;
-        background-position: top left, center center !important;
-    }
+  #bg-video-desktop {
+    display: none !important;
+  }
 }

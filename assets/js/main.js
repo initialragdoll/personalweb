@@ -227,8 +227,8 @@ const websiteLink = document.getElementById('websiteLink');
 const projects = [
     {
         // Corrected image URL to a relative path.
-        image: 'images/initial-ragdoll.jpg',
-        webUrl: 'https://initialragdoll.com/',
+        image: './images/games/GameProject_01.jpg',
+        webUrl: 'https://unseal.fr/',
         // Corrected Steam URL format.
         steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
     },
@@ -331,3 +331,4 @@ nextBtn.addEventListener('click', nextProject);
 // Initial render when the page loads
 window.addEventListener('load', renderCarousel);
 })(jQuery);
+

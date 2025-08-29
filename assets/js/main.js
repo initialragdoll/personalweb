@@ -230,7 +230,7 @@ const websiteLink = document.getElementById('websiteLink'); // <-- FIX 1: Add th
 // This array holds the data for your game projects.
 const projects = [
     {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
+        image: './images/games/GameProject_01.jpg',
 		webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/',
     },
@@ -335,6 +335,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

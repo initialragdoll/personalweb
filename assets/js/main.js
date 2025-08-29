@@ -226,7 +226,7 @@ const websiteLink = document.getElementById('websiteLink');
 // This array holds the data for your game projects.
 const projects = [
     {
-        image: '../../images/games/GameProject_01.jpg',
+        image: './images/games/GameProject_01.jpg',
         webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/app/1',
     },

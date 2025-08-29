@@ -2283,15 +2283,9 @@ input, select, textarea {
 /* --- START GAME PROJECT CAROUSEL STYLES --- */
 
 /* Full-screen carousel container */
-/* Add this to remove the space at the top caused by the fixed header */
-#projects {
-    margin-top: -80px; /* This value is based on the header's height in the template */
-}
-
 .carousel-container {
     width: 100vw;
-    /* Use calc() to subtract the header's height (which is 4rem) from the full viewport height */
-    height: calc(100vh - 80px); 
+    height: 100vh;
     position: relative;
     overflow: hidden;
     background: #111;
@@ -2299,101 +2293,102 @@ input, select, textarea {
 
 /* The track that holds all the slides */
 .carousel-track {
-display: flex;
-width: 100%;
-height: 100%;
-transition: transform 0.5s ease-in-out;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
 /* Individual slides */
 .carousel-slide {
-flex: 0 0 100vw;
-height: 100vh;
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-position: relative;
+    flex: 0 0 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 /* Navigation buttons (left and right arrows) */
 .nav-button {
-position: absolute;
-top: 0;
-height: 100%;
-width: 12%;
-min-width: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 1rem;
-z-index: 100;
-opacity: 0.5;
-transition: opacity 0.3s ease-in-out;
-background: none;
-border: none;
-cursor: pointer;
-color: white;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 12%;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .nav-button:hover {
-opacity: 1;
+    opacity: 1;
 }
 
 .nav-button:first-of-type {
-left: 0;
+    left: 0;
 }
 
 .nav-button:last-of-type {
-right: 0;
+    right: 0;
 }
 
 .nav-button svg {
-width: 4rem;
-height: 4rem;
+    width: 4rem;
+    height: 4rem;
 }
 
 /* Steam link button */
 .steam-link {
-position: absolute;
-bottom: 1rem;
-right: 1rem;
-z-index: 200;
-text-decoration: none;
-transition: transform 0.3s ease-in-out;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 200;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
 }
 
 .steam-link:hover {
-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .link-button {
-background-color: #0080ff;
-color: white;
-font-weight: bold;
-padding: 0.75rem 1.5rem;
-border-radius: 9999px;
-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-display: flex;
-align-items: center;
-gap: 0.5rem;
-border: none;
-cursor: pointer;
+    background-color: #0080ff;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
 }
 
 .link-button:hover {
-background-color: #0066cc;
+    background-color: #0066cc;
 }
 
 @media screen and (max-width: 768px) {
-.nav-button {
-width: 20%;
-min-width: 40px;
+    .nav-button {
+        width: 20%;
+        min-width: 40px;
+    }
+    .nav-button svg {
+        width: 3rem;
+        height: 3rem;
+    }
 }
-.nav-button svg {
-width: 3rem;
-height: 3rem;
-}
-}
+
 /* ---  END: GAME PROJECT CAROUSEL STYLES  --- */
 
 /* Contact */

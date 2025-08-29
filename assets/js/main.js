@@ -216,22 +216,18 @@
 			});
 
 
-})(jQuery);
-
-
 /* --- START: NEW GAME PROJECT CAROUSEL LOGIC --- */
-(function() {
 const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const steamLink = document.getElementById('steamLink');
-const websiteLink = document.getElementById('websiteLink'); // <-- FIX 1: Add this line to get the web link element
+const websiteLink = document.getElementById('websiteLink');
 
 // This array holds the data for your game projects.
 const projects = [
     {
         image: './images/games/GameProject_01.jpg',
-		webUrl: 'https://unseal.fr/',
+        webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/',
     },
 	/* In coming projects
@@ -271,7 +267,7 @@ function renderCarousel() {
     });
     updateCarouselPosition();
     updateSteamLink();
-    updateWebLink(); // <-- FIX 2: Call the web link function here
+    updateWebLink();
 }
 
 /**
@@ -309,7 +305,7 @@ function nextProject() {
     }
     updateCarouselPosition();
     updateSteamLink();
-    updateWebLink(); // <-- FIX 3: Call the web link function here
+    updateWebLink();
 }
 
 /**
@@ -323,20 +319,6 @@ function prevProject() {
     }
     updateCarouselPosition();
     updateSteamLink();
-    updateWebLink(); // <-- FIX 4: Call the web link function here
+    updateWebLink();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})(jQuery);

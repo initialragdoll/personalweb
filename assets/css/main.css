@@ -2131,7 +2131,8 @@ input, select, textarea {
 				}
 
 				.main.style2 .button.anchored {
-					display: none;
+					/*display: none;*/
+					display: block !important;
 				}
 
 				.main.style2 .content {

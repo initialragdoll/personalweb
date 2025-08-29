@@ -324,6 +324,14 @@ function prevProject() {
 }
 })(jQuery);
 
+// Event listeners for navigation buttons
+	prevBtn.addEventListener('click', prevProject);
+	nextBtn.addEventListener('click', nextProject);
+
+	// Initial render when the page loads
+	window.addEventListener('load', renderCarousel);
+
+
 
 
 

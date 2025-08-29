@@ -2286,7 +2286,7 @@ input, select, textarea {
 .carousel-container {
     width: 100vw;
     /* Use calc() to subtract the header's height (which is 4rem) from the full viewport height */
-    height: calc(100vh - 4rem); 
+    height: calc(100vh - 80px); 
     position: relative;
     overflow: hidden;
     background: #111;

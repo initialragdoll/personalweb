@@ -2313,34 +2313,36 @@ input, select, textarea {
 
 /* Navigation buttons (left and right arrows) */
 .nav-button {
+    /* New styles for smaller, circular buttons */
     position: absolute;
-    top: 0;
-    height: 100%;
-    width: 12%;
-    min-width: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6rem;
+    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
     z-index: 100;
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in-out;
-    background: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.4);
     border: none;
     cursor: pointer;
     color: white;
+    border-radius: 50%;
 }
 
 .nav-button:hover {
     opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .nav-button:first-of-type {
-    left: 0;
+    left: 1rem;
 }
 
 .nav-button:last-of-type {
-    right: 0;
+    right: 1rem;
 }
 
 .nav-button svg {
@@ -2382,12 +2384,12 @@ input, select, textarea {
 
 @media screen and (max-width: 768px) {
     .nav-button {
-        width: 20%;
-        min-width: 40px;
+        width: 4rem;
+        height: 4rem;
     }
     .nav-button svg {
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }
 /* ---  END: GAME PROJECT CAROUSEL STYLES  --- */

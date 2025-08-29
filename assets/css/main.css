@@ -2349,18 +2349,18 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
 	body::before {
     content: none !important;
 }
-/* Force loading background images on section #one and #two 
-#one, #two {
-    background: url("images/overlay.png"), url("../../images/one.jpg");
-    background-size: 256px 256px, cover;
-    background-attachment: fixed, fixed;
-    background-position: top left, center center;
-}
-
-@media screen and (max-width: 980px) {
-    #one, #two {
-        background: url("images/overlay.png"), url("../../images/one.jpg");
-        background-attachment: scroll;
+/* Force loading background images on section #one and #two  */
+@media screen and (min-width: 737px) {
+    #one {
+        background: url("../../images/overlay.png"), url("../../images/one.jpg");
+        background-size: 256px 256px, cover;
+        background-attachment: fixed, fixed;
+        background-position: top left, center center;
+    }
+    #two {
+        background: url("../../images/overlay.png"), url("../../images/two.jpg");
+        background-size: 256px 256px, cover;
+        background-attachment: fixed, fixed;
+        background-position: top left, center center;
     }
 }
-	*/

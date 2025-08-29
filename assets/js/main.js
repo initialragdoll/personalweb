@@ -220,5 +220,108 @@
 })(jQuery);
 
 
+/* --- START: NEW GAME PROJECT CAROUSEL LOGIC --- */
+(function() {
+const carouselTrack = document.getElementById('carouselTrack');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const steamLink = document.getElementById('steamLink');
+
+// This array holds the data for your game projects.
+// Update this with your own project details!
+const projects = [
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
+        steamUrl: 'https://store.steampowered.com/app/1',
+    },
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
+        steamUrl: 'https://store.steampowered.com/app/2',
+    },
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
+        steamUrl: 'https://store.steampowered.com/app/3',
+    },
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
+        steamUrl: 'https://store.steampowered.com/app/4',
+    }
+];
+
+let currentProjectIndex = 0;
+
+/**
+ * Renders the carousel slides and updates the Steam link.
+ */
+function renderCarousel() {
+    // Clear existing slides
+    carouselTrack.innerHTML = '';
+
+    projects.forEach((project, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        slide.style.backgroundImage = `url('${project.image}')`;
+        slide.dataset.index = index;
+        carouselTrack.appendChild(slide);
+    });
+    updateCarouselPosition();
+    updateSteamLink();
+}
+
+/**
+ * Updates the carousel's position based on the current index.
+ */
+function updateCarouselPosition() {
+    const offset = -currentProjectIndex * 100;
+    carouselTrack.style.transform = `translateX(${offset}vw)`;
+}
+
+/**
+ * Updates the Steam link to the URL of the current project.
+ */
+function updateSteamLink() {
+    if (projects[currentProjectIndex]) {
+        steamLink.href = projects[currentProjectIndex].steamUrl;
+    }
+}
+
+/**
+ * Moves to the next project in the carousel.
+ */
+function nextProject() {
+    if (currentProjectIndex < projects.length - 1) {
+        currentProjectIndex++;
+    } else {
+        currentProjectIndex = 0; // Loop back to the beginning
+    }
+    updateCarouselPosition();
+    updateSteamLink();
+}
+
+/**
+ * Moves to the previous project in the carousel.
+ */
+function prevProject() {
+    if (currentProjectIndex > 0) {
+        currentProjectIndex--;
+    } else {
+        currentProjectIndex = projects.length - 1; // Loop to the end
+    }
+    updateCarouselPosition();
+    updateSteamLink();
+}
+
+// Event listeners for navigation buttons
+prevBtn.addEventListener('click', prevProject);
+nextBtn.addEventListener('click', nextProject);
+
+// Initial render when the page loads
+window.addEventListener('load', renderCarousel);
+
+})();
+/* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
+
+
 
 

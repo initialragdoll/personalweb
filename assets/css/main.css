@@ -2283,6 +2283,11 @@ input, select, textarea {
 /* --- START GAME PROJECT CAROUSEL STYLES --- */
 
 /* Full-screen carousel container */
+/* Add this to remove the space at the top caused by the fixed header */
+#projects {
+    margin-top: -4.5rem; /* This value is based on the header's height in the template */
+}
+
 .carousel-container {
     width: 100vw;
     /* Use calc() to subtract the header's height (which is 4rem) from the full viewport height */

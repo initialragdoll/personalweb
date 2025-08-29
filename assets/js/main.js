@@ -24,119 +24,6 @@
 		$window.on('load', function() {
 			setTimeout(function() {
 				$body.removeClass('is-preload');
-
-				// --- START: CUSTOM GAME PROJECT CAROUSEL LOGIC ---
-				const carouselTrack = document.getElementById('carouselTrack');
-				const prevBtn = document.getElementById('prevBtn');
-				const nextBtn = document.getElementById('nextBtn');
-				const steamLink = document.getElementById('steamLink');
-				const websiteLink = document.getElementById('websiteLink');
-
-				// This array holds the data for your game projects.
-				const projects = [
-					{
-						image: './images/games/GameProject_01.jpg',
-						webUrl: 'https://unseal.fr/',
-						steamUrl: 'https://store.steampowered.com/app/1928980/Nightingale/',
-					},
-					{
-						image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
-						webUrl: 'https://www.google.com/',
-						steamUrl: 'https://store.steampowered.com/app/2',
-					},
-					{
-						image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
-						webUrl: 'https://www.youtube.com/',
-						steamUrl: 'https://store.steampowered.com/app/3',
-					},
-					{
-						image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
-						webUrl: 'https://www.twitch.tv/',
-						steamUrl: 'https://store.steampowered.com/app/4',
-					}
-				];
-
-				let currentProjectIndex = 0;
-
-				/**
-				 * Renders the carousel slides and updates the links.
-				 */
-				function renderCarousel() {
-					// Clear existing slides
-					carouselTrack.innerHTML = '';
-
-					projects.forEach((project, index) => {
-						const slide = document.createElement('div');
-						slide.className = 'carousel-slide';
-						slide.style.backgroundImage = `url('${project.image}')`;
-						slide.dataset.index = index;
-						carouselTrack.appendChild(slide);
-					});
-					updateCarouselPosition();
-					updateSteamLink();
-					updateWebLink();
-				}
-
-				/**
-				 * Updates the carousel's position based on the current index.
-				 */
-				function updateCarouselPosition() {
-					const offset = -currentProjectIndex * 100;
-					carouselTrack.style.transform = `translateX(${offset}vw)`;
-				}
-
-				/**
-				* Updates the web link to the URL of the current project.*/
-				function updateWebLink() {
-					if (projects[currentProjectIndex] && websiteLink) {
-						// Set the href attribute to the project's web URL
-						websiteLink.href = projects[currentProjectIndex].webUrl;
-					}
-				}
-
-				/* Updates the Steam link to the URL of the current project.*/
-				function updateSteamLink() {
-					if (projects[currentProjectIndex]) {
-						steamLink.href = projects[currentProjectIndex].steamUrl;
-					}
-				}
-
-				/**
-				 * Moves to the next project in the carousel.
-				 */
-				function nextProject() {
-					if (currentProjectIndex < projects.length - 1) {
-						currentProjectIndex++;
-					} else {
-						currentProjectIndex = 0; // Loop back to the beginning
-					}
-					updateCarouselPosition();
-					updateSteamLink();
-					updateWebLink();
-				}
-
-				/**
-				 * Moves to the previous project in the carousel.
-				 */
-				function prevProject() {
-					if (currentProjectIndex > 0) {
-						currentProjectIndex--;
-					} else {
-						currentProjectIndex = projects.length - 1; // Loop to the end
-					}
-					updateCarouselPosition();
-					updateSteamLink();
-					updateWebLink();
-				}
-
-				// Event listeners for navigation buttons
-				if (prevBtn) prevBtn.addEventListener('click', prevProject);
-				if (nextBtn) nextBtn.addEventListener('click', nextProject);
-
-				// Initial render when the page loads
-				renderCarousel();
-				// --- END: CUSTOM GAME PROJECT CAROUSEL LOGIC ---
-
 			}, 100);
 		});
 
@@ -155,26 +42,301 @@
 
 		}
 
-	// Scrolly.
-		$('.scrolly').scrolly({
-			speed: 1000,
-			offset: function() {
-				return $header.height() + 10;
-			}
-		});
+	// Fix: IE flexbox fix.
+		if (browser.name == 'ie') {
 
-	// Poptrox.
+			var $main = $('.main.fullscreen'),
+				IEResizeTimeout;
+
+			$window
+				.on('resize.ie-flexbox-fix', function() {
+
+					clearTimeout(IEResizeTimeout);
+
+					IEResizeTimeout = setTimeout(function() {
+
+						var wh = $window.height();
+
+						$main.each(function() {
+
+							var $this = $(this);
+
+							$this.css('height', '');
+
+							if ($this.height() <= wh)
+								$this.css('height', (wh - 50) + 'px');
+
+						});
+
+					});
+
+				})
+				.triggerHandler('resize.ie-flexbox-fix');
+
+		}
+
+	// Gallery.
 		$window.on('load', function() {
 
-			$('.gallery').poptrox({
-				baseZIndex: 1000000,
-				onSlideShowChange: function(index) { $all.addClass('is-covered'); },
-				onSlideShowHide: function() { $all.removeClass('is-covered'); }
+			var $gallery = $('.gallery');
+
+			$gallery.poptrox({
+				baseZIndex: 10001,
+				useBodyOverflow: false,
+				usePopupEasyClose: false,
+				overlayColor: '#1f2328',
+				overlayOpacity: 0.65,
+				usePopupDefaultStyling: false,
+				usePopupCaption: true,
+				popupLoaderText: '',
+				windowMargin: 50,
+				usePopupNav: true
 			});
 
+			// Hack: Adjust margins when 'small' activates.
+				breakpoints.on('>small', function() {
+					$gallery.each(function() {
+						$(this)[0]._poptrox.windowMargin = 50;
+					});
+				});
+
+				breakpoints.on('<=small', function() {
+					$gallery.each(function() {
+						$(this)[0]._poptrox.windowMargin = 5;
+					});
+				});
+
 		});
+
+	// Section transitions.
+		if (browser.canUse('transition')) {
+
+			var on = function() {
+
+				// Galleries.
+					$('.gallery')
+						.scrollex({
+							top:		'30vh',
+							bottom:		'30vh',
+							delay:		50,
+							initialize:	function() { $(this).addClass('inactive'); },
+							terminate:	function() { $(this).removeClass('inactive'); },
+							enter:		function() { $(this).removeClass('inactive'); },
+							leave:		function() { $(this).addClass('inactive'); }
+						});
+
+				// Generic sections.
+					$('.main.style1')
+						.scrollex({
+							mode:		'middle',
+							delay:		100,
+							initialize:	function() { $(this).addClass('inactive'); },
+							terminate:	function() { $(this).removeClass('inactive'); },
+							enter:		function() { $(this).removeClass('inactive'); },
+							leave:		function() { $(this).addClass('inactive'); }
+						});
+
+					$('.main.style2')
+						.scrollex({
+							mode:		'middle',
+							delay:		100,
+							initialize:	function() { $(this).addClass('inactive'); },
+							terminate:	function() { $(this).removeClass('inactive'); },
+							enter:		function() { $(this).removeClass('inactive'); },
+							leave:		function() { $(this).addClass('inactive'); }
+						});
+
+				// Contact.
+					$('#contact')
+						.scrollex({
+							top:		'50%',
+							delay:		50,
+							initialize:	function() { $(this).addClass('inactive'); },
+							terminate:	function() { $(this).removeClass('inactive'); },
+							enter:		function() { $(this).removeClass('inactive'); },
+							leave:		function() { $(this).addClass('inactive'); }
+						});
+
+			};
+
+			var off = function() {
+
+				// Galleries.
+					$('.gallery')
+						.unscrollex();
+
+				// Generic sections.
+					$('.main.style1')
+						.unscrollex();
+
+					$('.main.style2')
+						.unscrollex();
+
+				// Contact.
+					$('#contact')
+						.unscrollex();
+
+			};
+
+			breakpoints.on('<=small', off);
+			breakpoints.on('>small', on);
+
+		}
+
+	// Events.
+		var resizeTimeout, resizeScrollTimeout;
+
+		$window
+			.on('resize', function() {
+
+				// Disable animations/transitions.
+					$body.addClass('is-resizing');
+
+				clearTimeout(resizeTimeout);
+
+				resizeTimeout = setTimeout(function() {
+
+					// Update scrolly links.
+						$('a[href^="#"]').scrolly({
+							speed: 1500,
+							offset: $header.outerHeight() - 1
+						});
+
+					// Re-enable animations/transitions.
+						setTimeout(function() {
+							$body.removeClass('is-resizing');
+							$window.trigger('scroll');
+						}, 0);
+
+				}, 100);
+
+			})
+			.on('load', function() {
+				$window.trigger('resize');
+			});
+
 
 })(jQuery);
 
 
-Once you have replaced the content of your `main.js` file with the code above, your website should be fully restored.
+/* --- START: NEW GAME PROJECT CAROUSEL LOGIC --- */
+(function() {
+const carouselTrack = document.getElementById('carouselTrack');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const steamLink = document.getElementById('steamLink');
+const websiteLink = document.getElementById('websiteLink'); // <-- FIX 1: Add this line to get the web link element
+
+// This array holds the data for your game projects.
+const projects = [
+    {
+        image: './images/games/GameProject_01.jpg',
+		webUrl: 'https://unseal.fr/',
+        steamUrl: 'https://store.steampowered.com/',
+    },
+	/* In coming projects
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
+        webUrl: 'https://www.google.com/', // Added for a complete example
+        steamUrl: 'https://store.steampowered.com/app/2',
+    },
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
+        webUrl: 'https://www.youtube.com/', // Added for a complete example
+        steamUrl: 'https://store.steampowered.com/app/3',
+    },
+    {
+        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
+        webUrl: 'https://www.twitch.tv/', // Added for a complete example
+        steamUrl: 'https://store.steampowered.com/app/4',
+    }
+	*/
+];
+
+let currentProjectIndex = 0;
+
+/**
+ * Renders the carousel slides and updates the links.
+ */
+function renderCarousel() {
+    // Clear existing slides
+    carouselTrack.innerHTML = '';
+
+    projects.forEach((project, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        slide.style.backgroundImage = `url('${project.image}')`;
+        slide.dataset.index = index;
+        carouselTrack.appendChild(slide);
+    });
+    updateCarouselPosition();
+    updateSteamLink();
+    updateWebLink(); // <-- FIX 2: Call the web link function here
+}
+
+/**
+ * Updates the carousel's position based on the current index.
+ */
+function updateCarouselPosition() {
+    const offset = -currentProjectIndex * 100;
+    carouselTrack.style.transform = `translateX(${offset}vw)`;
+}
+
+/**
+* Updates the web link to the URL of the current project.*/
+function updateWebLink() {
+    if (projects[currentProjectIndex] && websiteLink) {
+        // Set the href attribute to the project's web URL
+        websiteLink.href = projects[currentProjectIndex].webUrl;
+    }
+}
+    
+ /* Updates the Steam link to the URL of the current project.*/
+function updateSteamLink() {
+    if (projects[currentProjectIndex]) {
+        steamLink.href = projects[currentProjectIndex].steamUrl;
+    }
+}
+
+/**
+ * Moves to the next project in the carousel.
+ */
+function nextProject() {
+    if (currentProjectIndex < projects.length - 1) {
+        currentProjectIndex++;
+    } else {
+        currentProjectIndex = 0; // Loop back to the beginning
+    }
+    updateCarouselPosition();
+    updateSteamLink();
+    updateWebLink(); // <-- FIX 3: Call the web link function here
+}
+
+/**
+ * Moves to the previous project in the carousel.
+ */
+function prevProject() {
+    if (currentProjectIndex > 0) {
+        currentProjectIndex--;
+    } else {
+        currentProjectIndex = projects.length - 1; // Loop to the end
+    }
+    updateCarouselPosition();
+    updateSteamLink();
+    updateWebLink(); // <-- FIX 4: Call the web link function here
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2348,4 +2348,7 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
     content: none !important;
 }
 /* Force loading background images on section #one and #two  */
+	#one, #two {
+    height: 100vh !important;
+}
 

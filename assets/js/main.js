@@ -234,6 +234,7 @@ const projects = [
 		webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/',
     },
+	/* In coming projects
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
         webUrl: 'https://www.google.com/', // Added for a complete example
@@ -249,6 +250,7 @@ const projects = [
         webUrl: 'https://www.twitch.tv/', // Added for a complete example
         steamUrl: 'https://store.steampowered.com/app/4',
     }
+	*/
 ];
 
 let currentProjectIndex = 0;
@@ -333,6 +335,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

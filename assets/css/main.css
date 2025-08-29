@@ -2246,12 +2246,23 @@ input, select, textarea {
 /* Intro */
 
 #intro {
-		background: url("images/overlay.png"), url("../../images/intro.jpg");
-		background-size: 256px 256px, cover;
-		background-attachment: fixed, fixed;
-		background-position: top left, bottom center;
-		background-repeat: repeat, no-repeat;
-	}
+	position: relative;
+	overflow: hidden;
+	height: 100vh; /* We need to explicitly set the height */
+}
+
+#bg-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
 	
 /* One */
 

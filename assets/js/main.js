@@ -235,7 +235,7 @@ const projects = [
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
         webUrl: 'https://www.google.com/', // Added for a complete example
         steamUrl: 'https://store.steampowered.com/app/2',
-    },
+    }
 	/* In coming projects
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
@@ -323,13 +323,6 @@ function prevProject() {
     updateWebLink();
 }
 })(jQuery);
-
-// Event listeners for navigation buttons
-	prevBtn.addEventListener('click', prevProject);
-	nextBtn.addEventListener('click', nextProject);
-
-	// Initial render when the page loads
-	window.addEventListener('load', renderCarousel);
 
 
 

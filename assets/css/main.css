@@ -2349,8 +2349,3 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
     content: none !important;
 }
 /* Force loading background images on section #one and #two  */
-@media screen and (min-width: 737px) {
-  #bg-video-desktop {
-    display: none !important;
-  }
-}

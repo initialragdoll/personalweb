@@ -462,7 +462,7 @@ input, select, textarea {
 			-webkit-animation: overlay-hide 1.5s ease-in forwards !important;
 			-ms-animation: overlay-hide 1.5s ease-in forwards !important;
 			animation: overlay-hide 1.5s ease-in forwards !important;
-			background: #00ff00;
+			background: #ffffff;
 			content: '';
 			display: block;
 			height: 100%;
@@ -2045,7 +2045,7 @@ input, select, textarea {
 			}
 
 			.main.style3.primary {
-				background: #ffffff;
+				background: #00ff00;
 			}
 
 			.main.style3.secondary {

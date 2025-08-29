@@ -232,7 +232,7 @@ const steamLink = document.getElementById('steamLink');
 const projects = [
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
-        steamUrl: 'https://store.steampowered.com/app/1',
+        steamUrl: 'https://store.steampowered.com/app/1928980/Nightingale/',
     },
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
@@ -320,6 +320,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

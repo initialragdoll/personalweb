@@ -2437,8 +2437,11 @@ input, select, textarea {
 			}
 
 		}
-	
-	body::before {
-    content: none !important;
+
+/* --- START: CUSTOM STYLES FOR GAME PROJECTS HEADER --- */
+#projects h1 {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0;
 }
-/* Force loading background images on section #one and #two  */
+/* --- END: CUSTOM STYLES FOR GAME PROJECTS HEADER --- */

@@ -228,7 +228,7 @@ const projects = [
     {
         image: './images/games/GameProject_01.jpg',
         webUrl: 'https://unseal.fr/',
-        steamUrl: 'https://store.steampowered.com/app/1',
+        steamUrl: 'https://store.steampowered.com/',
     },
 	/* In coming projects
     {
@@ -322,5 +322,6 @@ function prevProject() {
     updateWebLink();
 }
 })(jQuery);
+
 
 

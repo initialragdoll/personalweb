@@ -277,8 +277,15 @@ function updateCarouselPosition() {
 }
 
 /**
- * Updates the Steam link to the URL of the current project.
- */
+* Updates the web link to the URL of the current project.*/
+function updateWebLink() {
+    if (projects[currentProjectIndex] && websiteLink) {
+        // Set the href attribute to the project's web URL
+        websiteLink.href = projects[currentProjectIndex].webUrl;
+    }
+}
+	
+ /* Updates the Steam link to the URL of the current project.*/
 function updateSteamLink() {
     if (projects[currentProjectIndex]) {
         steamLink.href = projects[currentProjectIndex].steamUrl;
@@ -320,6 +327,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

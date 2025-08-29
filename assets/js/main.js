@@ -232,7 +232,7 @@ const projects = [
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
 		webUrl: 'https://unseal.fr/',
-        steamUrl: 'https://store.steampowered.com/app/1928980/Nightingale/',
+        steamUrl: 'https://store.steampowered.com/',
     },
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
@@ -333,6 +333,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

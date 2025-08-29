@@ -2437,11 +2437,3 @@ input, select, textarea {
 			}
 
 		}
-
-/* --- START: CUSTOM STYLES FOR GAME PROJECTS HEADER --- */
-#projects h1 {
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0;
-}
-/* --- END: CUSTOM STYLES FOR GAME PROJECTS HEADER --- */

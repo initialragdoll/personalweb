@@ -2349,8 +2349,9 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
     content: none !important;
 }
 /* Force loading background images on section #one and #two  */
-	.main.style2.inactive {
-  opacity: 1 !important;
-  transform: none !important;
-  pointer-events: all !important;
+.main.style2.inactive, #one, #two {
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    transform: none !important;
 }

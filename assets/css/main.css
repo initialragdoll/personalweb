@@ -2284,26 +2284,24 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
   height: 100%;
 }
 	
-@media screen and (min-width: 737px) {
 /* One */
 
 	#one {
-        background: url("../../images/overlay.png"), url("../../images/one.jpg") !important;
-        background-size: 256px 256px, cover !important;
-        background-attachment: fixed, fixed !important;
-        background-position: top left, center center !important;
-    }
-
+    background: url("images/overlay.png"), url("../../images/one.jpg");
+    background-size: 256px 256px, cover;
+    background-attachment: fixed, fixed;
+    background-position: top left, center center;
+    height: calc(100vh - 80px); /* Adjusts the height to account for the navigation bar */
+}
 /* Two */
 
 	#two {
-        background: url("../../images/overlay.png"), url("../../images/two.jpg") !important;
-        background-size: 256px 256px, cover !important;
-        background-attachment: fixed, fixed !important;
-        background-position: top left, center center !important;
-    }
+		background: url("images/overlay.png"), url("../../images/two.jpg");
+		background-size: 256px 256px, cover;
+		background-attachment: fixed, fixed;
+		background-position: top left, center center;
+	}
 
-}
 
 /* Contact */
 

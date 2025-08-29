@@ -2247,7 +2247,6 @@ input, select, textarea {
 
 #intro {
 /* The background property is removed here */
-	height: 100vh;
 	position: relative; /* This is crucial for positioning the video */
 	overflow: hidden; /* This hides any video content that extends beyond the section's borders */
 }
@@ -2349,9 +2348,3 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
     content: none !important;
 }
 /* Force loading background images on section #one and #two  */
-.main.style2.inactive, #one, #two {
-    visibility: visible !important;
-    opacity: 1 !important;
-    height: auto !important;
-    transform: none !important;
-}

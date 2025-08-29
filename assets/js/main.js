@@ -225,9 +225,9 @@ const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const steamLink = document.getElementById('steamLink');
+const websiteLink = document.getElementById('websiteLink'); // <-- FIX 1: Add this line to get the web link element
 
 // This array holds the data for your game projects.
-// Update this with your own project details!
 const projects = [
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+A',
@@ -236,14 +236,17 @@ const projects = [
     },
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
+        webUrl: 'https://www.google.com/', // Added for a complete example
         steamUrl: 'https://store.steampowered.com/app/2',
     },
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
+        webUrl: 'https://www.youtube.com/', // Added for a complete example
         steamUrl: 'https://store.steampowered.com/app/3',
     },
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
+        webUrl: 'https://www.twitch.tv/', // Added for a complete example
         steamUrl: 'https://store.steampowered.com/app/4',
     }
 ];
@@ -251,7 +254,7 @@ const projects = [
 let currentProjectIndex = 0;
 
 /**
- * Renders the carousel slides and updates the Steam link.
+ * Renders the carousel slides and updates the links.
  */
 function renderCarousel() {
     // Clear existing slides
@@ -266,6 +269,7 @@ function renderCarousel() {
     });
     updateCarouselPosition();
     updateSteamLink();
+    updateWebLink(); // <-- FIX 2: Call the web link function here
 }
 
 /**
@@ -284,7 +288,7 @@ function updateWebLink() {
         websiteLink.href = projects[currentProjectIndex].webUrl;
     }
 }
-	
+    
  /* Updates the Steam link to the URL of the current project.*/
 function updateSteamLink() {
     if (projects[currentProjectIndex]) {
@@ -303,6 +307,7 @@ function nextProject() {
     }
     updateCarouselPosition();
     updateSteamLink();
+    updateWebLink(); // <-- FIX 3: Call the web link function here
 }
 
 /**
@@ -316,6 +321,7 @@ function prevProject() {
     }
     updateCarouselPosition();
     updateSteamLink();
+    updateWebLink(); // <-- FIX 4: Call the web link function here
 }
 
 // Event listeners for navigation buttons
@@ -327,6 +333,7 @@ window.addEventListener('load', renderCarousel);
 
 })();
 /* --- END: NEW GAME PROJECT CAROUSEL LOGIC --- */
+
 
 
 

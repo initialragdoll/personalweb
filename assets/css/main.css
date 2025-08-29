@@ -2346,16 +2346,17 @@ object-fit: cover; /* This makes the video fill the entire space without stretch
 
 		}
 /* Force loading background images on section #one and #two */
-	#one {
-    background: url("../../images/one.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+#one, #two {
+    background: url("images/overlay.png"), url("../../images/one.jpg");
+    background-size: 256px 256px, cover;
+    background-attachment: fixed, fixed;
+    background-position: top left, center center;
 }
-#two {
-    background: url("../../images/two.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+
+@media screen and (max-width: 980px) {
+    #one, #two {
+        background: url("images/overlay.png"), url("../../images/one.jpg");
+        background-attachment: scroll;
+    }
 }
 	

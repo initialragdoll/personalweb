@@ -326,23 +326,8 @@ function prevProject() {
     updateWebLink(); // <-- FIX 4: Call the web link function here
 }
 
-/* --- START: CUSTOM STYLES FOR GAME PROJECTS HEADER --- */
-#projects h1 {
-    /* Use absolute positioning to place the title over the carousel */
-    position: absolute;
-    top: 2rem; /* Adjust this value to control vertical position */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: center;
-    z-index: 10; /* Ensures the text appears above the carousel slides */
-    
-    /* Remove any inherited background, padding, or margin */
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0;
-}
-/* --- END: CUSTOM STYLES FOR GAME PROJECTS HEADER --- */
+
+
 
 
 

@@ -2285,7 +2285,7 @@ input, select, textarea {
 /* Full-screen carousel container */
 /* Add this to remove the space at the top caused by the fixed header */
 #projects {
-    margin-top: -4.5rem; /* This value is based on the header's height in the template */
+    margin-top: -80px; /* This value is based on the header's height in the template */
 }
 
 .carousel-container {

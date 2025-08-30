@@ -2166,7 +2166,7 @@ input, select, textarea {
 /*Set game project titlt text to left*/
 #projects h1 {
   text-align: left;
-  padding-left: 3rem;
+  padding-left: 1rem;
 }
 
 /* Footer */

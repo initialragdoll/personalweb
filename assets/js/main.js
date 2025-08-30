@@ -235,7 +235,7 @@ const projects = [
 	{
 		desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
 		mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
-		webUrl: 'https://www.google.com/',
+		webUrl: null,
 		steamUrl: null,
 		playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
 	}
@@ -277,45 +277,46 @@ function updateCarouselPosition() {
  * Updates all links based on the current project.
  */
 function updateLinks() {
-	const currentProject = projects[currentProjectIndex];
-	if (!currentProject) {
-		// If the project doesn't exist, hide all buttons.
-		if (websiteLink) websiteLink.style.display = 'none';
-		if (platformLink) platformLink.style.display = 'none';
-		return;
-	}
+    const currentProject = projects[currentProjectIndex];
+    if (!currentProject) {
+        // If the project doesn't exist, hide all buttons.
+        if (websiteLink) websiteLink.style.display = 'none';
+        if (platformLink) platformLink.style.display = 'none';
+        return;
+    }
 
-	// Update the official website link
-	if (currentProject.webUrl) {
-		if (websiteLink) {
-			websiteLink.href = currentProject.webUrl;
-			websiteLink.style.display = 'inline-flex';
-		}
-	} else {
-		if (websiteLink) websiteLink.style.display = 'none';
-	}
+    // Update the official website link
+    if (currentProject.webUrl) {
+        if (websiteLink) {
+            websiteLink.href = currentProject.webUrl;
+            websiteLink.style.display = 'inline-flex';
+        }
+    } else {
+        // Hide the website link if no URL is provided
+        if (websiteLink) websiteLink.style.display = 'none';
+    }
 
-	// Update the platform link (Steam or Play Store)
-	const platformIcon = document.getElementById('platformIcon');
-	const platformText = document.getElementById('platformText');
+    // Update the platform link (Steam or Play Store)
+    const platformIcon = document.getElementById('platformIcon');
+    const platformText = document.getElementById('platformText');
 
-	if (currentProject.playStoreUrl) {
-		if (platformLink && platformIcon && platformText) {
-			platformLink.href = currentProject.playStoreUrl;
-			platformIcon.className = 'fab fa-google-play';
-			platformText.textContent = 'Play Store';
-			platformLink.style.display = 'inline-flex';
-		}
-	} else if (currentProject.steamUrl) {
-		if (platformLink && platformIcon && platformText) {
-			platformLink.href = currentProject.steamUrl;
-			platformIcon.className = 'fab fa-steam';
-			platformText.textContent = 'Steam Page';
-			platformLink.style.display = 'inline-flex';
-		}
-	} else {
-		if (platformLink) platformLink.style.display = 'none';
-	}
+    if (currentProject.playStoreUrl) {
+        if (platformLink && platformIcon && platformText) {
+            platformLink.href = currentProject.playStoreUrl;
+            platformIcon.className = 'fab fa-google-play';
+            platformText.textContent = 'Play Store';
+            platformLink.style.display = 'inline-flex';
+        }
+    } else if (currentProject.steamUrl) {
+        if (platformLink && platformIcon && platformText) {
+            platformLink.href = currentProject.steamUrl;
+            platformIcon.className = 'fab fa-steam';
+            platformText.textContent = 'Steam Page';
+            platformLink.style.display = 'inline-flex';
+        }
+    } else {
+        if (platformLink) platformLink.style.display = 'none';
+    }
 }
 
 /**
@@ -353,3 +354,4 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+

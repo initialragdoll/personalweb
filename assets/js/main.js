@@ -280,17 +280,19 @@ function updateLinks() {
     const currentProject = projects[currentProjectIndex];
     if (!currentProject) {
         // If the project doesn't exist, hide all buttons.
-        websiteLink.style.display = 'none';
-        platformLink.style.display = 'none';
+        if (websiteLink) websiteLink.style.display = 'none';
+        if (platformLink) platformLink.style.display = 'none';
         return;
     }
 
     // Update the official website link
     if (currentProject.webUrl) {
-        websiteLink.href = currentProject.webUrl;
-        websiteLink.style.display = 'inline-flex';
+        if (websiteLink) {
+            websiteLink.href = currentProject.webUrl;
+            websiteLink.style.display = 'inline-flex';
+        }
     } else {
-        websiteLink.style.display = 'none';
+        if (websiteLink) websiteLink.style.display = 'none';
     }
 
     // Update the platform link (Steam or Play Store)
@@ -298,17 +300,21 @@ function updateLinks() {
     const platformText = document.getElementById('platformText');
 
     if (currentProject.playStoreUrl) {
-        platformLink.href = currentProject.playStoreUrl;
-        platformIcon.className = 'fab fa-google-play';
-        platformText.textContent = 'Play Store';
-        platformLink.style.display = 'inline-flex';
+        if (platformLink && platformIcon && platformText) {
+            platformLink.href = currentProject.playStoreUrl;
+            platformIcon.className = 'fab fa-google-play';
+            platformText.textContent = 'Play Store';
+            platformLink.style.display = 'inline-flex';
+        }
     } else if (currentProject.steamUrl) {
-        platformLink.href = currentProject.steamUrl;
-        platformIcon.className = 'fab fa-steam';
-        platformText.textContent = 'Steam Page';
-        platformLink.style.display = 'inline-flex';
+        if (platformLink && platformIcon && platformText) {
+            platformLink.href = currentProject.steamUrl;
+            platformIcon.className = 'fab fa-steam';
+            platformText.textContent = 'Steam Page';
+            platformLink.style.display = 'inline-flex';
+        }
     } else {
-        platformLink.style.display = 'none';
+        if (platformLink) platformLink.style.display = 'none';
     }
 }
 
@@ -344,3 +350,4 @@ if (nextBtn) nextBtn.addEventListener('click', nextProject);
 
 // Initial render when the page loads
 window.addEventListener('load', renderCarousel);
+

@@ -568,11 +568,11 @@ input, select, textarea {
 		letter-spacing: -0.05em;
 	}
 
-/*Content p*/
+/*set Content p font
 p {
     font-weight: 900;
     letter-spacing: -0.0325em;
-}
+} */
 
 
 	@media screen and (max-width: 736px) {

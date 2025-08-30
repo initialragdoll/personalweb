@@ -2393,6 +2393,36 @@ input, select, textarea {
         width: 2.5rem;
         height: 2.5rem;
     }
+    
+    /* NEW CSS for mobile background */
+    #projects.mobile-bg {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-image 0.5s ease-in-out;
+    }
+
+    #projects.mobile-bg:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        z-index: 1;
+    }
+
+    .carousel-container,
+    .nav-button,
+    .steam-link,
+    .website-link {
+        z-index: 2; /* Bring content to the front */
+    }
+
+    #projects h1 {
+        z-index: 2;
+    }
 }
 /* ---  END: GAME PROJECT CAROUSEL STYLES  --- */
 

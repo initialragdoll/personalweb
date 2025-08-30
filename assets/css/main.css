@@ -2183,8 +2183,8 @@ input, select, textarea {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #ffffff; /* header bar text color*/
-		color: rgba(185, 186, 187, 0.5);
+		background: #ffffff; 
+		color: rgba(185, 186, 187, 1);/* header bar text color*/
 		overflow: hidden;
 	}
 

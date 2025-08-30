@@ -235,8 +235,8 @@ const projects = [
 	},
 	/* Mobile Game */
 	{
-		desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
-		mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
+		desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Project+B',
+		mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF?text=Mobile+Project+B',
 		webUrl: null,
 		steamUrl: null,
 		playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
@@ -356,5 +356,6 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 

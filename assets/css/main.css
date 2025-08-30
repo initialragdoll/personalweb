@@ -2188,7 +2188,7 @@ input, select, textarea {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #39454b; 
+		background: #ffe100; /*Footer bar color, was#39454b*/
 		color: rgba(185, 185, 185, 0.5);
 		overflow: hidden;
 	}

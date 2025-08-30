@@ -506,7 +506,7 @@ input, select, textarea {
 		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
-		color: #39454b;
+		color: #ffffff; /* Head bar text color, was #39454b */
 		letter-spacing: 0.025em;
 	}
 
@@ -2183,8 +2183,8 @@ input, select, textarea {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #ffffff; 
-		color: rgba(255, 255, 255, 1);/* header bar text color*/
+		background: #39454b; 
+		color: rgba(185, 185, 185, 0.5);
 		overflow: hidden;
 	}
 

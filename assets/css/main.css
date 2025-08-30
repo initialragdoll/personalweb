@@ -2080,8 +2080,8 @@ input, select, textarea {
 				}
 
 /*Project h1 style*/
-#projects h1 {
-  text-align: left;
+#projects {
+  background: none !important;
 }
 
 		body.is-touch .main {

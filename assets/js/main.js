@@ -220,119 +220,130 @@
 const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const steamLink = document.getElementById('steamLink');
+// We will use a single button for the platform link.
+const platformLink = document.getElementById('platformLink');
 const websiteLink = document.getElementById('websiteLink');
 
 // This array holds the data for your game projects.
 const projects = [
     {
         desktopImage: './images/games/GameProject_01.jpg',
-        mobileImage: './images/games/GameProject_01_mobile.jpg', // Mobile image path
+        mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
+        playStoreUrl: null, // Add this line for mobile games
     },
     {
         desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
-        mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B', // Mobile image path
-        webUrl: 'https://www.google.com/', 
-        steamUrl: 'https://store.steampowered.com/app/2',
+        mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
+        webUrl: 'https://www.google.com/',
+        steamUrl: null, // This project is not on Steam
+        playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb', // Add the Play Store URL
     }
-	/* In coming projects
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
-        webUrl: 'https://www.youtube.com/', 
-        steamUrl: 'https://store.steampowered.com/app/3',
-    },
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+D',
-        webUrl: 'https://www.twitch.tv/', 
-        steamUrl: 'https://store.steampowered.com/app/4',
-    }
-	*/
 ];
 
 let currentProjectIndex = 0;
 
 /**
- * Renders the carousel slides and updates the links.
- */
+ * Renders the carousel slides and updates the links.
+ */
 function renderCarousel() {
-    // Clear existing slides
-    carouselTrack.innerHTML = '';
+    carouselTrack.innerHTML = '';
 
-    projects.forEach((project, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-       /* slide.style.backgroundImage = `url('${project.image}')`; */
-		const isMobile = window.innerWidth <= 736;
-		const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
-		slide.style.backgroundImage = `url('${imageUrl}')`;
-		
-        slide.dataset.index = index;
-        carouselTrack.appendChild(slide);
-    });
-    updateCarouselPosition();
-    updateSteamLink();
-    updateWebLink();
+    projects.forEach((project, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        const isMobile = window.innerWidth <= 736;
+        const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+        slide.style.backgroundImage = `url('${imageUrl}')`;
+
+        slide.dataset.index = index;
+        carouselTrack.appendChild(slide);
+    });
+    updateCarouselPosition();
+    // Use the new, single function to update all links
+    updatePlatformLink();
+    updateWebLink();
 }
 
 /**
- * Updates the carousel's position based on the current index.
- */
+ * Updates the carousel's position based on the current index.
+ */
 function updateCarouselPosition() {
-    const offset = -currentProjectIndex * 100;
-    carouselTrack.style.transform = `translateX(${offset}vw)`;
+    const offset = -currentProjectIndex * 100;
+    carouselTrack.style.transform = `translateX(${offset}vw)`;
 }
 
 /**
-* Updates the web link to the URL of the current project.*/
+ * Updates the web link to the URL of the current project.
+ */
 function updateWebLink() {
-    if (projects[currentProjectIndex] && websiteLink) {
-        // Set the href attribute to the project's web URL
-        websiteLink.href = projects[currentProjectIndex].webUrl;
-    }
-}
-    
- /* Updates the Steam link to the URL of the current project.*/
-function updateSteamLink() {
-    if (projects[currentProjectIndex]) {
-        steamLink.href = projects[currentProjectIndex].steamUrl;
-    }
+    if (projects[currentProjectIndex] && websiteLink) {
+        websiteLink.href = projects[currentProjectIndex].webUrl;
+    }
 }
 
 /**
- * Moves to the next project in the carousel.
- */
+ * Updates the platform button (Steam or Play Store) dynamically.
+ */
+function updatePlatformLink() {
+    const currentProject = projects[currentProjectIndex];
+
+    // Get the elements for the dynamic button
+    const platformIcon = document.getElementById('platformIcon');
+    const platformText = document.getElementById('platformText');
+
+    if (currentProject.playStoreUrl) {
+        // If it's a mobile game, show the Play Store button.
+        platformLink.style.display = 'inline-flex'; // Show the button
+        platformLink.href = currentProject.playStoreUrl;
+        platformIcon.className = 'fab fa-google-play';
+        platformText.textContent = 'Play Store';
+    } else if (currentProject.steamUrl) {
+        // If there's a Steam URL, show the Steam button.
+        platformLink.style.display = 'inline-flex'; // Show the button
+        platformLink.href = currentProject.steamUrl;
+        platformIcon.className = 'fab fa-steam';
+        platformText.textContent = 'Steam Page';
+    } else {
+        // If neither exists, hide the button entirely.
+        platformLink.style.display = 'none';
+    }
+}
+
+/**
+ * Moves to the next project in the carousel.
+ */
 function nextProject() {
-    if (currentProjectIndex < projects.length - 1) {
-        currentProjectIndex++;
-    } else {
-        currentProjectIndex = 0; // Loop back to the beginning
-    }
-    updateCarouselPosition();
-    updateSteamLink();
-    updateWebLink();
+    if (currentProjectIndex < projects.length - 1) {
+        currentProjectIndex++;
+    } else {
+        currentProjectIndex = 0;
+    }
+    updateCarouselPosition();
+    // Call the new, consolidated function
+    updatePlatformLink();
+    updateWebLink();
 }
 
 /**
- * Moves to the previous project in the carousel.
- */
+ * Moves to the previous project in the carousel.
+ */
 function prevProject() {
-    if (currentProjectIndex > 0) {
-        currentProjectIndex--;
-    } else {
-        currentProjectIndex = projects.length - 1; // Loop to the end
-    }
-    updateCarouselPosition();
-    updateSteamLink();
-    updateWebLink();
+    if (currentProjectIndex > 0) {
+        currentProjectIndex--;
+    } else {
+        currentProjectIndex = projects.length - 1;
+    }
+    updateCarouselPosition();
+    // Call the new, consolidated function
+    updatePlatformLink();
+    updateWebLink();
 }
+
 // Event listeners for navigation buttons
 prevBtn.addEventListener('click', prevProject);
 nextBtn.addEventListener('click', nextProject);
 
 // Initial render when the page loads
 window.addEventListener('load', renderCarousel);
-})(jQuery);
-
-

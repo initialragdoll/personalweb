@@ -225,19 +225,18 @@ const websiteLink = document.getElementById('websiteLink');
 
 // This array holds the data for your game projects.
 const projects = [
-    {
-        // Corrected image URL to a relative path.
-        image: './images/games/GameProject_01.jpg',
-        webUrl: 'https://unseal.fr/',
-        // Corrected Steam URL format.
-        steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
-    },
-	
-    {
-        image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
-        webUrl: 'https://www.google.com/', 
-        steamUrl: 'https://store.steampowered.com/app/2',
-    }
+    {
+        desktopImage: './images/games/GameProject_01.jpg',
+        mobileImage: './images/games/GameProject_01_mobile.jpg', // Mobile image path
+        webUrl: 'https://unseal.fr/',
+        steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
+    },
+    {
+        desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
+        mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B', // Mobile image path
+        webUrl: 'https://www.google.com/', 
+        steamUrl: 'https://store.steampowered.com/app/2',
+    }
 	/* In coming projects
     {
         image: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+C',
@@ -264,7 +263,11 @@ function renderCarousel() {
     projects.forEach((project, index) => {
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
-        slide.style.backgroundImage = `url('${project.image}')`;
+       /* slide.style.backgroundImage = `url('${project.image}')`; */
+		const isMobile = window.innerWidth <= 736;
+		const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+		slide.style.backgroundImage = `url('${imageUrl}')`;
+		
         slide.dataset.index = index;
         carouselTrack.appendChild(slide);
     });
@@ -331,4 +334,5 @@ nextBtn.addEventListener('click', nextProject);
 // Initial render when the page loads
 window.addEventListener('load', renderCarousel);
 })(jQuery);
+
 

@@ -2184,7 +2184,7 @@ input, select, textarea {
 		line-height: 1em;
 		padding: 1.5em;
 		background: #ffffff; 
-		color: rgba(185, 186, 187, 1);/* header bar text color*/
+		color: rgba(255, 255, 255, 1);/* header bar text color*/
 		overflow: hidden;
 	}
 

@@ -220,9 +220,8 @@
 const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-// We will use a single button for the platform link.
-const platformLink = document.getElementById('platformLink');
 const websiteLink = document.getElementById('websiteLink');
+const platformLink = document.getElementById('platformLink');
 
 // This array holds the data for your game projects.
 const projects = [
@@ -231,15 +230,16 @@ const projects = [
         mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
         steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
-        playStoreUrl: null, // Add this line for mobile games
+        playStoreUrl: null,
     },
     {
         desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
         mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
         webUrl: 'https://www.google.com/',
-        steamUrl: null, // This project is not on Steam
-        playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb', // Add the Play Store URL
+        steamUrl: null,
+        playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
     }
+    // Add more projects as needed
 ];
 
 let currentProjectIndex = 0;
@@ -248,6 +248,7 @@ let currentProjectIndex = 0;
  * Renders the carousel slides and updates the links.
  */
 function renderCarousel() {
+    // Clear existing slides
     carouselTrack.innerHTML = '';
 
     projects.forEach((project, index) => {
@@ -261,9 +262,7 @@ function renderCarousel() {
         carouselTrack.appendChild(slide);
     });
     updateCarouselPosition();
-    // Use the new, single function to update all links
-    updatePlatformLink();
-    updateWebLink();
+    updateLinks();
 }
 
 /**
@@ -275,38 +274,40 @@ function updateCarouselPosition() {
 }
 
 /**
- * Updates the web link to the URL of the current project.
+ * Updates all links based on the current project.
  */
-function updateWebLink() {
-    if (projects[currentProjectIndex] && websiteLink) {
-        websiteLink.href = projects[currentProjectIndex].webUrl;
-    }
-}
-
-/**
- * Updates the platform button (Steam or Play Store) dynamically.
- */
-function updatePlatformLink() {
+function updateLinks() {
     const currentProject = projects[currentProjectIndex];
+    if (!currentProject) {
+        // If the project doesn't exist, hide all buttons.
+        websiteLink.style.display = 'none';
+        platformLink.style.display = 'none';
+        return;
+    }
 
-    // Get the elements for the dynamic button
+    // Update the official website link
+    if (currentProject.webUrl) {
+        websiteLink.href = currentProject.webUrl;
+        websiteLink.style.display = 'inline-flex';
+    } else {
+        websiteLink.style.display = 'none';
+    }
+
+    // Update the platform link (Steam or Play Store)
     const platformIcon = document.getElementById('platformIcon');
     const platformText = document.getElementById('platformText');
 
     if (currentProject.playStoreUrl) {
-        // If it's a mobile game, show the Play Store button.
-        platformLink.style.display = 'inline-flex'; // Show the button
         platformLink.href = currentProject.playStoreUrl;
         platformIcon.className = 'fab fa-google-play';
         platformText.textContent = 'Play Store';
+        platformLink.style.display = 'inline-flex';
     } else if (currentProject.steamUrl) {
-        // If there's a Steam URL, show the Steam button.
-        platformLink.style.display = 'inline-flex'; // Show the button
         platformLink.href = currentProject.steamUrl;
         platformIcon.className = 'fab fa-steam';
         platformText.textContent = 'Steam Page';
+        platformLink.style.display = 'inline-flex';
     } else {
-        // If neither exists, hide the button entirely.
         platformLink.style.display = 'none';
     }
 }
@@ -318,12 +319,10 @@ function nextProject() {
     if (currentProjectIndex < projects.length - 1) {
         currentProjectIndex++;
     } else {
-        currentProjectIndex = 0;
+        currentProjectIndex = 0; // Loop back to the beginning
     }
     updateCarouselPosition();
-    // Call the new, consolidated function
-    updatePlatformLink();
-    updateWebLink();
+    updateLinks();
 }
 
 /**
@@ -333,17 +332,15 @@ function prevProject() {
     if (currentProjectIndex > 0) {
         currentProjectIndex--;
     } else {
-        currentProjectIndex = projects.length - 1;
+        currentProjectIndex = projects.length - 1; // Loop to the end
     }
     updateCarouselPosition();
-    // Call the new, consolidated function
-    updatePlatformLink();
-    updateWebLink();
+    updateLinks();
 }
 
 // Event listeners for navigation buttons
-prevBtn.addEventListener('click', prevProject);
-nextBtn.addEventListener('click', nextProject);
+if (prevBtn) prevBtn.addEventListener('click', prevProject);
+if (nextBtn) nextBtn.addEventListener('click', nextProject);
 
 // Initial render when the page loads
 window.addEventListener('load', renderCarousel);

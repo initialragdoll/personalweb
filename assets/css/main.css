@@ -2367,8 +2367,8 @@ input, select, textarea {
 }
 
 .link-button {
-    background-color: #000000;
-    color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
     font-weight: bold;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;

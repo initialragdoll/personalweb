@@ -624,7 +624,7 @@ input, select, textarea {
 
 	.box {
 		background-color: rgba(0, 0, 0, 0.3); /*Contact box bg color*/
-		color: #39454b;
+		color: #ffffff;/*box text color, was #39454b*/
 		padding: 2em;
 	}
 

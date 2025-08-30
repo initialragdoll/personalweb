@@ -2078,10 +2078,9 @@ input, select, textarea {
 				.main.dark .button.style2.down {
 					background-image: url("images/dark-arrow.svg");
 				}
-
-/*Project h1 style*/
-#projects h1 {
-  background: none !important;
+/*Remove backgound for Game Projects section*/
+#projects.style1.dark {
+  background: none;
 }
 
 		body.is-touch .main {

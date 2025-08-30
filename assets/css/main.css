@@ -623,7 +623,7 @@ input, select, textarea {
 /* Box */
 
 	.box {
-		background: #000000; /*Contact box bg color*/
+		background-color: rgba(255, 255, 255, 0.5); /*Contact box bg color*/
 		color: #39454b;
 		padding: 2em;
 	}

@@ -225,21 +225,21 @@ const platformLink = document.getElementById('platformLink');
 
 // This array holds the data for your game projects.
 const projects = [
-    {
-        desktopImage: './images/games/GameProject_01.jpg',
-        mobileImage: './images/games/GameProject_01_mobile.jpg',
-        webUrl: 'https://unseal.fr/',
-        steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
-        playStoreUrl: null,
-    },
-    {
-        desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
-        mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
-        webUrl: 'https://www.google.com/',
-        steamUrl: null,
-        playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
-    }
-    // Add more projects as needed
+	{
+		desktopImage: './images/games/GameProject_01.jpg',
+		mobileImage: './images/games/GameProject_01_mobile.jpg',
+		webUrl: 'https://unseal.fr/',
+		steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
+		playStoreUrl: null,
+	},
+	{
+		desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
+		mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
+		webUrl: 'https://www.google.com/',
+		steamUrl: null,
+		playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
+	}
+	// Add more projects as needed
 ];
 
 let currentProjectIndex = 0;
@@ -248,100 +248,100 @@ let currentProjectIndex = 0;
  * Renders the carousel slides and updates the links.
  */
 function renderCarousel() {
-    // Clear existing slides
-    carouselTrack.innerHTML = '';
+	// Clear existing slides
+	carouselTrack.innerHTML = '';
 
-    projects.forEach((project, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        const isMobile = window.innerWidth <= 736;
-        const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
-        slide.style.backgroundImage = `url('${imageUrl}')`;
+	projects.forEach((project, index) => {
+		const slide = document.createElement('div');
+		slide.className = 'carousel-slide';
+		const isMobile = window.innerWidth <= 736;
+		const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+		slide.style.backgroundImage = `url('${imageUrl}')`;
 
-        slide.dataset.index = index;
-        carouselTrack.appendChild(slide);
-    });
-    updateCarouselPosition();
-    updateLinks();
+		slide.dataset.index = index;
+		carouselTrack.appendChild(slide);
+	});
+	updateCarouselPosition();
+	updateLinks();
 }
 
 /**
  * Updates the carousel's position based on the current index.
  */
 function updateCarouselPosition() {
-    const offset = -currentProjectIndex * 100;
-    carouselTrack.style.transform = `translateX(${offset}vw)`;
+	const offset = -currentProjectIndex * 100;
+	carouselTrack.style.transform = `translateX(${offset}vw)`;
 }
 
 /**
  * Updates all links based on the current project.
  */
 function updateLinks() {
-    const currentProject = projects[currentProjectIndex];
-    if (!currentProject) {
-        // If the project doesn't exist, hide all buttons.
-        if (websiteLink) websiteLink.style.display = 'none';
-        if (platformLink) platformLink.style.display = 'none';
-        return;
-    }
+	const currentProject = projects[currentProjectIndex];
+	if (!currentProject) {
+		// If the project doesn't exist, hide all buttons.
+		if (websiteLink) websiteLink.style.display = 'none';
+		if (platformLink) platformLink.style.display = 'none';
+		return;
+	}
 
-    // Update the official website link
-    if (currentProject.webUrl) {
-        if (websiteLink) {
-            websiteLink.href = currentProject.webUrl;
-            websiteLink.style.display = 'inline-flex';
-        }
-    } else {
-        if (websiteLink) websiteLink.style.display = 'none';
-    }
+	// Update the official website link
+	if (currentProject.webUrl) {
+		if (websiteLink) {
+			websiteLink.href = currentProject.webUrl;
+			websiteLink.style.display = 'inline-flex';
+		}
+	} else {
+		if (websiteLink) websiteLink.style.display = 'none';
+	}
 
-    // Update the platform link (Steam or Play Store)
-    const platformIcon = document.getElementById('platformIcon');
-    const platformText = document.getElementById('platformText');
+	// Update the platform link (Steam or Play Store)
+	const platformIcon = document.getElementById('platformIcon');
+	const platformText = document.getElementById('platformText');
 
-    if (currentProject.playStoreUrl) {
-        if (platformLink && platformIcon && platformText) {
-            platformLink.href = currentProject.playStoreUrl;
-            platformIcon.className = 'fab fa-google-play';
-            platformText.textContent = 'Play Store';
-            platformLink.style.display = 'inline-flex';
-        }
-    } else if (currentProject.steamUrl) {
-        if (platformLink && platformIcon && platformText) {
-            platformLink.href = currentProject.steamUrl;
-            platformIcon.className = 'fab fa-steam';
-            platformText.textContent = 'Steam Page';
-            platformLink.style.display = 'inline-flex';
-        }
-    } else {
-        if (platformLink) platformLink.style.display = 'none';
-    }
+	if (currentProject.playStoreUrl) {
+		if (platformLink && platformIcon && platformText) {
+			platformLink.href = currentProject.playStoreUrl;
+			platformIcon.className = 'fab fa-google-play';
+			platformText.textContent = 'Play Store';
+			platformLink.style.display = 'inline-flex';
+		}
+	} else if (currentProject.steamUrl) {
+		if (platformLink && platformIcon && platformText) {
+			platformLink.href = currentProject.steamUrl;
+			platformIcon.className = 'fab fa-steam';
+			platformText.textContent = 'Steam Page';
+			platformLink.style.display = 'inline-flex';
+		}
+	} else {
+		if (platformLink) platformLink.style.display = 'none';
+	}
 }
 
 /**
  * Moves to the next project in the carousel.
  */
 function nextProject() {
-    if (currentProjectIndex < projects.length - 1) {
-        currentProjectIndex++;
-    } else {
-        currentProjectIndex = 0; // Loop back to the beginning
-    }
-    updateCarouselPosition();
-    updateLinks();
+	if (currentProjectIndex < projects.length - 1) {
+		currentProjectIndex++;
+	} else {
+		currentProjectIndex = 0; // Loop back to the beginning
+	}
+	updateCarouselPosition();
+	updateLinks();
 }
 
 /**
  * Moves to the previous project in the carousel.
  */
 function prevProject() {
-    if (currentProjectIndex > 0) {
-        currentProjectIndex--;
-    } else {
-        currentProjectIndex = projects.length - 1; // Loop to the end
-    }
-    updateCarouselPosition();
-    updateLinks();
+	if (currentProjectIndex > 0) {
+		currentProjectIndex--;
+	} else {
+		currentProjectIndex = projects.length - 1; // Loop to the end
+	}
+	updateCarouselPosition();
+	updateLinks();
 }
 
 // Event listeners for navigation buttons
@@ -351,3 +351,5 @@ if (nextBtn) nextBtn.addEventListener('click', nextProject);
 // Initial render when the page loads
 window.addEventListener('load', renderCarousel);
 
+
+})(jQuery);

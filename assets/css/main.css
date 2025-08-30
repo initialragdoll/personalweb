@@ -2080,7 +2080,7 @@ input, select, textarea {
 				}
 
 /*Project h1 style*/
-#projects {
+#projects h1 {
   background: none !important;
 }
 

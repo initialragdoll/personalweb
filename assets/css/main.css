@@ -2442,7 +2442,7 @@ input, select, textarea {
 		}
 
 /*Remove backgound for Game Projects section*/
-#projects.style1.dark::before {
+#projects.main.style1::before {
   background: none;
   opacity: 0;
 }

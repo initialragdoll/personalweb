@@ -225,6 +225,7 @@ const platformLink = document.getElementById('platformLink');
 
 // This array holds the data for your game projects.
 const projects = [
+	/* PC Game */
 	{
 		desktopImage: './images/games/GameProject_01.jpg',
 		mobileImage: './images/games/GameProject_01_mobile.jpg',
@@ -232,6 +233,7 @@ const projects = [
 		steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
 		playStoreUrl: null,
 	},
+	/* Mobile Game */
 	{
 		desktopImage: 'https://placehold.co/1920x1080/000000/FFFFFF?text=Project+B',
 		mobileImage: 'https://placehold.co/1080x1920/000000/FFFFFF?text=Mobile+Project+B',
@@ -354,4 +356,5 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 

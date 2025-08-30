@@ -2442,7 +2442,8 @@ input, select, textarea {
 		}
 
 /*Remove backgound for Game Projects section*/
-.title-bg {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  padding: 0.5rem 1rem;
+#projects .carousel-container,
+#projects h1 {
+  margin: 0;
+  padding: 0;
 }

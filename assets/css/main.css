@@ -568,6 +568,13 @@ input, select, textarea {
 		letter-spacing: -0.05em;
 	}
 
+/*Content p*/
+p {
+    font-weight: 900;
+    letter-spacing: -0.0325em;
+}
+
+
 	@media screen and (max-width: 736px) {
 
 		h2 {

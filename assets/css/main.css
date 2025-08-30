@@ -506,7 +506,7 @@ input, select, textarea {
 		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
-		color: #a2a2a2; /* Head bar text color, was #39454b */
+		color: #ffffff; /* Head bar text color, was #39454b */
 		letter-spacing: 0.025em;
 	}
 
@@ -558,7 +558,7 @@ input, select, textarea {
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color: #a2a2a2 /* Header title text color, was: inherit;*/
+			color: #ffffff /* Header title text color, was: inherit;*/
 			text-decoration: none;
 		}
 

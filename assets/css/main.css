@@ -1853,6 +1853,7 @@ input, select, textarea {
 				font-size: 1.25em;
 			}
 
+
 		#header nav {
 			position: absolute;
 			right: 0.5em;
@@ -1906,6 +1907,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 	body {
 		padding-top: 3em;
@@ -2076,6 +2078,11 @@ input, select, textarea {
 				.main.dark .button.style2.down {
 					background-image: url("images/dark-arrow.svg");
 				}
+
+/*Project h1 style*/
+#projects h1 {
+  text-align: left;
+}
 
 		body.is-touch .main {
 			background-attachment: scroll !important;

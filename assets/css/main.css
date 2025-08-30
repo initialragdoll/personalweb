@@ -623,7 +623,7 @@ input, select, textarea {
 /* Box */
 
 	.box {
-		background: #ffffff;
+		background: #000000; /*Contact box bg color*/
 		color: #39454b;
 		padding: 2em;
 	}
@@ -2047,11 +2047,11 @@ input, select, textarea {
 			}
 
 			.main.style3.primary {
-				background: #ffffff;
+				background: #000000;
 			}
 
 			.main.style3.secondary {
-				background: #f5f6f7;
+				background: #000000; /*previous #f5f6f7*/
 			}
 
 /* Intro text color */

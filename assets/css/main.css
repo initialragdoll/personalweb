@@ -630,7 +630,7 @@ p {
 /* Box */
 
 	.box {
-		background-color: rgba(0, 0, 0, 0.3); /*Contact box bg color*/
+		background-color: rgba(21, 21, 28, 0.3); /*Contact box bg color*/
 		color: #ffffff;/*box text color, was #39454b*/
 		padding: 2em;
 	}
@@ -1841,7 +1841,7 @@ p {
 		left: 0;
 		top: 0;
 		width: 100%;
-		background: rgba(0, 0, 0, 0.95);/* Header color */
+		background: rgba(21, 21, 28, 0.95);/* Header color */
 		height: 3em;
 		line-height: 3em;
 		box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1);

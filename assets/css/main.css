@@ -2150,6 +2150,10 @@ p {
 					/*display: none;*/
 					display: block !important;
 				}
+			/*Scale logo on anchored button for smaller screen*/
+			.main.dark .button.style2.down {
+				background-size: 90%;
+			}
 
 				.main.style2 .content {
 					width: 100%;
@@ -2164,10 +2168,6 @@ p {
 			.main.style3 {
 				text-align: center;
 				padding: 3em 10px 3em 10px;
-			}
-			/*Scale logo on anchored button for smaller screen*/
-			.main.dark .button.style2.down {
-				background-size: 90%;
 			}
 
 		}

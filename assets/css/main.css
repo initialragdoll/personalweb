@@ -2199,7 +2199,7 @@ p {
 		margin: 0;
 		line-height: 1em;
 		padding: 0.5em;
-		background: #4ab2ac; /*Footer bar color, was#39454b*/
+		background: #d1ab2a; /*Footer bar color, was#39454b*/
 		color: rgba(0, 0, 0, 1); /*footer text color*/
 		overflow: hidden;
 	}

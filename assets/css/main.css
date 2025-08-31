@@ -506,7 +506,7 @@ input, select, textarea {
 		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
-		color: #ffe100; /* Head bar text color, was #39454b */
+		color: #f8ff00; /* Head bar text color, was #39454b */
 		letter-spacing: 0.025em;
 	}
 
@@ -558,7 +558,7 @@ input, select, textarea {
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color: #ffe100 /* Header title text color, was: inherit;*/
+			color: #f8ff00 /* Header title text color, was: inherit;*/
 			text-decoration: none;
 		}
 
@@ -597,7 +597,7 @@ p {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #ffe100; /*Send button color, was #98c593*/
+		color: #f8ff00; /*Send button color, was #98c593*/
 	}
 
 	sub {
@@ -631,7 +631,7 @@ p {
 
 	.box {
 		background-color: rgba(0, 0, 0, 0.3); /*Contact box bg color*/
-		color: #ffe100;/*box text color, was #39454b*/
+		color: #f8ff00;/*box text color, was #39454b*/
 		padding: 2em;
 	}
 
@@ -671,7 +671,7 @@ p {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: #ffe100; /*submit button color, was #98c593*/
+		background-color: #f8ff00; /*submit button color, was #98c593*/
 		border: 0;
 		border-radius: 3.5em;
 		color: #000000;/*Submit button text color*/
@@ -745,7 +745,7 @@ p {
 		.button.style2,
 		button.style2 {
 			background-color: transparent;
-			border: solid 2px #ffe100;/*Anchored button border color*/
+			border: solid 2px #f8ff00;/*Anchored button border color*/
 			color: inherit;
 		}
 
@@ -867,12 +867,12 @@ p {
 		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		color: #ffe100; /*was #39454b*/
+		color: #f8ff00; /*was #39454b*/
 		display: block;
 		width: 100%;
 		padding: 0.65em 0.75em;
 		background: none;
-		border: solid 2px #ffe100;
+		border: solid 2px #f8ff00;
 		color: inherit;
 		border-radius: 0.5em;
 		outline: none;
@@ -1229,7 +1229,7 @@ p {
 
 			table.default thead {
 				background: #39454b;
-				color: #ffe100;
+				color: #f8ff00;
 			}
 
 			table.default tfoot {
@@ -1287,7 +1287,7 @@ p {
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			background: #ffe100;
+			background: #f8ff00;
 			width: 100%;
 			height: 3em;
 			line-height: 2.8em;
@@ -1386,7 +1386,7 @@ p {
 				border-radius: 100%;
 				box-shadow: inset 0 0 0 2px #fff;
 				background: url("images/poptrox-closer.svg") center center;
-				color: #ffe100 !important;
+				color: #f8ff00 !important;
 			}
 
 		.poptrox-popup:hover .closer {
@@ -1881,7 +1881,7 @@ p {
 
 					#header nav ul li a {
 						display: block;
-						color: #ffe100; /*nav link text color, was: inherit;*/
+						color: #f8ff00; /*nav link text color, was: inherit;*/
 						text-decoration: none;
 						height: 3em;
 						line-height: 3em;
@@ -2063,7 +2063,7 @@ p {
 
 /* Intro text color */
 		.main.dark {
-			color: #ffe100;
+			color: #f8ff00;
 		}
 
 			.main.dark a {
@@ -2071,7 +2071,7 @@ p {
 			}
 
 			.main.dark .button.style2 {
-				border-color: #ffe100;
+				border-color: #f8ff00;
 			}
 
 				.main.dark .button.style2:hover {
@@ -2195,7 +2195,7 @@ p {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #ffe100; /*Footer bar color, was#39454b*/
+		background: #f8ff00; /*Footer bar color, was#39454b*/
 		color: rgba(0, 0, 0, 1); /*footer text color*/
 		overflow: hidden;
 	}

@@ -732,7 +732,7 @@ p {
 		input[type="reset"]:hover,
 		.button:hover,
 		button:hover {
-			background-color: #ffff40;
+			background-color: #d1ab2a;
 		}
 
 		input[type="button"]:active,
@@ -740,7 +740,7 @@ p {
 		input[type="reset"]:active,
 		.button:active,
 		button:active {
-			background-color: #ffff00;
+			background-color: #d1ab2a;
 		}
 
 		input[type="button"].style2,

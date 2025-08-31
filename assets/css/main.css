@@ -567,6 +567,10 @@ input, select, textarea {
 		line-height: 1.25em;
 		letter-spacing: -0.05em;
 	}
+/*Set intro title text color*/
+.welcome-heading {
+    color: #ffffff; 
+}
 
 /*set Content p font
 p {

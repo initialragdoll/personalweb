@@ -570,6 +570,7 @@ input, select, textarea {
 /*Set intro title text color*/
 .welcome-heading {
     color: #d1ab2a; 
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 /*set Content p font

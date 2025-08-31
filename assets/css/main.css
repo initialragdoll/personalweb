@@ -678,7 +678,7 @@ p {
 		background-color: #4ab2ac; /*submit button color, was #98c593*/
 		border: 0;
 		border-radius: 3.5em;
-		color: #ffffff;/*Submit button text color*/
+		color: #000000;/*Submit button text color*/
 		cursor: pointer;
 		display: inline-block;
 		height: 3.5em;

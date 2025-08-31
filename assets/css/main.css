@@ -2162,7 +2162,7 @@ p {
 				}
 			/*Scale logo on anchored button for smaller screen*/
 			.button.style2.down {
-				background-size: 80%;
+				background-size: 120%;
 			}
 
 			.main.style3 {

@@ -2165,6 +2165,10 @@ p {
 				text-align: center;
 				padding: 3em 10px 3em 10px;
 			}
+			/*Scale logo on anchored button for smaller screen*/
+			.main.dark .button.style2.down {
+				background-size: 50%;
+			}
 
 		}
 

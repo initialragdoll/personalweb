@@ -2116,6 +2116,7 @@ p {
 
 			.main.style2 .content {
 				width: 60%;
+				background-size: contain;
 			}
 
 		}
@@ -2150,10 +2151,6 @@ p {
 					/*display: none;*/
 					display: block !important;
 				}
-			/*Scale logo on anchored button for smaller screen*/
-			.main.dark .button.style2.down {
-				background-size: contain;
-			}
 
 				.main.style2 .content {
 					width: 100%;

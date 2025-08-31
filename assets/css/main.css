@@ -506,7 +506,7 @@ input, select, textarea {
 		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
-		color: #f8ff00; /* Head bar text color, was #39454b */
+		color: #4ab2ac; /* Head bar text color, was #39454b */
 		letter-spacing: 0.025em;
 	}
 
@@ -558,7 +558,7 @@ input, select, textarea {
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color: #f8ff00 /* Header title text color, was: inherit;*/
+			color: #4ab2ac /* Header title text color, was: inherit;*/
 			text-decoration: none;
 		}
 
@@ -597,7 +597,7 @@ p {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #f8ff00; /*Send button color, was #98c593*/
+		color: #4ab2ac; /*Send button color, was #98c593*/
 	}
 
 	sub {
@@ -671,7 +671,7 @@ p {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: #f8ff00; /*submit button color, was #98c593*/
+		background-color: #4ab2ac; /*submit button color, was #98c593*/
 		border: 0;
 		border-radius: 3.5em;
 		color: #000000;/*Submit button text color*/
@@ -867,12 +867,12 @@ p {
 		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		color: #f8ff00; /*was #39454b*/
+		color: #4ab2ac; /*was #39454b*/
 		display: block;
 		width: 100%;
 		padding: 0.65em 0.75em;
 		background: none;
-		border: solid 2px #f8ff00;
+		border: solid 2px #4ab2ac;
 		color: inherit;
 		border-radius: 0.5em;
 		outline: none;
@@ -1229,7 +1229,7 @@ p {
 
 			table.default thead {
 				background: #39454b;
-				color: #f8ff00;
+				color: #4ab2ac;
 			}
 
 			table.default tfoot {
@@ -1287,7 +1287,7 @@ p {
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			background: #f8ff00;
+			background: #4ab2ac;
 			width: 100%;
 			height: 3em;
 			line-height: 2.8em;
@@ -1386,7 +1386,7 @@ p {
 				border-radius: 100%;
 				box-shadow: inset 0 0 0 2px #fff;
 				background: url("images/poptrox-closer.svg") center center;
-				color: #f8ff00 !important;
+				color: #4ab2ac !important;
 			}
 
 		.poptrox-popup:hover .closer {
@@ -2063,7 +2063,7 @@ p {
 
 /* Intro text color */
 		.main.dark {
-			color: #f8ff00;
+			color: #4ab2ac;
 		}
 
 			.main.dark a {
@@ -2195,7 +2195,7 @@ p {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #f8ff00; /*Footer bar color, was#39454b*/
+		background: #4ab2ac; /*Footer bar color, was#39454b*/
 		color: rgba(0, 0, 0, 1); /*footer text color*/
 		overflow: hidden;
 	}

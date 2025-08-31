@@ -2116,7 +2116,6 @@ p {
 
 			.main.style2 .content {
 				width: 60%;
-				background-size: 80%;
 			}
 
 		}
@@ -2161,6 +2160,10 @@ p {
 					-ms-transform: none;
 					transform: none;
 				}
+			/*Scale logo on anchored button for smaller screen*/
+			.main.dark .button.style2.down {
+				background-size: 50%;
+			}
 
 			.main.style3 {
 				text-align: center;

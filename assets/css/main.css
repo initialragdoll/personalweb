@@ -2161,8 +2161,8 @@ p {
 					transform: none;
 				}
 			/*Scale logo on anchored button for smaller screen*/
-			.main.dark .button.style2.down {
-				background-size: 80% !important;
+			.button.style2.down {
+				background-size: 80%;
 			}
 
 			.main.style3 {

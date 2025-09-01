@@ -76,48 +76,38 @@
 		}
 
 	// Gallery.
-		$window.on('load', function() {
+$window.on('load', function() {
 
-			var $gallery = $('.gallery');
+    var $gallery = $('.gallery');
 
-			$gallery.poptrox({
-				selector: '.gallery > article > a',
-				usePopupCaption: true,
-				usePopupCaptionFromContent: true,
-				
-				baseZIndex: 10001,
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#1f2328',
-				overlayOpacity: 0.65,
-				usePopupDefaultStyling: false,
-				usePopupCaption: true,
-				popupLoaderText: '',
-				windowMargin: 50,
-				usePopupNav: true,
-
-				 // NEW: The selector tells Poptrox which links to grab
-    selector: '.gallery > article > a',
-
-    // NEW: We need to use the content to pull the caption
-    usePopupCaptionFromContent: true,
-
-				// New: Add a custom link to the caption on open.
-    onOpen: function() {
-        var artstationUrl = this._$a.attr('data-artstation-url');
+    $gallery.poptrox({
+        selector: '.gallery > article > a',
+        baseZIndex: 10001,
+        useBodyOverflow: false,
+        usePopupEasyClose: false,
+        overlayColor: '#1f2328',
+        overlayOpacity: 0.65,
+        usePopupDefaultStyling: false,
+        usePopupCaption: true,
+        popupLoaderText: '',
+        windowMargin: 50,
+        usePopupNav: true,
         
-        // Only append the link if the attribute exists
-        if (artstationUrl) {
+        // This is the custom code to add the link
+        onOpen: function() {
+            var artstationUrl = this._$a.attr('data-artstation-url');
+            
+            if (artstationUrl) {
+                var $caption = this._$caption;
+                $caption.append('<a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
+            }
+        },
+        
+        onClose: function() {
             var $caption = this._$caption;
-            $caption.append('<a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
+            $caption.find('a').remove();
         }
-    },
-    
-    onClose: function() {
-        var $caption = this._$caption;
-        $caption.find('a').remove();
-    }
-});
+    });
 	
 
 			// Hack: Adjust margins when 'small' activates.
@@ -383,6 +373,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

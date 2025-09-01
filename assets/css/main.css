@@ -1435,16 +1435,13 @@ p {
 /* Work Section Styling - This is the new part to add */
 #work {
     display: flex;
-    flex-direction: column; /* This is good, keep this. */
+    flex-direction: column;
     align-items: center;
-    /* CHANGE THIS LINE */
-    justify-content: flex-start; /* This will remove the gap above the title. */
-    /* REMOVE or keep min-height commented out. */
-    /* min-height: 100vh; */
-    padding: 3em 0;
+    justify-content: flex-start;
+    /* Change the padding from '3em 0' to '0 0 3em 0' */
+    padding: 0 0 3em 0;
     box-sizing: border-box;
 }
-
 /* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {
     display: grid;

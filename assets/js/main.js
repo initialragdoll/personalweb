@@ -90,7 +90,7 @@
 				usePopupCaption: true,
 				popupLoaderText: '',
 				windowMargin: 50,
-				usePopupNav: true
+				usePopupNav: true,
 
 				// New: Add a custom link to the caption on open.
 					onOpen: function() {
@@ -373,6 +373,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

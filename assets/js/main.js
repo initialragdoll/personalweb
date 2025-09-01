@@ -92,20 +92,22 @@ $window.on('load', function() {
         popupLoaderText: '',
         windowMargin: 50,
         usePopupNav: true,
-        
-        // This is the custom code to add the link
+
+        // Add the onOpen and onClose functions
         onOpen: function() {
             var artstationUrl = this._$a.attr('data-artstation-url');
             
+            // Only append the link if the attribute exists
             if (artstationUrl) {
                 var $caption = this._$caption;
-                $caption.append('<a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
+                $caption.append('<br /><a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
             }
         },
         
         onClose: function() {
             var $caption = this._$caption;
             $caption.find('a').remove();
+            $caption.find('br').remove(); // Also remove the line break
         }
     });
 	
@@ -373,6 +375,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

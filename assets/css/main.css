@@ -1468,7 +1468,8 @@ p {
 /* Image Sizing - This creates the rectangular shape */
 .gallery article .image {
     position: relative;
-    height: 100%; /* Ensures the container takes full height of grid cell */
+    padding-bottom: 56.25%; /* 9 / 16 = 0.5625, creating a 16:9 aspect ratio */
+    height: 0;
     overflow: hidden;
     display: block;
 }
@@ -1479,8 +1480,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This makes the image cover the space */
-    display: block;
+    object-fit: cover; /* This makes the image cover the container without distortion */
 }
 
 

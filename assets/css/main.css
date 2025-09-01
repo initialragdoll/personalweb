@@ -1438,7 +1438,8 @@ p {
     align-items: center; /* Vertically centers the content */
     justify-content: center; /* Horizontally centers the content */
     min-height: 100vh; /* Ensures the section takes at least the full viewport height */
-    padding: 3em 0; /* Adds some vertical padding */
+	margin: 0; /* This removes the top and bottom margin */
+    padding: 1em 0; /* Adds some vertical padding */
     box-sizing: border-box; /* Ensures padding is included in the total height */
 }
 
@@ -1490,6 +1491,7 @@ p {
     .gallery {
         grid-template-columns: 1fr 1fr;
         width: 95vw;
+        gap: 0.5em; /* You can adjust this value to your liking */
     }
 
     /* Make the featured image span both columns */

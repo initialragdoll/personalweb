@@ -1446,14 +1446,14 @@ p {
     margin-bottom: 0.5em;
 }
 
-/* Gallery Layout - REPLACING the old Gallery CSS */
+/* Gallery Layout */
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
     gap: 1.5em;
     width: 100%; /* Change from 90vw to 100% */
-    max-width: 1200px;
+    max-width: 1920px; /*was 1200px*/
     margin: 0 auto;
     flex-grow: 1;
     grid-auto-flow: dense;

@@ -77,6 +77,7 @@
 
 	// Gallery.
 $window.on('load', function() {
+
     var $gallery = $('.gallery');
 
     $gallery.poptrox({
@@ -86,16 +87,15 @@ $window.on('load', function() {
         overlayColor: '#1f2328',
         overlayOpacity: 0.65,
         usePopupDefaultStyling: false,
+        usePopupCaption: true, // This is a required property for a caption
         popupLoaderText: '',
         windowMargin: 50,
         usePopupNav: true,
 
-        // Place these properties here
+        // Place these custom properties at the end, separated by commas
         selector: '.gallery > article > a',
-        usePopupCaption: true,
         usePopupCaptionFromContent: true,
 
-        // Add the custom link on open
         onOpen: function() {
             var artstationUrl = this._$a.attr('data-artstation-url');
             
@@ -376,6 +376,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

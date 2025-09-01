@@ -1879,7 +1879,7 @@ p {
 		position: relative;
 		margin: 0;
 		line-height: 1em;
-		padding: 0.5em;
+		padding: 0.5em 0; 
 		background: #d1ab2a; /*Footer bar color, was#39454b*/
 		color: rgba(0, 0, 0, 1); /*footer text color*/
 		overflow: hidden;

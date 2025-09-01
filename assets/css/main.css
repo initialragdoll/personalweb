@@ -1486,22 +1486,17 @@ p {
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
-    /* Set the gallery to a two-column grid on mobile */
     .gallery {
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns for mobile */
+        gap: 1.5em; /* A consistent gap between images */
         width: 95vw;
-        gap: 1.5em; /* Keep a consistent gap */
-    }
-    
-    /* Make the featured image span both columns */
-    .gallery .featured-image {
-        grid-column: 1 / -1; /* This makes it span from the first column to the last */
-        grid-row: auto;
+        grid-auto-flow: dense; /* This is the key fix */
     }
 
-    /* All other images will flow automatically */
-    .gallery article {
-        grid-column: auto;
+    /* Make the featured image span both columns */
+    .gallery .featured-image {
+        grid-column: span 2;
         grid-row: auto;
     }
 }

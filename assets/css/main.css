@@ -1485,13 +1485,19 @@ p {
 
 
 /* Mobile Layout - REPLACING the old media query */
+/* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
+    /* Set the work section's height to automatically fit its content on mobile */
+    #work {
+        min-height: auto;
+    }
+    
     /* Set the gallery to a two-column grid on mobile */
     .gallery {
         grid-template-columns: 1fr 1fr;
         width: 95vw;
-        gap: 0.5em; 
-        margin-top: 0; /* NEW: Removes the top margin */
+        gap: 0.5em;
+        margin-top: 0;
     }
 
     /* Make the featured image span both columns */

@@ -85,7 +85,7 @@
 				useBodyOverflow: false,
 				usePopupEasyClose: false,
 				overlayColor: '#1f2328',
-				overlayOpacity: 0.65,
+				overlayOpacity: 0.9,/*Full image mode overlay opacity*/
 				usePopupDefaultStyling: false,
 				usePopupCaption: true,
 				popupLoaderText: '',
@@ -356,6 +356,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

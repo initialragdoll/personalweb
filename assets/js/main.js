@@ -93,21 +93,22 @@
 				usePopupNav: true,
 
 				// New: Add a custom link to the caption on open.
-					onOpen: function() {
-				var $a = this._$a; // Get the anchor tag of the clicked image
-				var artstationUrl = $a.attr('data-artstation-url');
-				
-				if (artstationUrl) {
-					var $caption = this._$caption;
-					$caption.append('<a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
-				}
-			},
-			// New: Remove the custom link on close.
-			onClose: function() {
+					/ Add the onOpen and onClose functions
+    onOpen: function() {
+        var artstationUrl = this._$a.attr('data-artstation-url');
+        
+        // Only append the link if the attribute exists
+        if (artstationUrl) {
             var $caption = this._$caption;
-            $caption.find('a').remove(); // Find and remove the added link
-			}
-			});
+            $caption.append('<a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
+        }
+    },
+    
+    onClose: function() {
+        var $caption = this._$caption;
+        $caption.find('a').remove();
+    }
+});
 	
 
 			// Hack: Adjust margins when 'small' activates.
@@ -373,6 +374,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

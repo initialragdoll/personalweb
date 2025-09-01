@@ -1441,6 +1441,10 @@ p {
     padding: 0 0 3em 0;
     box-sizing: border-box;
 }
+
+#work h2 {
+    margin-bottom: 0.5em; /* A smaller margin is fine, or use 0 for no gap */
+}
 /* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {
     display: grid;
@@ -1485,38 +1489,30 @@ p {
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 736px) {
-    /* Set the work section's height to automatically fit its content on mobile */
     #work {
         min-height: auto;
     }
-	 #work h2 {
-    margin-bottom: 0.5em; /* A smaller margin is fine if you want a small gap. Use 0 to remove it entirely. */
-}
-    
-    /* Set the gallery to a two-column grid on mobile */
+   
     .gallery {
         grid-template-columns: 1fr 1fr;
         width: 95vw;
         gap: 0.5em;
         margin-top: 0;
     }
-
-    /* Make the featured image span both columns */
     .gallery .featured-image {
         grid-column: span 2;
     }
-    
     /* This will fix the gaps */
     .gallery article:nth-of-type(2) {
         grid-row: 2;
         grid-column: 1;
     }
-    
     .gallery article:nth-of-type(3) {
         grid-row: 2;
         grid-column: 2;
     }
 }
+
 /* Header */
 
 	#header {

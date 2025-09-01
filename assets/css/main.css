@@ -604,7 +604,7 @@ p {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #4ab2ac; /*Send button color, was #98c593*/
+		color: #d1ab2a; /*Send text color, was #98c593*/
 	}
 
 	sub {

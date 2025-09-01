@@ -1461,14 +1461,6 @@ p {
 }
 
 
-/* This is the key change to control the aspect ratio 
-.gallery .featured-image .image {
-    padding-bottom: 56.25%; 
-}
-*/
-
-
-
 /* Animation State 1: Inactive (off-screen) */
 .gallery.inactive article {
     opacity: 0;

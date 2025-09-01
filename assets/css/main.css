@@ -1460,10 +1460,12 @@ p {
     grid-row: span 2;
 }
 
-/* This is the key change to control the aspect ratio */
+
+/* This is the key change to control the aspect ratio 
 .gallery .featured-image .image {
-    padding-bottom: 56.25%; /* Use this for a 16:9 aspect ratio */
+    padding-bottom: 56.25%; 
 }
+*/
 
 /* Image Sizing - This creates the rectangular shape */
 .gallery article .image {

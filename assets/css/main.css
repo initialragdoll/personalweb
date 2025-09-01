@@ -1917,9 +1917,9 @@ p {
 				-webkit-justify-content: center;
 				-ms-justify-content: center;
 				justify-content: center;
-				line-height: 1.5em;
+				/*line-height: 1.5em;*/
 				text-align: center;
-				padding: 2em 1em 2em 1em;
+				/*padding: 2em 1em 2em 1em;*/
 			}
 
 				#footer > * {

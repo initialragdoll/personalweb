@@ -1438,7 +1438,7 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0; /* Change this to remove all padding from the container itself */
+    padding: 0 0 3em 0;
     box-sizing: border-box;
 }
 /* Gallery Layout - REPLACING the old Gallery CSS */

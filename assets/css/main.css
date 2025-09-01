@@ -1442,8 +1442,14 @@ p {
     box-sizing: border-box;
 }
 
+
 #work h2 {
     margin-bottom: 0.5em;
+}
+/* Override content div to fix horizontal gaps */
+#work > .content {
+    max-width: none;
+    width: 100%;
 }
 
 /* Gallery Layout */

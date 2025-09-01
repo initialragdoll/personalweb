@@ -1435,11 +1435,12 @@ p {
 /* Work Section Styling - This is the new part to add */
 #work {
     display: flex;
-    flex-direction: column; /* Add this to stack children vertically */
+    flex-direction: column; /* This is good, keep this. */
     align-items: center;
-    justify-content: center;
-    /* REMOVE or comment out the line below */
-    /* min-height: 100vh; */ 
+    /* CHANGE THIS LINE */
+    justify-content: flex-start; /* This will remove the gap above the title. */
+    /* REMOVE or keep min-height commented out. */
+    /* min-height: 100vh; */
     padding: 3em 0;
     box-sizing: border-box;
 }

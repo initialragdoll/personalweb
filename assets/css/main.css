@@ -1490,25 +1490,21 @@ p {
     .gallery {
         grid-template-columns: 1fr 1fr;
         width: 95vw;
+        gap: 1.5em; /* Keep a consistent gap */
     }
-
+    
     /* Make the featured image span both columns */
     .gallery .featured-image {
-        grid-column: span 2;
+        grid-column: 1 / -1; /* This makes it span from the first column to the last */
+        grid-row: auto;
     }
-    
-    /* NEW: This will fix the gaps */
-    .gallery article:nth-of-type(2) {
-        grid-row: 2;
-        grid-column: 1;
-    }
-    
-    .gallery article:nth-of-type(3) {
-        grid-row: 2;
-        grid-column: 2;
+
+    /* All other images will flow automatically */
+    .gallery article {
+        grid-column: auto;
+        grid-row: auto;
     }
 }
-
 /* Header */
 
 	#header {

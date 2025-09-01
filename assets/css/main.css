@@ -1486,31 +1486,28 @@ p {
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
-    /* Set the gallery to a two-column grid */
+    /* Set the gallery to a two-column grid on mobile */
     .gallery {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1.5em;
         width: 95vw;
-        grid-auto-flow: row; /* Set to default row flow to avoid unexpected ordering */
     }
 
-    /* Place the featured image to span the first row */
+    /* Make the featured image span both columns */
     .gallery .featured-image {
-        grid-column: 1 / -1; /* spans all columns from start to end */
-        grid-row: 1; /* explicitly places it in the first row */
+        grid-column: span 2;
     }
-
-    /* Manually position the second and third images to fill the gaps */
+    
+    /* NEW: This will fix the gaps */
     .gallery article:nth-of-type(2) {
-        grid-column: 1;
         grid-row: 2;
+        grid-column: 1;
     }
     
     .gallery article:nth-of-type(3) {
-        grid-column: 2;
         grid-row: 2;
+        grid-column: 2;
     }
+}
 
     /* All other images will flow automatically after these */
     .gallery article:nth-of-type(n+4) {

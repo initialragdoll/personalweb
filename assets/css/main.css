@@ -1717,13 +1717,9 @@ p {
 			}
 /*fix padding of main style 3*/
 		.main.style3 {
-    width: 100%;
-    max-width: none;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
+			text-align: center;
+			padding: 6em 0 6em 0;
+		}
 
 			.main.style3 .content > header {
 				margin-bottom: 2em;

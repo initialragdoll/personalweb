@@ -81,6 +81,7 @@
 			var $gallery = $('.gallery');
 
 			$gallery.poptrox({
+				selector: '.gallery > article > a',
 				baseZIndex: 10001,
 				useBodyOverflow: false,
 				usePopupEasyClose: false,
@@ -373,6 +374,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

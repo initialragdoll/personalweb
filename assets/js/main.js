@@ -91,7 +91,24 @@
 				popupLoaderText: '',
 				windowMargin: 50,
 				usePopupNav: true
+
+				// New: Add a custom link to the caption on open.
+					onOpen: function() {
+				var $a = this._$a; // Get the anchor tag of the clicked image
+				var artstationUrl = $a.attr('data-artstation-url');
+				
+				if (artstationUrl) {
+					var $caption = this._$caption;
+					$caption.append('<a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
+				}
+			},
+			// New: Remove the custom link on close.
+			onClose: function() {
+            var $caption = this._$caption;
+            $caption.find('a').remove(); // Find and remove the added link
+			}
 			});
+	
 
 			// Hack: Adjust margins when 'small' activates.
 				breakpoints.on('>small', function() {
@@ -356,6 +373,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

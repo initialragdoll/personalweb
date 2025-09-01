@@ -84,7 +84,7 @@
 				baseZIndex: 10001,
 				useBodyOverflow: false,
 				usePopupEasyClose: false,
-				overlayColor: '#1f2328',
+				overlayColor: '#15151c',
 				overlayOpacity: 0.9,/*Full image mode overlay opacity*/
 				usePopupDefaultStyling: false,
 				usePopupCaption: true,
@@ -356,6 +356,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

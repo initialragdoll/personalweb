@@ -1442,6 +1442,7 @@ p {
     /*justify-content: flex-start;*/
     padding: 1em 0 3em 0; 
     box-sizing: border-box;
+	padding-bottom: 0 !important;
 }
 
 

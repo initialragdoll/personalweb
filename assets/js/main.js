@@ -96,6 +96,12 @@
 				windowMargin: 50,
 				usePopupNav: true,
 
+				 // NEW: The selector tells Poptrox which links to grab
+    selector: '.gallery > article > a',
+
+    // NEW: We need to use the content to pull the caption
+    usePopupCaptionFromContent: true,
+
 				// New: Add a custom link to the caption on open.
     onOpen: function() {
         var artstationUrl = this._$a.attr('data-artstation-url');
@@ -377,6 +383,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

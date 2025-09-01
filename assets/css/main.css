@@ -1432,56 +1432,62 @@ p {
 
 /* Gallery */
 
-/* Gallery Layout */
+/* Work Section Styling - This is the new part to add */
+#work {
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Vertically centers the content */
+    justify-content: center; /* Horizontally centers the content */
+    min-height: 100vh; /* Ensures the section takes at least the full viewport height */
+    padding: 3em 0; /* Adds some vertical padding */
+    box-sizing: border-box; /* Ensures padding is included in the total height */
+}
+
+/* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-    grid-auto-rows: 1fr; /* This ensures all rows are the same height */
+    grid-auto-rows: minmax(auto, 1fr);
     gap: 1.5em; /* Space between images */
     width: 90vw; /* Takes up 90% of the viewport width */
+    max-width: 1200px; /* Optional: set a max-width for very large screens */
     margin: 0 auto;
+    flex-grow: 1; /* Allows the gallery to grow to fill space within the section */
 }
 
 /* Featured Image */
 .gallery .featured-image {
-    grid-column: span 2; /* This makes the image span 2 columns */
-    grid-row: span 2; /* This makes the image span 2 rows */
+    grid-column: span 2; /* Makes the image span 2 columns */
+    grid-row: span 2; /* Makes the image span 2 rows */
 }
 
-/* This is a crucial addition to make the smaller images square */
+/* Image Sizing - This creates the rectangular shape */
 .gallery article .image {
     position: relative;
-    padding-top: 100%; /* Makes the container a perfect square */
-    height: 0;
+    height: 100%; /* Ensures the container takes full height of grid cell */
     overflow: hidden;
+    display: block;
 }
 
-/* This scales the image to fit the square container */
 .gallery article img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This makes the image fill the square without distortion */
+    object-fit: cover; /* This makes the image cover the space */
+    display: block;
 }
 
-/* This removes the old transitions that can conflict with the new layout */
-.gallery article {
-    transition: none;
-    transform: none;
-}
-
-/* Mobile Layout */
+/* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
     .gallery {
         grid-template-columns: 1fr; /* 1 column on mobile */
+        width: 95vw; /* Slightly more width on mobile */
     }
 
-    /* The featured image won't need to span anything as it's a single column */
     .gallery .featured-image {
-        grid-column: auto;
-        grid-row: auto;
+        grid-column: 1 / -1; /* Spans the full width of the grid */
+        grid-row: auto; /* Allow auto sizing */
     }
 }
 

@@ -1490,6 +1490,9 @@ p {
         display: grid;
         width: 95vw;
         gap: 1.5em;
+
+        /* Define the columns */
+        grid-template-columns: 1fr 1fr;
         
         /* Define the grid layout using a visual map */
         grid-template-areas:

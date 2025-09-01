@@ -80,10 +80,6 @@ $window.on('load', function() {
     var $gallery = $('.gallery');
 
     $gallery.poptrox({
-        selector: '.gallery > article > a',
-        usePopupCaption: true,
-        usePopupCaptionFromContent: true,
-        
         baseZIndex: 10001,
         useBodyOverflow: false,
         usePopupEasyClose: false,
@@ -93,6 +89,11 @@ $window.on('load', function() {
         popupLoaderText: '',
         windowMargin: 50,
         usePopupNav: true,
+
+        // Place these properties here
+        selector: '.gallery > article > a',
+        usePopupCaption: true,
+        usePopupCaptionFromContent: true,
 
         // Add the custom link on open
         onOpen: function() {
@@ -375,6 +376,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

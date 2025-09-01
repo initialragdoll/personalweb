@@ -1486,10 +1486,13 @@ p {
 
 
 /* Mobile Layout - REPLACING the old media query */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 736px) {
     /* Set the work section's height to automatically fit its content on mobile */
     #work {
         min-height: auto;
+    }
+	 #work h2 {
+        margin-bottom: 0.5em; /* Adjust or remove as needed */
     }
     
     /* Set the gallery to a two-column grid on mobile */

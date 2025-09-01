@@ -1438,12 +1438,12 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 3em 0; /* Adding top and bottom padding for the entire section */
+    padding: 0 0 3em 0;
     box-sizing: border-box;
 }
 
 #work h2 {
-    margin-bottom: 0; /* Setting the margin to 0 to remove all space below the title */
+    margin-bottom: 0.5em;
 }
 
 /* Gallery Layout - REPLACING the old Gallery CSS */
@@ -1454,18 +1454,16 @@ p {
     gap: 1.5em;
     width: 90vw;
     max-width: 1200px;
-    margin-top: 2em; /* This is the key. Use a specific margin-top here */
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     flex-grow: 1;
+    grid-auto-flow: dense; /* This is the key fix */
 }
 
 /* Featured Image */
 .gallery .featured-image {
-    grid-column: span 2; /* Makes the image span 2 columns */
+    grid-column: span 2;
     grid-row: span 2;
 }
-
 
 /* Animation State 1: Inactive (off-screen) */
 .gallery.inactive article {
@@ -1487,25 +1485,24 @@ p {
 .gallery article:nth-child(4) { transition-delay: 0.4s; }
 .gallery article:nth-child(5) { transition-delay: 0.5s; }
 .gallery article:nth-child(6) { transition-delay: 0.6s; }
-/* Continue for all your articles */
-
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 736px) {
     #work {
         min-height: auto;
     }
-   
     .gallery {
         grid-template-columns: 1fr 1fr;
         width: 95vw;
         gap: 0.5em;
         margin-top: 0;
+        grid-auto-flow: dense; /* Add this to your mobile rule as well */
     }
     .gallery .featured-image {
         grid-column: span 2;
     }
-    /* This will fix the gaps */
+    /*
+    Remove the following rules, as they are causing the gaps
     .gallery article:nth-of-type(2) {
         grid-row: 2;
         grid-column: 1;
@@ -1514,6 +1511,7 @@ p {
         grid-row: 2;
         grid-column: 2;
     }
+    */
 }
 
 /* Header */

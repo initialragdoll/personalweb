@@ -1438,23 +1438,26 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 0 3em 0;
+    padding: 3em 0; /* Adding top and bottom padding for the entire section */
     box-sizing: border-box;
 }
 
 #work h2 {
-    margin-bottom: 0.5em; /* A smaller margin is fine, or use 0 for no gap */
+    margin-bottom: 0; /* Setting the margin to 0 to remove all space below the title */
 }
+
 /* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
-    gap: 1.5em; /* Space between images */
-    width: 90vw; /* Takes up 90% of the viewport width */
-    max-width: 1200px; /* Optional: set a max-width for very large screens */
-    margin: 0 auto;
-    flex-grow: 1; /* Allows the gallery to grow to fill space within the section */
+    gap: 1.5em;
+    width: 90vw;
+    max-width: 1200px;
+    margin-top: 2em; /* This is the key. Use a specific margin-top here */
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 1;
 }
 
 /* Featured Image */

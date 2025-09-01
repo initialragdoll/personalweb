@@ -1478,16 +1478,49 @@ p {
     display: block;
 }
 
+
+/* Animation State 1: Inactive (off-screen) */
+.gallery.inactive article {
+    opacity: 0;
+    transform: translateY(2em); /* Move images down initially */
+}
+
+/* You can still use these if you want different directions */
+.gallery.inactive article:nth-child(even) {
+    transform: translateX(2em); /* From the right */
+}
+
+.gallery.inactive article:nth-child(odd) {
+    transform: translateX(-2em); /* From the left */
+}
+
+/* Animation State 2: Active (on-screen) */
+.gallery article {
+    transition: transform 1s ease, opacity 1s ease;
+    transform: none; /* Reset transform for active state */
+    opacity: 1;
+}
+
+/* Add a transition delay to each article to create a staggered effect */
+.gallery article:nth-child(1) { transition-delay: 0s; }
+.gallery article:nth-child(2) { transition-delay: 0.1s; }
+.gallery article:nth-child(3) { transition-delay: 0.2s; }
+.gallery article:nth-child(4) { transition-delay: 0.3s; }
+/* ... continue for all your articles ... */
+
+
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
+    /* Set the gallery to a two-column grid on mobile */
     .gallery {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-        width: 95vw; /* Slightly more width on mobile */
+        grid-template-columns: 1fr 1fr;
+        width: 95vw;
     }
 
+    /* Make the featured image span both columns */
     .gallery .featured-image {
-        grid-column: 1 / -1; /* Spans the full width of the grid */
-        grid-row: auto; /* Allow auto sizing */
+        grid-column: span 2;
+        grid-row: auto;
     }
 }
 

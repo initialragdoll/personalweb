@@ -1467,24 +1467,6 @@ p {
 }
 */
 
-/* Image Sizing - This creates the rectangular shape */
-.gallery article .image {
-    position: relative;
-    padding-bottom: 56.25%; /* 9 / 16 = 0.5625, creating a 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    display: block;
-}
-
-.gallery article img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This makes the image cover the container without distortion */
-}
-
 
 
 /* Animation State 1: Inactive (off-screen) */
@@ -1505,6 +1487,8 @@ p {
 .gallery article:nth-child(2) { transition-delay: 0.1s; }
 .gallery article:nth-child(3) { transition-delay: 0.2s; }
 .gallery article:nth-child(4) { transition-delay: 0.3s; }
+.gallery article:nth-child(5) { transition-delay: 0.3s; }
+.gallery article:nth-child(6) { transition-delay: 0.3s; }
 /* Continue for all your articles */
 
 

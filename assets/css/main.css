@@ -1486,35 +1486,50 @@ p {
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
-    /* Set the gallery to a two-column grid on mobile */
     .gallery {
-        grid-template-columns: 1fr 1fr;
+        display: grid;
         width: 95vw;
+        gap: 1.5em;
+        
+        /* Define the grid layout using a visual map */
+        grid-template-areas:
+            "featured featured"
+            "image2   image3"
+            "image4   image5"
+            "image6   image7"
+            "image8   image9";
     }
 
-    /* Make the featured image span both columns */
+    /* Assign each image to its specific area */
     .gallery .featured-image {
-        grid-column: span 2;
+        grid-area: featured;
     }
-    
-    /* NEW: This will fix the gaps */
+
     .gallery article:nth-of-type(2) {
-        grid-row: 2;
-        grid-column: 1;
+        grid-area: image2;
     }
-    
+
     .gallery article:nth-of-type(3) {
-        grid-row: 2;
-        grid-column: 2;
+        grid-area: image3;
+    }
+
+    .gallery article:nth-of-type(4) {
+        grid-area: image4;
+    }
+
+    .gallery article:nth-of-type(5) {
+        grid-area: image5;
+    }
+
+    .gallery article:nth-of-type(6) {
+        grid-area: image6;
+    }
+
+    .gallery article:nth-of-type(7) {
+        grid-area: image7;
     }
 }
 
-    /* All other images will flow automatically after these */
-    .gallery article:nth-of-type(n+4) {
-        grid-column: auto;
-        grid-row: auto;
-    }
-}
 /* Header */
 
 	#header {

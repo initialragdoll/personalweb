@@ -1434,13 +1434,13 @@ p {
 
 /* Work Section Styling - This is the new part to add */
 #work {
-    display: flex; /* Use flexbox to center content */
-    align-items: center; /* Vertically centers the content */
-    justify-content: center; /* Horizontally centers the content */
-    min-height: 100vh; /* Ensures the section takes at least the full viewport height */
-	margin: 0; /* This removes the top and bottom margin */
-    padding: 1em 0; /* Adds some vertical padding */
-    box-sizing: border-box; /* Ensures padding is included in the total height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0; /* Changed from 1em to 0 */
+    box-sizing: border-box;
 }
 #work h2 {
     margin: 0 0 0.5em 0; /* Sets a small bottom margin */

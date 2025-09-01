@@ -76,42 +76,22 @@
 		}
 
 	// Gallery.
-$window.on('load', function() {
+		$window.on('load', function() {
 
-    var $gallery = $('.gallery');
+			var $gallery = $('.gallery');
 
-    $gallery.poptrox({
-        baseZIndex: 10001,
-        useBodyOverflow: false,
-        usePopupEasyClose: false,
-        overlayColor: '#1f2328',
-        overlayOpacity: 0.65,
-        usePopupDefaultStyling: false,
-        usePopupCaption: true, // This is a required property for a caption
-        popupLoaderText: '',
-        windowMargin: 50,
-        usePopupNav: true,
-
-        // Place these custom properties at the end, separated by commas
-        selector: '.gallery > article > a',
-        usePopupCaptionFromContent: true,
-
-        onOpen: function() {
-            var artstationUrl = this._$a.attr('data-artstation-url');
-            
-            if (artstationUrl) {
-                var $caption = this._$caption;
-                $caption.append('<br /><a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
-            }
-        },
-        
-        onClose: function() {
-            var $caption = this._$caption;
-            $caption.find('a').remove();
-            $caption.find('br').remove();
-        }
-    });
-	
+			$gallery.poptrox({
+				baseZIndex: 10001,
+				useBodyOverflow: false,
+				usePopupEasyClose: false,
+				overlayColor: '#1f2328',
+				overlayOpacity: 0.65,
+				usePopupDefaultStyling: false,
+				usePopupCaption: true,
+				popupLoaderText: '',
+				windowMargin: 50,
+				usePopupNav: true
+			});
 
 			// Hack: Adjust margins when 'small' activates.
 				breakpoints.on('>small', function() {
@@ -376,18 +356,6 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

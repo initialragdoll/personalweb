@@ -77,27 +77,27 @@
 
 	// Gallery.
 $window.on('load', function() {
-
     var $gallery = $('.gallery');
 
     $gallery.poptrox({
         selector: '.gallery > article > a',
+        usePopupCaption: true,
+        usePopupCaptionFromContent: true,
+        
         baseZIndex: 10001,
         useBodyOverflow: false,
         usePopupEasyClose: false,
         overlayColor: '#1f2328',
         overlayOpacity: 0.65,
         usePopupDefaultStyling: false,
-        usePopupCaption: true,
         popupLoaderText: '',
         windowMargin: 50,
         usePopupNav: true,
 
-        // Add the onOpen and onClose functions
+        // Add the custom link on open
         onOpen: function() {
             var artstationUrl = this._$a.attr('data-artstation-url');
             
-            // Only append the link if the attribute exists
             if (artstationUrl) {
                 var $caption = this._$caption;
                 $caption.append('<br /><a href="' + artstationUrl + '" target="_blank">Check more on ArtStation</a>');
@@ -107,7 +107,7 @@ $window.on('load', function() {
         onClose: function() {
             var $caption = this._$caption;
             $caption.find('a').remove();
-            $caption.find('br').remove(); // Also remove the line break
+            $caption.find('br').remove();
         }
     });
 	
@@ -375,6 +375,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

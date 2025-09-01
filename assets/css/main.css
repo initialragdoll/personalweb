@@ -1434,13 +1434,14 @@ p {
 
 /* Work Section Styling - This is the new part to add */
 #work {
-    display: block; /* Changed from flex */
-    text-align: center; /* To center the title */
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Vertically centers the content */
+    justify-content: center; /* Horizontally centers the content */
+    min-height: 100vh; /* Ensures the section takes at least the full viewport height */
+    padding: 3em 0; /* Adds some vertical padding */
+    box-sizing: border-box; /* Ensures padding is included in the total height */
 }
+
 
 /* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {
@@ -1484,7 +1485,6 @@ p {
 /* Continue for all your articles */
 
 
-/* Mobile Layout - REPLACING the old media query */
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
     /* Set the work section's height to automatically fit its content on mobile */

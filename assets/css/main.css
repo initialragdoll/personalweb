@@ -1434,14 +1434,15 @@ p {
 
 /* Work Section Styling - This is the new part to add */
 #work {
-    display: flex; /* Use flexbox to center content */
-    align-items: center; /* Vertically centers the content */
-    justify-content: center; /* Horizontally centers the content */
-    min-height: 100vh; /* Ensures the section takes at least the full viewport height */
-    padding: 3em 0; /* Adds some vertical padding */
-    box-sizing: border-box; /* Ensures padding is included in the total height */
+    display: flex;
+    flex-direction: column; /* Add this to stack children vertically */
+    align-items: center;
+    justify-content: center;
+    /* REMOVE or comment out the line below */
+    /* min-height: 100vh; */ 
+    padding: 3em 0;
+    box-sizing: border-box;
 }
-
 
 /* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {

@@ -1508,24 +1508,15 @@ p {
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 480px) {
-    /* Set the gallery to a three-column grid on mobile */
+    /* Set the gallery to a two-column grid on mobile */
     .gallery {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr; /* This creates three columns, with the first being wider */
-        gap: 1.5em; /* Add a consistent gap */
+        grid-template-columns: 1fr 1fr;
         width: 95vw;
-        max-width: none; /* Remove any max-width */
     }
 
-    /* The featured image should span the first two columns */
+    /* Make the featured image span both columns */
     .gallery .featured-image {
         grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    /* Ensure all other images fit the grid */
-    .gallery article {
-        grid-column: auto;
         grid-row: auto;
     }
 }

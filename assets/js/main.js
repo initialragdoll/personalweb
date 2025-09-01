@@ -93,7 +93,6 @@
 				usePopupNav: true,
 
 				// New: Add a custom link to the caption on open.
-					/ Add the onOpen and onClose functions
     onOpen: function() {
         var artstationUrl = this._$a.attr('data-artstation-url');
         
@@ -374,6 +373,7 @@ window.addEventListener('load', renderCarousel);
 
 
 })(jQuery);
+
 
 
 

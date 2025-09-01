@@ -1442,6 +1442,10 @@ p {
     padding: 1em 0; /* Adds some vertical padding */
     box-sizing: border-box; /* Ensures padding is included in the total height */
 }
+#work h2 {
+    margin: 0 0 0.5em 0; /* Sets a small bottom margin */
+    padding: 0;
+}
 
 /* Gallery Layout - REPLACING the old Gallery CSS */
 .gallery {

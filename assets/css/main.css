@@ -1978,7 +1978,7 @@ p {
 }  
 #one .content p {
     text-align: left; 
-	padding-left: 5vw;
+	padding-left: 1vw;
     /*max-width: 600px; /* Optional: This can help with readability on very wide screens */
 }
 /* --- START: Profile Photo Styling --- */

@@ -366,7 +366,7 @@ const multiImageProjects = {
             { type: 'image', src: '01.jpg' },
             { type: 'image', src: '01a.jpg' },
             { type: 'image', src: '01b.jpg' },
-            { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' } 
+            { type: 'video', src: 'https://www.youtube.com/embed/8MDtOFpxA0c?si=oFBE7I695ms-VKzG' } 
         ]
     },
     '02': {
@@ -433,6 +433,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

@@ -373,7 +373,6 @@ const multiImageProjects = {
         title: 'Secret Cave',
         media: [
             { type: 'image', src: '02.jpg' },
-            { type: 'video', src: 'https://www.youtube.com/embed/your-other-video-id' }
         ]
     },
 	'03': {
@@ -390,6 +389,42 @@ const multiImageProjects = {
             { type: 'video', src: 'https://www.youtube.com/embed/JN-j4ae9CZQ?si=KEvZVOhpIwKJ3kfI' }
         ]
     },
+	'05': {
+        title: 'Abandoned Greenhouse',
+        media: [
+            { type: 'image', src: '05.jpg' },
+            { type: 'video', src: 'https://www.youtube.com/embed/OcHgZU1qIEY?si=GeeMsrEYJy7slenG' }
+        ]
+    },
+	'06': {
+        title: 'Village Of The Great Flamboyant',
+        media: [
+            { type: 'image', src: '06.jpg' },
+            { type: 'video', src: 'https://www.youtube.com/embed/Sj5YnWxvWac?si=INO87d4eVyHMCtqs' }
+        ]
+    },
+	'07': {
+        title: 'Neo Tokyo',
+        media: [
+            { type: 'image', src: '07.jpg' },
+            { type: 'video', src: 'https://www.youtube.com/embed/tib_5W6__zY?si=nR0wqzJAI39gb0I9' }
+        ]
+    },
+	'08': {
+        title: 'Endless Peony Flower',
+        media: [
+            { type: 'image', src: '08.jpg' },
+            { type: 'video', src: 'https://www.youtube.com/embed/_ANqFyTytVc?si=Pg-G9YXZL2tYvXMq' }
+        ]
+    },
+	'09': {
+        title: 'Nevalyashka doll',
+        media: [
+            { type: 'image', src: '09.jpg' },
+        ]
+    },
+	
+	
     // Add other projects using their corresponding numbers
 };
 
@@ -447,6 +482,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

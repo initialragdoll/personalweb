@@ -1976,6 +1976,9 @@ p {
     background-attachment: fixed, fixed;
     background-position: top left, center center;
 }  
+#one .content {
+    text-align: left; 
+}
 /* --- START: Profile Photo Styling --- */
 .about-profile {
     display: block;

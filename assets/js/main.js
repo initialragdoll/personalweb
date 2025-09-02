@@ -434,6 +434,7 @@ const multiImageProjects = {
         title: 'Nevalyashka doll',
         media: [
             { type: 'image', src: '09.jpg' },
+			 { type: 'video', src: 'https://www.youtube.com/embed/tc1Kjwll_qo?si=opjDUGenkRmuk45L' }
         ]
     },
 	
@@ -495,6 +496,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

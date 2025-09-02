@@ -1971,7 +1971,7 @@ p {
     flex-direction: column;
     justify-content: center; /* This centers content vertically */
     align-items: center; /* This centers content horizontally */
-    background: url("images/overlay.png"), /* url("../../images/one.jpg");*/
+    background: url("images/overlay.png"),  url("../../images/one.jpg");
     background-size: 256px 256px, cover;
     background-attachment: fixed, fixed;
     background-position: top left, center center;

@@ -1442,13 +1442,13 @@ p {
     /*justify-content: flex-start;*/
     padding: 1em 0 3em 0; 
     box-sizing: border-box;
-	padding-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
-
 
 #work h2 {
     margin-bottom: 0.5em;
 }
+
 /* Override content div to fix horizontal gaps */
 #work > .content {
     max-width: none;
@@ -1461,11 +1461,13 @@ p {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
     gap: 1.5em;
-    width: 100%; /* Change from 90vw to 100% */
-    max-width: 1200px; 
+    width: 100%;
+    max-width: none; /* <--- CHANGED THIS TO REMOVE THE LIMIT */
     margin: 0 auto;
     flex-grow: 1;
     grid-auto-flow: dense;
+    padding-left: 5vw; /* <--- ADDED PADDING FOR SPACING */
+    padding-right: 5vw; /* <--- ADDED PADDING FOR SPACING */
 }
 
 /* Featured Image */
@@ -1506,12 +1508,13 @@ p {
         gap: 0.5em;
         margin-top: 0;
         grid-auto-flow: dense; /* Add this to your mobile rule as well */
+        padding-left: 2.5vw; /* <--- MODIFIED PADDING FOR MOBILE */
+        padding-right: 2.5vw; /* <--- MODIFIED PADDING FOR MOBILE */
     }
     .gallery .featured-image {
         grid-column: span 2;
     }
 }
-
 
 
 /* Header */

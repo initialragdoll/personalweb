@@ -355,7 +355,76 @@ if (nextBtn) nextBtn.addEventListener('click', nextProject);
 window.addEventListener('load', renderCarousel);
 
 
+/* --- START: Custom Multi-Image/Video Gallery --- */
+
+// 1. Define your projects with their media files and types
+const multiImageProjects = {
+    '01': [
+        { type: 'image', src: '01.jpg' },
+        { type: 'image', src: '01a.jpg' },
+        { type: 'image', src: '01b.jpg' },
+        // To add a YouTube video, use 'video' type and the embed URL
+        { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' } 
+    ],
+    '02': [
+        { type: 'image', src: '02.jpg' },
+        { type: 'video', src: 'https://www.youtube.com/embed/your-other-video-id' }
+    ]
+    // Add other projects using their corresponding numbers
+};
+
+// 2. Get the necessary DOM elements for the new modal
+const multiImageLinks = document.querySelectorAll('.multi-image-link');
+const multiImageModal = document.getElementById('multi-image-modal');
+const scrollContainer = multiImageModal.querySelector('.scroll-container');
+const closeCustomButton = multiImageModal.querySelector('.custom-close-button');
+
+// 3. Add event listeners to each multi-image link
+multiImageLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const projectKey = this.getAttribute('data-project');
+        
+        if (multiImageProjects[projectKey]) {
+            scrollContainer.innerHTML = ''; // Clear previous content
+            
+            multiImageProjects[projectKey].forEach(media => {
+                if (media.type === 'image') {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = `images/fulls/${media.src}`;
+                    scrollContainer.appendChild(imgElement);
+                } else if (media.type === 'video') {
+                    const videoWrapper = document.createElement('div');
+                    videoWrapper.className = 'video-wrapper';
+                    const iframeElement = document.createElement('iframe');
+                    iframeElement.src = media.src;
+                    iframeElement.setAttribute('frameborder', '0');
+                    iframeElement.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+                    iframeElement.setAttribute('allowfullscreen', '');
+                    videoWrapper.appendChild(iframeElement);
+                    scrollContainer.appendChild(videoWrapper);
+                }
+            });
+            multiImageModal.style.display = 'block';
+        }
+    });
+});
+
+// 4. Add functionality to close the modal
+closeCustomButton.onclick = function() {
+    multiImageModal.style.display = 'none';
+};
+window.onclick = function(event) {
+    if (event.target === multiImageModal) {
+        multiImageModal.style.display = 'none';
+    }
+};
+
+/* --- END: Custom Multi-Image/Video Gallery --- */
+
+
 })(jQuery);
+
 
 
 

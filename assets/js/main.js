@@ -380,6 +380,9 @@ const multiImageProjects = {
         title: 'A place at Guadeloupe',
         media: [
             { type: 'image', src: '03.jpg' },
+			{ type: 'image', src: '03a.jpg' },
+            { type: 'image', src: '03b.jpg' },
+			{ type: 'image', src: '03c.jpg' },
             { type: 'video', src: 'https://www.youtube.com/embed/y1WwJR0QAJ8?si=lHKz8OG5jADqlSVr' }
         ]
     },
@@ -488,6 +491,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

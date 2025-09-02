@@ -78,7 +78,8 @@
 	// Gallery.
 		$window.on('load', function() {
 
-			var $gallery = $('.gallery');
+			// This is the updated line. It selects all gallery links EXCEPT the multi-image ones.
+			var $gallery = $('.gallery a:not(.multi-image-link)');
 
 			$gallery.poptrox({
 				baseZIndex: 10001,
@@ -424,6 +425,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

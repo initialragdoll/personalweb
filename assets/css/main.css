@@ -755,7 +755,7 @@ p {
 			input[type="reset"].style2:hover,
 			.button.style2:hover,
 			button.style2:hover {
-				background-color: #d1ab2a;
+				background-color: rgba(74, 178, 172, 0.125); /*Section #one button hovered color*/
 			}
 
 			input[type="button"].style2:active,

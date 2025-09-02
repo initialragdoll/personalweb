@@ -360,17 +360,21 @@ window.addEventListener('load', renderCarousel);
 
 // 1. Define your projects with their media files and types
 const multiImageProjects = {
-    '01': [
-        { type: 'image', src: '01.jpg' },
-        { type: 'image', src: '01a.jpg' },
-        { type: 'image', src: '01b.jpg' },
-        // To add a YouTube video, use 'video' type and the embed URL
-        { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' } 
-    ],
-    '02': [
-        { type: 'image', src: '02.jpg' },
-        { type: 'video', src: 'https://www.youtube.com/embed/your-other-video-id' }
-    ]
+    '01': {
+        title: 'The Anonymous Red',
+        media: [
+            { type: 'image', src: '01.jpg' },
+            { type: 'image', src: '01a.jpg' },
+            { type: 'image', src: '01b.jpg' },
+            { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' } 
+        ]
+    },
+    '02': {
+        title: 'Cyberpunk Dreams',
+        media: [
+            { type: 'image', src: '02.jpg' },
+            { type: 'video', src: 'https://www.youtube.com/embed/your-other-video-id' }
+        ]
     // Add other projects using their corresponding numbers
 };
 
@@ -384,12 +388,14 @@ const closeCustomButton = multiImageModal.querySelector('.custom-close-button');
 multiImageLinks.forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
-        const projectKey = this.getAttribute('data-project');
+        const projectData = multiImageProjects[this.getAttribute('data-project')];
         
-        if (multiImageProjects[projectKey]) {
+        if (projectData) {
+            // Set the modal title from the data
+            customModalTitle.textContent = projectData.title;
             scrollContainer.innerHTML = ''; // Clear previous content
             
-            multiImageProjects[projectKey].forEach(media => {
+            projectData.media.forEach(media => {
                 if (media.type === 'image') {
                     const imgElement = document.createElement('img');
                     imgElement.src = `images/fulls/${media.src}`;
@@ -425,6 +431,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

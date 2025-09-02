@@ -1977,7 +1977,8 @@ p {
     background-position: top left, center center;
 }  
 #one .content p {
-    text-align: left; /* This will align only the paragraph text to the left */
+    text-align: left; 
+	padding-left: 5vw;
     /*max-width: 600px; /* Optional: This can help with readability on very wide screens */
 }
 /* --- START: Profile Photo Styling --- */

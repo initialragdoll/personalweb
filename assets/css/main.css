@@ -1437,7 +1437,6 @@ p {
     padding: 1em 0 3em 0; 
     box-sizing: border-box;
     padding-bottom: 0 !important; 
-	margin-bottom: 5em; /* <--- ADD THIS LINE */
 }
 
 #work h2 {
@@ -1967,12 +1966,12 @@ p {
 /* One */
 
 	#one {
-    min-height: 100vh; /* This sets the minimum height to 100% of the viewport height */
+    /*min-height: 100vh; */ /* This sets the minimum height to 100% of the viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center; /* This centers content vertically */
     align-items: center; /* This centers content horizontally */
-    background: url("images/overlay.png"),  url("../../images/one.jpg");
+    background: url("images/overlay.png"),  /*url("../../images/one.jpg");*/
     background-size: 256px 256px, cover;
     background-attachment: fixed, fixed;
     background-position: top left, center center;

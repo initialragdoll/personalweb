@@ -366,6 +366,7 @@ const multiImageProjects = {
             { type: 'image', src: '01.jpg' },
             { type: 'image', src: '01a.jpg' },
             { type: 'image', src: '01b.jpg' },
+			{ type: 'image', src: '01c.jpg' },
             { type: 'video', src: 'https://www.youtube.com/embed/8MDtOFpxA0c?si=oFBE7I695ms-VKzG' } 
         ]
     },
@@ -407,6 +408,11 @@ const multiImageProjects = {
         title: 'Neo Tokyo',
         media: [
             { type: 'image', src: '07.jpg' },
+			{ type: 'image', src: '07a.jpg' },
+            { type: 'image', src: '07b.jpg' },
+			{ type: 'image', src: '07c.jpg' },
+			{ type: 'image', src: '07d.jpg' },
+			{ type: 'image', src: '07e.jpg' },
             { type: 'video', src: 'https://www.youtube.com/embed/tib_5W6__zY?si=nR0wqzJAI39gb0I9' }
         ]
     },
@@ -482,6 +488,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

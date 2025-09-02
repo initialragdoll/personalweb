@@ -1559,7 +1559,7 @@ p {
 
 					#header nav ul li a {
 						display: block;
-						color: #4ab2ac; /*nav link text color, was: inherit;*/
+						color: #505050; /*nav link text color, was: inherit;*/
 						text-decoration: none;
 						height: 3em;
 						line-height: 3em;

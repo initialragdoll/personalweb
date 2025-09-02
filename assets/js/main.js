@@ -375,8 +375,8 @@ const multiImageProjects = {
             { type: 'image', src: '02.jpg' },
             { type: 'video', src: 'https://www.youtube.com/embed/your-other-video-id' }
         ]
+    }
     // Add other projects using their corresponding numbers
-	}
 };
 
 // 2. Get the necessary DOM elements for the new modal
@@ -384,6 +384,7 @@ const multiImageLinks = document.querySelectorAll('.multi-image-link');
 const multiImageModal = document.getElementById('multi-image-modal');
 const scrollContainer = multiImageModal.querySelector('.scroll-container');
 const closeCustomButton = multiImageModal.querySelector('.custom-close-button');
+const customModalTitle = document.getElementById('custom-modal-title'); // ADDED THIS LINE
 
 // 3. Add event listeners to each multi-image link
 multiImageLinks.forEach(link => {
@@ -432,6 +433,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

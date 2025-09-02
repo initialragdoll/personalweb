@@ -633,7 +633,7 @@ p {
 	.box {
 		background-color: rgba(21, 21, 28, 0.3); /*Contact box bg color*/
 		color: #ffffff;/*box text color, was #39454b*/
-		padding: 2em;
+		padding: 5em;
 	}
 
 		.box > :last-child {

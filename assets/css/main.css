@@ -2197,4 +2197,11 @@ p {
     transition: 0.3s;
     cursor: pointer;
 }
+/* Custom modal title style */
+#custom-modal-title {
+    color: #d1ab2a;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
 /* --- END: Custom Modal Styles --- */

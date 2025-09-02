@@ -380,14 +380,14 @@ const multiImageProjects = {
         title: 'A place at Guadeloupe',
         media: [
             { type: 'image', src: '03.jpg' },
-            { type: 'video', src: 'https://www.youtube.com/embed/JN-j4ae9CZQ?si=KEvZVOhpIwKJ3kfI' }
+            { type: 'video', src: 'https://www.youtube.com/embed/y1WwJR0QAJ8?si=lHKz8OG5jADqlSVr' }
         ]
     },
 	'04': {
         title: 'Winter River',
         media: [
             { type: 'image', src: '04.jpg' },
-            { type: 'video', src: 'https://www.youtube.com/embed/y1WwJR0QAJ8?si=lHKz8OG5jADqlSVr' }
+            { type: 'video', src: 'https://www.youtube.com/embed/JN-j4ae9CZQ?si=KEvZVOhpIwKJ3kfI' }
         ]
     },
     // Add other projects using their corresponding numbers
@@ -447,6 +447,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

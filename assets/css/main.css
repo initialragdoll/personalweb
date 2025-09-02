@@ -1976,6 +1976,34 @@ p {
     background-attachment: fixed, fixed;
     background-position: top left, center center;
 }  
+/* --- START: Profile Photo Styling --- */
+.about-profile {
+    display: block;
+    border-radius: 50%; /* Makes the photo a perfect circle */
+    max-width: 200px; /* Limits the photo to a maximum size on large screens */
+    width: 20%; /* Sets the photo to take up 20% of the screen's width */
+    height: auto;
+    margin: 0 auto 2em; /* Centers the photo and adds space below it */
+    border: 3px solid #d1ab2a; /* Optional: Adds a circular border around the photo */
+}
+
+/* Adjust size for very large screens */
+@media screen and (min-width: 1281px) {
+    .about-profile {
+        max-width: 250px;
+    }
+}
+
+/* Adjust size for smaller screens (phones) */
+@media screen and (max-width: 736px) {
+    .about-profile {
+        max-width: 150px; /* Makes the photo a little smaller on phones */
+        width: 35%; /* Increases the percentage to ensure it's visible */
+    }
+}
+/* --- END: Profile Photo Styling --- */
+
+
 /* Two 
 
 	#two {

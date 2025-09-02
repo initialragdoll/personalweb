@@ -746,7 +746,7 @@ p {
 		.button.style2,
 		button.style2 {
 			background-color: transparent;
-			border: solid 2px #ffffff;/*Anchored button border color*/
+			border: solid 2px ##ffffff42;/*Anchored button border color*/
 			color: inherit;
 		}
 

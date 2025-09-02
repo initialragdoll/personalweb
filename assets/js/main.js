@@ -376,6 +376,7 @@ const multiImageProjects = {
             { type: 'video', src: 'https://www.youtube.com/embed/your-other-video-id' }
         ]
     // Add other projects using their corresponding numbers
+	}
 };
 
 // 2. Get the necessary DOM elements for the new modal
@@ -431,6 +432,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

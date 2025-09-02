@@ -404,6 +404,10 @@ const multiImageProjects = {
         title: 'Village Of The Great Flamboyant',
         media: [
             { type: 'image', src: '06.jpg' },
+			{ type: 'image', src: '06a.jpg' },
+            { type: 'image', src: '06b.jpg' },
+			{ type: 'image', src: '06c.jpg' },
+			{ type: 'image', src: '06d.jpg' },
             { type: 'video', src: 'https://www.youtube.com/embed/Sj5YnWxvWac?si=INO87d4eVyHMCtqs' }
         ]
     },
@@ -491,6 +495,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

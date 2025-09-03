@@ -427,7 +427,7 @@ const multiImageProjects = {
         title: 'Endless Peony Flower',
         media: [
             { type: 'image', src: '08.jpg' },
-            { type: 'video', src: 'https://www.youtube.com/embed/_ANqFyTytVc?si=Pg-G9YXZL2tYvXMq' }
+            { type: 'video', src: 'https://www.youtube.com/embed/_ANqFyTytVc?si=U4M4RxE7pBNGdHZB' }
         ]
     },
 	'09': {
@@ -496,6 +496,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

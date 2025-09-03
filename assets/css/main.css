@@ -1490,6 +1490,9 @@ p {
 .gallery article:nth-child(4) { transition-delay: 0.4s; }
 .gallery article:nth-child(5) { transition-delay: 0.5s; }
 .gallery article:nth-child(6) { transition-delay: 0.6s; }
+.gallery article:nth-child(7) { transition-delay: 0.7s; }
+.gallery article:nth-child(8) { transition-delay: 0.8s; }
+.gallery article:nth-child(9) { transition-delay: 0.9s; }
 
 /* Mobile Layout - REPLACING the old media query */
 @media screen and (max-width: 736px) {

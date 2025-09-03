@@ -361,7 +361,7 @@ window.addEventListener('load', renderCarousel);
 // 1. Define your projects with their media files and types
 const multiImageProjects = {
     '01': {
-        title: 'The Anonymous Red',
+        title: 'Chess Club',
         media: [
             { type: 'image', src: '01.jpg' },
             { type: 'image', src: '01a.jpg' },
@@ -496,6 +496,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

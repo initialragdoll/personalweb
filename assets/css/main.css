@@ -773,7 +773,7 @@ p {
 			input[type="reset"].style2.down,
 			.button.style2.down,
 			button.style2.down {
-				background-image: url("images/Logo_150_150.png"); /*was images/dark-arrow.svg*/
+				background-image: url("images/Logo_150_150.gif"); /*was images/dark-arrow.svg*/
 			}
 
 /* Form */

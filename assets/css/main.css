@@ -765,7 +765,7 @@ p {
 			input[type="reset"].style2:active,
 			.button.style2:active,
 			button.style2:active {
-				background-color: #d1ab2a;
+				background-color: rgba(74, 178, 172, 0.25);
 			}
 
 			input[type="button"].style2.down,

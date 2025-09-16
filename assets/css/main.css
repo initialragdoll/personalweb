@@ -2260,8 +2260,6 @@ p {
 .floating-button {
   display: none;
 }
-
-/* On screens that are 768px or smaller, show and position the button */
 @media (max-width: 768px) {
   .floating-button {
     display: block; /* Make the button visible */

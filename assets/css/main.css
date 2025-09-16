@@ -2257,11 +2257,23 @@ p {
 
 
 /* Floating Button CSS */
+.floating-button {
+  display: none;
+}
+
+/* On screens that are 768px or smaller, show and position the button */
 @media (max-width: 768px) {
   .floating-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
+    display: block; /* Make the button visible */
+    position: fixed; /* Fix its position relative to the viewport */
+    bottom: 20px; /* Position it 20 pixels from the bottom */
+    left: 20px; /* Position it 20 pixels from the left */
+    z-index: 1000; /* Ensure it's on top of other content */
+    border-radius: 50%; /* Optional: Make the button perfectly round */
+    width: 60px; /* Optional: Set a fixed width for the circular button */
+    height: 60px; /* Optional: Set a fixed height for the circular button */
+    padding: 0; /* Optional: Remove padding for a tight circular shape */
+    line-height: 60px; /* Optional: Center content vertically */
+    text-align: center; /* Optional: Center content horizontally */
   }
 }

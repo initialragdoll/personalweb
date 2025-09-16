@@ -548,7 +548,11 @@ input, select, textarea {
 		}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 900;
+		/*Kirang Haerang fonts*/
+		font-family: "Kirang Haerang", system-ui;
+		font-weight: 400;
+		font-style: normal;
+		/*font-weight: 900;*/
 		color: #d1ab2a;
 		letter-spacing: -0.0325em;
 	}

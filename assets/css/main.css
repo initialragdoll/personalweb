@@ -1959,7 +1959,7 @@ p {
 	height: 100vh; /* We need to explicitly set the height */
 }
 
-#intro .h1 { 
+#intro .intro-text { 
 	font-size: 3em;
 }
 

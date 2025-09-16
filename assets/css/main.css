@@ -2254,3 +2254,14 @@ p {
     margin-bottom: 20px;
 }
 /* --- END: Custom Modal Styles --- */
+
+
+/* Floating Button CSS */
+@media (max-width: 768px) {
+  .floating-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+}

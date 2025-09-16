@@ -1959,6 +1959,10 @@ p {
 	height: 100vh; /* We need to explicitly set the height */
 }
 
+#intro .h1 { 
+	font-size: 3em;
+}
+
 #bg-video {
 	position: absolute;
 	top: 50%;

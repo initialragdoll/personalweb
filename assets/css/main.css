@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
+:root {
+    /* Define universal colors */
+    --primary-color: var(--primary-color);    /* The gold/yellow for buttons/highlights */
+    --title-color: #ffffff;      /* All H1, H2, H3 etc. */
+    --text-color: #bbbbbb;       /* All paragraph/small text */
+    --bg-dark: #111111;          /* Your main background */
+}  
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -553,7 +561,7 @@ input, select, textarea {
 		font-weight: 400;
 		font-style: normal;
 		/*font-weight: 900;*/
-		color: #d1ab2a;
+		color: var(--primary-color);
 		letter-spacing: -0.0325em;
 	}
 
@@ -569,7 +577,7 @@ input, select, textarea {
 	}
 /*Set intro title text color*/
 .welcome-heading {
-    color: #d1ab2a; 
+    color: var(--primary-color); 
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
@@ -602,7 +610,7 @@ p {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #d1ab2a; /*Send text color, was #98c593*/
+		color: var(--primary-color); /*Send text color, was #98c593*/
 	}
 
 	sub {
@@ -735,7 +743,7 @@ p {
 		input[type="reset"]:hover,
 		.button:hover,
 		button:hover {
-			background-color: #d1ab2a;
+			background-color: var(--primary-color);
 		}
 
 		input[type="button"]:active,
@@ -743,7 +751,7 @@ p {
 		input[type="reset"]:active,
 		.button:active,
 		button:active {
-			background-color: #d1ab2a;
+			background-color: var(--primary-color);
 		}
 
 		input[type="button"].style2,
@@ -1568,7 +1576,7 @@ p {
 
 					#header nav ul li a {
 						display: block;
-						color: #d1ab2a; /*nav link text color, was: inherit;*/
+						color: var(--primary-color); /*nav link text color, was: inherit;*/
 						text-decoration: none;
 						height: 3em;
 						line-height: 3em;
@@ -1886,7 +1894,7 @@ p {
 		margin: 0;
 		line-height: 1em;
 		padding: 0.5em; 
-		background: #d1ab2a; /*Footer bar color, was#39454b*/
+		background: var(--primary-color); /*Footer bar color, was#39454b*/
 		color: rgba(0, 0, 0, 1); /*footer text color*/
 		overflow: hidden;
 	}
@@ -2003,7 +2011,7 @@ p {
     width: 20%; /* Sets the photo to take up 20% of the screen's width */
     height: auto;
     margin: 0 auto 2em; /* Centers the photo and adds space below it */
-    border: 3px solid #d1ab2a; /* Optional: Adds a circular border around the photo */
+    border: 3px solid var(--primary-color); /* Optional: Adds a circular border around the photo */
 }
 
 /* Adjust size for very large screens */
@@ -2134,7 +2142,7 @@ p {
 }
 
 .link-button:hover {
-    background-color: #d1ab2a;
+    background-color: var(--primary-color);
 }
 
 /* Mobile Adjustments */
@@ -2266,7 +2274,7 @@ p {
 }
 /* Custom modal title style */
 #custom-modal-title {
-    color: #d1ab2a;
+    color: var(--primary-color);
     font-size: 2em;
     text-align: center;
     margin-bottom: 20px;

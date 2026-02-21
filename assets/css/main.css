@@ -883,12 +883,12 @@ p {
 		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		color: #4ab2ac; /*was #39454b*/
+		color: var(--button-color); /*was #39454b*/
 		display: block;
 		width: 100%;
 		padding: 0.65em 0.75em;
 		background: none;
-		border: solid 2px #4ab2ac;
+		border: solid 2px var(--button-color);
 		color: inherit;
 		border-radius: 0.5em;
 		outline: none;

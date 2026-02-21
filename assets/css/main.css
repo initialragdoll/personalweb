@@ -685,7 +685,7 @@ p {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: var(--button-color); /*submit button color, was #98c593*/
+		background-color: var(--primary-color); /*submit button color, was #98c593*/
 		border: 0;
 		border-radius: 3.5em;
 		color: #000000;/*Submit button text color*/
@@ -883,7 +883,7 @@ p {
 		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		color: var(--button-color); /*was #39454b*/
+		color: var(--primary-color); /*was #39454b*/
 		display: block;
 		width: 100%;
 		padding: 0.65em 0.75em;

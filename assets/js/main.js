@@ -243,7 +243,14 @@ const assetProjects = [
         webUrl: 'https://assetstore.unity.com/...',
         steamUrl: null,
         playStoreUrl: null,
-    }
+    },
+	{
+        desktopImage: './images/assets/Asset_02.png',
+        mobileImage: './images/assets/Asset_02_mobile.jpg',
+        webUrl: null,
+        steamUrl: null,
+        playStoreUrl: null,
+    },
 ];
 
 function initializeCarousel(projects, prefix = "") {
@@ -473,6 +480,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

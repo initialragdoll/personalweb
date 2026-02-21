@@ -2034,7 +2034,7 @@ p {
 
 /* --- START: UNIVERSAL CAROUSEL STYLES --- */
 
-/* Removed #projects to make this universal for any carousel section */
+/* Ensures both sections fill the screen */
 .carousel-container {
     position: absolute;
     top: 0;
@@ -2088,7 +2088,6 @@ p {
     background-color: rgba(74, 178, 172, 0.125);
 }
 
-/* Specific placement for navigation */
 #prevBtn, #assetPrevBtn {
     left: 1rem;
 }
@@ -2102,11 +2101,11 @@ p {
     height: 4rem;
 }
 
-/* Link buttons (Steam, Play Store, Unity, etc.) */
+/* Link buttons (STAY ON THE RIGHT SIDE) */
 .steam-link {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 1.5rem; /* Space from bottom */
+    right: 1.5rem;  /* Space from right */
     z-index: 200;
     text-decoration: none;
     transition: transform 0.3s ease-in-out;
@@ -2121,24 +2120,25 @@ p {
     font-weight: bold;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     gap: 0.5rem;
     border: none;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.4); /* Default semi-transparent */
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
 }
 
 .link-button:hover {
     background-color: #d1ab2a;
 }
 
-/* Ensure secondary buttons (like your store link) sit above the primary one if both exist */
-[id*="WebLink"] {
-    bottom: 5rem !important;
+/* Stack the Asset web link above the store link if both are visible */
+#assetWebLink {
+    bottom: 6rem !important;
 }
 
+/* Specific styling for mobile */
 @media screen and (max-width: 768px) {
     .nav-button {
         width: 4rem;
@@ -2148,12 +2148,17 @@ p {
         width: 2.5rem;
         height: 2.5rem;
     }
+    
+    /* Keep buttons on the right on mobile too */
     .steam-link {
-        right: 50%;
-        transform: translateX(50%);
+        right: 1rem;
+        bottom: 1rem;
+        transform: none; /* Removes centering */
     }
-    .steam-link:hover {
-        transform: translateX(50%) scale(1.05);
+    
+    .link-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

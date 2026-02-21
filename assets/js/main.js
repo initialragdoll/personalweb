@@ -249,17 +249,18 @@ const assetProjects = [
 ];
 
 /**
- * This function is your original code, modified slightly to work for ANY section
+ * Universal Carousel Logic
  */
 function initializeCarousel(projects, prefix = "") {
-    // We add the 'prefix' to the IDs so it knows which section to control
-    const carouselTrack = document.getElementById(prefix + 'carouselTrack');
-    const prevBtn = document.getElementById(prefix + 'prevBtn');
-    const nextBtn = document.getElementById(prefix + 'nextBtn');
-    const websiteLink = document.getElementById(prefix + 'websiteLink');
-    const platformLink = document.getElementById(prefix + 'platformLink');
-    const platformIcon = document.getElementById(prefix + 'platformIcon');
-    const platformText = document.getElementById(prefix + 'platformText');
+    // We Map the IDs based on your HTML structure
+    // If prefix is "asset", it looks for "assetTrack", "assetPrevBtn", etc.
+    const carouselTrack = document.getElementById(prefix ? prefix + 'Track' : 'carouselTrack');
+    const prevBtn = document.getElementById(prefix ? prefix + 'PrevBtn' : 'prevBtn');
+    const nextBtn = document.getElementById(prefix ? prefix + 'NextBtn' : 'nextBtn');
+    const websiteLink = document.getElementById(prefix ? prefix + 'WebLink' : 'websiteLink');
+    const platformLink = document.getElementById(prefix ? prefix + 'PlatformLink' : 'platformLink');
+    const platformIcon = document.getElementById(prefix ? prefix + 'PlatformIcon' : 'platformIcon');
+    const platformText = document.getElementById(prefix ? prefix + 'PlatformText' : 'platformText');
 
     let currentProjectIndex = 0;
 
@@ -280,6 +281,7 @@ function initializeCarousel(projects, prefix = "") {
     }
 
     function updateCarouselPosition() {
+        if (!carouselTrack) return;
         const offset = -currentProjectIndex * 100;
         carouselTrack.style.transform = `translateX(${offset}vw)`;
     }
@@ -292,27 +294,38 @@ function initializeCarousel(projects, prefix = "") {
             return;
         }
 
-        // Web Link Logic
-        if (currentProject.webUrl && websiteLink) {
-            websiteLink.href = currentProject.webUrl;
-            websiteLink.style.display = 'inline-flex';
-        } else if (websiteLink) {
-            websiteLink.style.display = 'none';
+        // Web Link / Official Website Logic
+        if (websiteLink) {
+            if (currentProject.webUrl) {
+                websiteLink.href = currentProject.webUrl;
+                websiteLink.style.display = 'inline-flex';
+            } else {
+                websiteLink.style.display = 'none';
+            }
         }
 
-        // Platform Link Logic (Steam vs Play Store)
-        if (currentProject.playStoreUrl && platformLink) {
-            platformLink.href = currentProject.playStoreUrl;
-            if (platformIcon) platformIcon.className = 'fab fa-google-play';
-            if (platformText) platformText.textContent = 'Play Store';
-            platformLink.style.display = 'inline-flex';
-        } else if (currentProject.steamUrl && platformLink) {
-            platformLink.href = currentProject.steamUrl;
-            if (platformIcon) platformIcon.className = 'fab fa-steam';
-            if (platformText) platformText.textContent = 'Steam Page';
-            platformLink.style.display = 'inline-flex';
-        } else if (platformLink) {
-            platformLink.style.display = 'none';
+        // Platform Link Logic (Steam vs Play Store vs Default Asset)
+        if (platformLink) {
+            if (currentProject.playStoreUrl) {
+                platformLink.href = currentProject.playStoreUrl;
+                if (platformIcon) platformIcon.className = 'fab fa-google-play';
+                if (platformText) platformText.textContent = 'Play Store';
+                platformLink.style.display = 'inline-flex';
+            } else if (currentProject.steamUrl) {
+                platformLink.href = currentProject.steamUrl;
+                if (platformIcon) platformIcon.className = 'fab fa-steam';
+                if (platformText) platformText.textContent = 'Steam Page';
+                platformLink.style.display = 'inline-flex';
+            } else if (prefix === 'asset') {
+                // If it's an asset and no Steam/Play link, show the default Unity link 
+                // only if a webUrl exists.
+                platformLink.style.display = currentProject.webUrl ? 'none' : 'none'; 
+                // Note: On your HTML, Asset section already has two buttons. 
+                // If you want the bottom button to stay visible for Assets:
+                platformLink.style.display = 'inline-flex';
+            } else {
+                platformLink.style.display = 'none';
+            }
         }
     }
 
@@ -336,10 +349,10 @@ function initializeCarousel(projects, prefix = "") {
 
 // Initial render for both sections
 window.addEventListener('load', () => {
-    // 1. Start the Game Carousel (uses original IDs: carouselTrack, etc.)
+    // 1. Game Carousel (Empty prefix matches: carouselTrack, prevBtn, etc.)
     initializeCarousel(gameProjects, ''); 
 
-    // 2. Start the Assets Carousel (uses new IDs: assetcarouselTrack, etc.)
+    // 2. Assets Carousel (Prefix 'asset' matches: assetTrack, assetPrevBtn, etc.)
     initializeCarousel(assetProjects, 'asset'); 
 });
 /* --- END: UNIVERSAL CAROUSEL LOGIC --- */
@@ -484,6 +497,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

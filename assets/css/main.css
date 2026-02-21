@@ -4,7 +4,7 @@
 :root {
     /* Define universal colors */
     --primary-color: #ececec;    /* The gold/yellow for buttons/highlights e.g.#d1ab2a */
-    --title-color: #ffffff;      /* All H1, H2, H3 etc. */
+    --title-color: #ececec;      /* All H1, H2, H3 etc. */
     --text-color: #9ac8e9;       /* All paragraph/small text */
 	--button-color: #4ab2ac20;
     --bg-dark: #15151c;          /* Your main background */

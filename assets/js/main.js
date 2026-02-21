@@ -217,144 +217,132 @@
 			});
 
 
-/* --- START: NEW GAME PROJECT CAROUSEL LOGIC --- */
-const carouselTrack = document.getElementById('carouselTrack');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const websiteLink = document.getElementById('websiteLink');
-const platformLink = document.getElementById('platformLink');
+/* --- START: UNIVERSAL CAROUSEL LOGIC --- */
 
-// This array holds the data for your game projects.
-const projects = [
-	/* PC Game */
-	{
-		desktopImage: './images/games/GameProject_01.jpg',
-		mobileImage: './images/games/GameProject_01_mobile.jpg',
-		webUrl: 'https://unseal.fr/',
-		steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
-		playStoreUrl: null,
-	},
-	/* Mobile Game */
-	{
-		desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
-		mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF?text=Incoming+Project',
-		webUrl: null,
-		steamUrl: null,
-		playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
-	}
-	// Add more projects as needed
+// 1. DATA FOR GAMES
+const gameProjects = [
+    {
+        desktopImage: './images/games/GameProject_01.jpg',
+        mobileImage: './images/games/GameProject_01_mobile.jpg',
+        webUrl: 'https://unseal.fr/',
+        steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
+        playStoreUrl: null,
+    },
+    {
+        desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
+        mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF?text=Incoming+Project',
+        webUrl: null,
+        steamUrl: null,
+        playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
+    }
 ];
 
-let currentProjectIndex = 0;
+// 2. DATA FOR ASSETS
+const assetProjects = [
+    {
+        desktopImage: './images/assets/Asset_01.jpg',
+        mobileImage: './images/assets/Asset_01_mobile.jpg',
+        webUrl: 'https://assetstore.unity.com/...',
+        steamUrl: null,
+        playStoreUrl: null,
+    }
+];
 
 /**
- * Renders the carousel slides and updates the links.
+ * This function is your original code, modified slightly to work for ANY section
  */
-function renderCarousel() {
-	// Clear existing slides
-	carouselTrack.innerHTML = '';
+function initializeCarousel(projects, prefix = "") {
+    // We add the 'prefix' to the IDs so it knows which section to control
+    const carouselTrack = document.getElementById(prefix + 'carouselTrack');
+    const prevBtn = document.getElementById(prefix + 'prevBtn');
+    const nextBtn = document.getElementById(prefix + 'nextBtn');
+    const websiteLink = document.getElementById(prefix + 'websiteLink');
+    const platformLink = document.getElementById(prefix + 'platformLink');
+    const platformIcon = document.getElementById(prefix + 'platformIcon');
+    const platformText = document.getElementById(prefix + 'platformText');
 
-	projects.forEach((project, index) => {
-		const slide = document.createElement('div');
-		slide.className = 'carousel-slide';
-		const isMobile = window.innerWidth <= 736;
-		const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
-		slide.style.backgroundImage = `url('${imageUrl}')`;
+    let currentProjectIndex = 0;
 
-		slide.dataset.index = index;
-		carouselTrack.appendChild(slide);
-	});
-	updateCarouselPosition();
-	updateLinks();
-}
-
-/**
- * Updates the carousel's position based on the current index.
- */
-function updateCarouselPosition() {
-	const offset = -currentProjectIndex * 100;
-	carouselTrack.style.transform = `translateX(${offset}vw)`;
-}
-
-/**
- * Updates all links based on the current project.
- */
-function updateLinks() {
-    const currentProject = projects[currentProjectIndex];
-    if (!currentProject) {
-        // If the project doesn't exist, hide all buttons.
-        if (websiteLink) websiteLink.style.display = 'none';
-        if (platformLink) platformLink.style.display = 'none';
-        return;
+    function renderCarousel() {
+        if (!carouselTrack) return;
+        carouselTrack.innerHTML = '';
+        projects.forEach((project, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            const isMobile = window.innerWidth <= 736;
+            const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+            slide.style.backgroundImage = `url('${imageUrl}')`;
+            slide.dataset.index = index;
+            carouselTrack.appendChild(slide);
+        });
+        updateCarouselPosition();
+        updateLinks();
     }
 
-    // Update the official website link
-    if (currentProject.webUrl) {
-        if (websiteLink) {
+    function updateCarouselPosition() {
+        const offset = -currentProjectIndex * 100;
+        carouselTrack.style.transform = `translateX(${offset}vw)`;
+    }
+
+    function updateLinks() {
+        const currentProject = projects[currentProjectIndex];
+        if (!currentProject) {
+            if (websiteLink) websiteLink.style.display = 'none';
+            if (platformLink) platformLink.style.display = 'none';
+            return;
+        }
+
+        // Web Link Logic
+        if (currentProject.webUrl && websiteLink) {
             websiteLink.href = currentProject.webUrl;
             websiteLink.style.display = 'inline-flex';
+        } else if (websiteLink) {
+            websiteLink.style.display = 'none';
         }
-    } else {
-        // Hide the website link if no URL is provided
-        if (websiteLink) websiteLink.style.display = 'none';
-    }
 
-    // Update the platform link (Steam or Play Store)
-    const platformIcon = document.getElementById('platformIcon');
-    const platformText = document.getElementById('platformText');
-
-    if (currentProject.playStoreUrl) {
-        if (platformLink && platformIcon && platformText) {
+        // Platform Link Logic (Steam vs Play Store)
+        if (currentProject.playStoreUrl && platformLink) {
             platformLink.href = currentProject.playStoreUrl;
-            platformIcon.className = 'fab fa-google-play';
-            platformText.textContent = 'Play Store';
+            if (platformIcon) platformIcon.className = 'fab fa-google-play';
+            if (platformText) platformText.textContent = 'Play Store';
             platformLink.style.display = 'inline-flex';
-        }
-    } else if (currentProject.steamUrl) {
-        if (platformLink && platformIcon && platformText) {
+        } else if (currentProject.steamUrl && platformLink) {
             platformLink.href = currentProject.steamUrl;
-            platformIcon.className = 'fab fa-steam';
-            platformText.textContent = 'Steam Page';
+            if (platformIcon) platformIcon.className = 'fab fa-steam';
+            if (platformText) platformText.textContent = 'Steam Page';
             platformLink.style.display = 'inline-flex';
+        } else if (platformLink) {
+            platformLink.style.display = 'none';
         }
-    } else {
-        if (platformLink) platformLink.style.display = 'none';
     }
+
+    function nextProject() {
+        currentProjectIndex = (currentProjectIndex < projects.length - 1) ? currentProjectIndex + 1 : 0;
+        updateCarouselPosition();
+        updateLinks();
+    }
+
+    function prevProject() {
+        currentProjectIndex = (currentProjectIndex > 0) ? currentProjectIndex - 1 : projects.length - 1;
+        updateCarouselPosition();
+        updateLinks();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', prevProject);
+    if (nextBtn) nextBtn.addEventListener('click', nextProject);
+
+    renderCarousel();
 }
 
-/**
- * Moves to the next project in the carousel.
- */
-function nextProject() {
-	if (currentProjectIndex < projects.length - 1) {
-		currentProjectIndex++;
-	} else {
-		currentProjectIndex = 0; // Loop back to the beginning
-	}
-	updateCarouselPosition();
-	updateLinks();
-}
+// Initial render for both sections
+window.addEventListener('load', () => {
+    // 1. Start the Game Carousel (uses original IDs: carouselTrack, etc.)
+    initializeCarousel(gameProjects, ''); 
 
-/**
- * Moves to the previous project in the carousel.
- */
-function prevProject() {
-	if (currentProjectIndex > 0) {
-		currentProjectIndex--;
-	} else {
-		currentProjectIndex = projects.length - 1; // Loop to the end
-	}
-	updateCarouselPosition();
-	updateLinks();
-}
-
-// Event listeners for navigation buttons
-if (prevBtn) prevBtn.addEventListener('click', prevProject);
-if (nextBtn) nextBtn.addEventListener('click', nextProject);
-
-// Initial render when the page loads
-window.addEventListener('load', renderCarousel);
-
+    // 2. Start the Assets Carousel (uses new IDs: assetcarouselTrack, etc.)
+    initializeCarousel(assetProjects, 'asset'); 
+});
+/* --- END: UNIVERSAL CAROUSEL LOGIC --- */
 
 /* --- START: Custom Multi-Image/Video Gallery --- */
 
@@ -496,6 +484,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

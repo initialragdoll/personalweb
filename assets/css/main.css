@@ -7,6 +7,7 @@
     --title-color: #ececec;      /* All H1, H2, H3 etc. */
     --text-color: #9ac8e9;       /* All paragraph/small text */
 	--button-color: #4ab2ac20;
+	--border-color: #ffffff40;
     --bg-dark: #15151c;          /* Your main background */
 }  
 
@@ -761,7 +762,7 @@ p {
 		.button.style2,
 		button.style2 {
 			background-color: transparent;
-			border: solid 2px #ffffff42;/*Anchored button border color*/
+			border: solid 2px var(--border-color);/*Anchored button border color*/
 			color: inherit;
 		}
 
@@ -1767,7 +1768,7 @@ p {
 			}
 
 			.main.dark .button.style2 {
-				border-color: #ffffff42;
+				border-color: var(--border-color);
 			}
 
 				.main.dark .button.style2:hover {

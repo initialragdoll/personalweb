@@ -219,7 +219,6 @@
 
 /* --- START: UNIVERSAL CAROUSEL LOGIC --- */
 
-// 1. DATA FOR GAMES
 const gameProjects = [
     {
         desktopImage: './images/games/GameProject_01.jpg',
@@ -237,7 +236,6 @@ const gameProjects = [
     }
 ];
 
-// 2. DATA FOR ASSETS
 const assetProjects = [
     {
         desktopImage: './images/assets/Asset_01.png',
@@ -248,14 +246,11 @@ const assetProjects = [
     }
 ];
 
-/**
- * Universal Carousel Engine
- */
 function initializeCarousel(projects, prefix = "") {
-    // This part matches your HTML IDs exactly
-    // If prefix is "asset", it looks for "assetTrack"
-    // If prefix is "", it looks for "carouselTrack"
-    const carouselTrack = document.getElementById(prefix ? prefix + 'Track' : 'carouselTrack');
+    // These lines are updated to match your HTML IDs exactly
+    const trackId = prefix === 'asset' ? 'assetTrack' : 'carouselTrack';
+    const carouselTrack = document.getElementById(trackId);
+    
     const prevBtn = document.getElementById(prefix ? prefix + 'PrevBtn' : 'prevBtn');
     const nextBtn = document.getElementById(prefix ? prefix + 'NextBtn' : 'nextBtn');
     const websiteLink = document.getElementById(prefix ? prefix + 'WebLink' : 'websiteLink');
@@ -266,19 +261,19 @@ function initializeCarousel(projects, prefix = "") {
     let currentProjectIndex = 0;
 
     function renderCarousel() {
-        if (!carouselTrack) return;
+        if (!carouselTrack) {
+            console.error("Target div not found:", trackId);
+            return;
+        }
         
         carouselTrack.innerHTML = '';
         projects.forEach((project, index) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
-            
-            // Check for mobile vs desktop
             const isMobile = window.innerWidth <= 736;
             const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
             
             slide.style.backgroundImage = `url('${imageUrl}')`;
-            slide.dataset.index = index;
             carouselTrack.appendChild(slide);
         });
         
@@ -296,13 +291,11 @@ function initializeCarousel(projects, prefix = "") {
         const currentProject = projects[currentProjectIndex];
         if (!currentProject) return;
 
-        // Website Button
         if (websiteLink) {
             websiteLink.href = currentProject.webUrl || "#";
             websiteLink.style.display = currentProject.webUrl ? 'inline-flex' : 'none';
         }
 
-        // Platform Button (Steam/Play Store/Unity)
         if (platformLink) {
             if (currentProject.playStoreUrl) {
                 platformLink.href = currentProject.playStoreUrl;
@@ -315,7 +308,7 @@ function initializeCarousel(projects, prefix = "") {
                 if (platformText) platformText.textContent = 'Steam Page';
                 platformLink.style.display = 'inline-flex';
             } else if (prefix === 'asset') {
-                // Keep the button visible for Assets if there's a web link
+                // If it's an asset, show the default button if webUrl exists
                 platformLink.style.display = currentProject.webUrl ? 'inline-flex' : 'none';
             } else {
                 platformLink.style.display = 'none';
@@ -338,10 +331,9 @@ function initializeCarousel(projects, prefix = "") {
     renderCarousel();
 }
 
-// Start both on page load
 window.addEventListener('load', () => {
-    initializeCarousel(gameProjects, '');      // Logic for Game Section
-    initializeCarousel(assetProjects, 'asset'); // Logic for Asset Section
+    initializeCarousel(gameProjects, '');      // Logic for Games
+    initializeCarousel(assetProjects, 'asset'); // Logic for Assets
 });
 
 /* --- END: UNIVERSAL CAROUSEL LOGIC --- */
@@ -487,6 +479,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

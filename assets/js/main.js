@@ -280,7 +280,7 @@ function initializeCarousel(projects, prefix = "") {
         updateCarouselPosition();
         updateLinks();
     }
-
+		
     function updateCarouselPosition() {
         if (!carouselTrack) return;
         carouselTrack.style.transform = `translateX(${-currentProjectIndex * 100}vw)`;
@@ -333,11 +333,24 @@ function initializeCarousel(projects, prefix = "") {
 
     renderCarousel();
 }
-
+	
+// Function to shuffle any array randomly
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+	
 window.addEventListener('load', () => {
-    initializeCarousel(gameProjects, '');
-    initializeCarousel(assetProjects, 'asset');
+    // Keeps games in the order you wrote them
+    initializeCarousel(gameProjects, '');      
+    
+    // Shuffles assets so they appear in a different order every refresh
+    initializeCarousel(shuffleArray(assetProjects), 'asset'); 
 });
+	
 /* --- END: UNIVERSAL CAROUSEL LOGIC --- */
 
 /* --- START: Custom Multi-Image/Video Gallery --- */
@@ -480,6 +493,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

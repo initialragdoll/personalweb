@@ -2034,7 +2034,6 @@ p {
 
 /* --- START: UNIVERSAL CAROUSEL STYLES --- */
 
-/* Ensures both sections fill the screen */
 .carousel-container {
     position: absolute;
     top: 0;
@@ -2045,7 +2044,6 @@ p {
     background: #111;
 }
 
-/* The track that holds all the slides */
 .carousel-track {
     display: flex;
     width: 100%;
@@ -2053,7 +2051,6 @@ p {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Individual slides */
 .carousel-slide {
     flex: 0 0 100vw;
     height: 100%;
@@ -2063,7 +2060,7 @@ p {
     position: relative;
 }
 
-/* Navigation buttons (left and right arrows) */
+/* Navigation Buttons */
 .nav-button {
     position: absolute;
     top: 50%;
@@ -2088,27 +2085,33 @@ p {
     background-color: rgba(74, 178, 172, 0.125);
 }
 
-#prevBtn, #assetPrevBtn {
-    left: 1rem;
-}
-
-#nextBtn, #assetNextBtn {
-    right: 1rem;
-}
+#prevBtn, #assetPrevBtn { left: 1rem; }
+#nextBtn, #assetNextBtn { right: 1rem; }
 
 .nav-button svg {
     width: 4rem;
     height: 4rem;
 }
 
-/* Link buttons (STAY ON THE RIGHT SIDE) */
+/* --- LINK BUTTON STACKING LOGIC --- */
+
 .steam-link {
     position: absolute;
-    bottom: 1.5rem; /* Space from bottom */
-    right: 1.5rem;  /* Space from right */
+    right: 1.5rem;
+    bottom: 1.5rem; /* Default to bottom slot */
     z-index: 200;
     text-decoration: none;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, bottom 0.3s ease;
+    display: none; /* Controlled by JS */
+}
+
+/* SMART STACKING: 
+   If a Website button is immediately followed by a Platform button 
+   that is VISIBLE (inline-flex), push the Website button to the top slot.
+*/
+#websiteLink:has(+ #platformLink[style*="inline-flex"]),
+#assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
+    bottom: 6rem;
 }
 
 .steam-link:hover {
@@ -2126,19 +2129,15 @@ p {
     gap: 0.5rem;
     border: none;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
+    background-color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
 }
 
 .link-button:hover {
     background-color: #d1ab2a;
 }
 
-/* Stack the Asset web link above the store link if both are visible */
-#assetWebLink {
-    bottom: 6rem !important;
-}
-
-/* Specific styling for mobile */
+/* Mobile Adjustments */
 @media screen and (max-width: 768px) {
     .nav-button {
         width: 4rem;
@@ -2148,19 +2147,20 @@ p {
         width: 2.5rem;
         height: 2.5rem;
     }
-    
-    /* Keep buttons on the right on mobile too */
     .steam-link {
         right: 1rem;
         bottom: 1rem;
-        transform: none; /* Removes centering */
     }
-    
+    #websiteLink:has(+ #platformLink[style*="inline-flex"]),
+    #assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
+        bottom: 4.5rem; /* Lower stack height for mobile */
+    }
     .link-button {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
 }
+
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
 /* Contact */

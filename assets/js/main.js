@@ -249,11 +249,12 @@ const assetProjects = [
 ];
 
 /**
- * Universal Carousel Logic
+ * Universal Carousel Engine
  */
 function initializeCarousel(projects, prefix = "") {
-    // We Map the IDs based on your HTML structure
-    // If prefix is "asset", it looks for "assetTrack", "assetPrevBtn", etc.
+    // This part matches your HTML IDs exactly
+    // If prefix is "asset", it looks for "assetTrack"
+    // If prefix is "", it looks for "carouselTrack"
     const carouselTrack = document.getElementById(prefix ? prefix + 'Track' : 'carouselTrack');
     const prevBtn = document.getElementById(prefix ? prefix + 'PrevBtn' : 'prevBtn');
     const nextBtn = document.getElementById(prefix ? prefix + 'NextBtn' : 'nextBtn');
@@ -266,16 +267,21 @@ function initializeCarousel(projects, prefix = "") {
 
     function renderCarousel() {
         if (!carouselTrack) return;
+        
         carouselTrack.innerHTML = '';
         projects.forEach((project, index) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
+            
+            // Check for mobile vs desktop
             const isMobile = window.innerWidth <= 736;
             const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+            
             slide.style.backgroundImage = `url('${imageUrl}')`;
             slide.dataset.index = index;
             carouselTrack.appendChild(slide);
         });
+        
         updateCarouselPosition();
         updateLinks();
     }
@@ -288,23 +294,15 @@ function initializeCarousel(projects, prefix = "") {
 
     function updateLinks() {
         const currentProject = projects[currentProjectIndex];
-        if (!currentProject) {
-            if (websiteLink) websiteLink.style.display = 'none';
-            if (platformLink) platformLink.style.display = 'none';
-            return;
-        }
+        if (!currentProject) return;
 
-        // Web Link / Official Website Logic
+        // Website Button
         if (websiteLink) {
-            if (currentProject.webUrl) {
-                websiteLink.href = currentProject.webUrl;
-                websiteLink.style.display = 'inline-flex';
-            } else {
-                websiteLink.style.display = 'none';
-            }
+            websiteLink.href = currentProject.webUrl || "#";
+            websiteLink.style.display = currentProject.webUrl ? 'inline-flex' : 'none';
         }
 
-        // Platform Link Logic (Steam vs Play Store vs Default Asset)
+        // Platform Button (Steam/Play Store/Unity)
         if (platformLink) {
             if (currentProject.playStoreUrl) {
                 platformLink.href = currentProject.playStoreUrl;
@@ -317,45 +315,37 @@ function initializeCarousel(projects, prefix = "") {
                 if (platformText) platformText.textContent = 'Steam Page';
                 platformLink.style.display = 'inline-flex';
             } else if (prefix === 'asset') {
-                // If it's an asset and no Steam/Play link, show the default Unity link 
-                // only if a webUrl exists.
-                platformLink.style.display = currentProject.webUrl ? 'none' : 'none'; 
-                // Note: On your HTML, Asset section already has two buttons. 
-                // If you want the bottom button to stay visible for Assets:
-                platformLink.style.display = 'inline-flex';
+                // Keep the button visible for Assets if there's a web link
+                platformLink.style.display = currentProject.webUrl ? 'inline-flex' : 'none';
             } else {
                 platformLink.style.display = 'none';
             }
         }
     }
 
-    function nextProject() {
-        currentProjectIndex = (currentProjectIndex < projects.length - 1) ? currentProjectIndex + 1 : 0;
-        updateCarouselPosition();
-        updateLinks();
-    }
-
-    function prevProject() {
+    if (prevBtn) prevBtn.addEventListener('click', () => {
         currentProjectIndex = (currentProjectIndex > 0) ? currentProjectIndex - 1 : projects.length - 1;
         updateCarouselPosition();
         updateLinks();
-    }
+    });
 
-    if (prevBtn) prevBtn.addEventListener('click', prevProject);
-    if (nextBtn) nextBtn.addEventListener('click', nextProject);
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+        updateCarouselPosition();
+        updateLinks();
+    });
 
     renderCarousel();
 }
 
-// Initial render for both sections
+// Start both on page load
 window.addEventListener('load', () => {
-    // 1. Game Carousel (Empty prefix matches: carouselTrack, prevBtn, etc.)
-    initializeCarousel(gameProjects, ''); 
-
-    // 2. Assets Carousel (Prefix 'asset' matches: assetTrack, assetPrevBtn, etc.)
-    initializeCarousel(assetProjects, 'asset'); 
+    initializeCarousel(gameProjects, '');      // Logic for Game Section
+    initializeCarousel(assetProjects, 'asset'); // Logic for Asset Section
 });
+
 /* --- END: UNIVERSAL CAROUSEL LOGIC --- */
+	
 
 /* --- START: Custom Multi-Image/Video Gallery --- */
 
@@ -497,6 +487,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

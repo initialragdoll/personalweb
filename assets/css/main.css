@@ -2031,10 +2031,11 @@ p {
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
 	} */
-/* --- START GAME PROJECT CAROUSEL STYLES --- */
 
-/* Add this to force the carousel container to fill the parent section's height */
-#projects .carousel-container {
+/* --- START: UNIVERSAL CAROUSEL STYLES --- */
+
+/* Removed #projects to make this universal for any carousel section */
+.carousel-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -2064,7 +2065,6 @@ p {
 
 /* Navigation buttons (left and right arrows) */
 .nav-button {
-    /* New styles for smaller, circular buttons */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -2088,11 +2088,12 @@ p {
     background-color: rgba(74, 178, 172, 0.125);
 }
 
-.nav-button:first-of-type {
+/* Specific placement for navigation */
+#prevBtn, #assetPrevBtn {
     left: 1rem;
 }
 
-.nav-button:last-of-type {
+#nextBtn, #assetNextBtn {
     right: 1rem;
 }
 
@@ -2101,7 +2102,7 @@ p {
     height: 4rem;
 }
 
-/* Steam link button */
+/* Link buttons (Steam, Play Store, Unity, etc.) */
 .steam-link {
     position: absolute;
     bottom: 1rem;
@@ -2116,7 +2117,6 @@ p {
 }
 
 .link-button {
-    /*background-color: rgba(0, 0, 0, 0.4);*/
     color: white;
     font-weight: bold;
     padding: 0.75rem 1.5rem;
@@ -2127,10 +2127,16 @@ p {
     gap: 0.5rem;
     border: none;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4); /* Default semi-transparent */
 }
 
 .link-button:hover {
     background-color: #d1ab2a;
+}
+
+/* Ensure secondary buttons (like your store link) sit above the primary one if both exist */
+[id*="WebLink"] {
+    bottom: 5rem !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -2142,8 +2148,15 @@ p {
         width: 2.5rem;
         height: 2.5rem;
     }
+    .steam-link {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .steam-link:hover {
+        transform: translateX(50%) scale(1.05);
+    }
 }
-/* ---  END: GAME PROJECT CAROUSEL STYLES  --- */
+/* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
 /* Contact */
 

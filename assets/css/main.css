@@ -5,7 +5,7 @@
     /* Define universal colors */
     --primary-color: #d1ab2a;    /* The gold/yellow for buttons/highlights */
     --title-color: #ffffff;      /* All H1, H2, H3 etc. */
-    --text-color: #bbbbbb;       /* All paragraph/small text */
+    --text-color: #9ac8e9;       /* All paragraph/small text */
     --bg-dark: #15151c;          /* Your main background */
 }  
 
@@ -1576,7 +1576,7 @@ p {
 
 					#header nav ul li a {
 						display: block;
-						color: var(--primary-color); /*nav link text color, was: inherit;*/
+						color: var(--text-color); /*nav link text color, was: inherit;*/
 						text-decoration: none;
 						height: 3em;
 						line-height: 3em;

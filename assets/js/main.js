@@ -241,7 +241,7 @@ const assetProjects = [
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.jpg',
         webUrl: 'https://assetstore.unity.com/...',
-        steamUrl: null, // Set to null to hide the Unity Store button
+        steamUrl: null,
         playStoreUrl: null,
     }
 ];
@@ -261,59 +261,54 @@ function initializeCarousel(projects, prefix = "") {
 
     function renderCarousel() {
         if (!carouselTrack) return;
-        
         carouselTrack.innerHTML = '';
         projects.forEach((project) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
             const isMobile = window.innerWidth <= 736;
             const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
-            
             slide.style.backgroundImage = `url('${imageUrl}')`;
             carouselTrack.appendChild(slide);
         });
-        
         updateCarouselPosition();
         updateLinks();
     }
 
     function updateCarouselPosition() {
         if (!carouselTrack) return;
-        const offset = -currentProjectIndex * 100;
-        carouselTrack.style.transform = `translateX(${offset}vw)`;
+        carouselTrack.style.transform = `translateX(${-currentProjectIndex * 100}vw)`;
     }
 
     function updateLinks() {
         const currentProject = projects[currentProjectIndex];
         if (!currentProject) return;
 
-        // 1. Handle Top Button (Website / Store Page)
-        if (websiteLink) {
-            if (currentProject.webUrl) {
-                websiteLink.href = currentProject.webUrl;
-                websiteLink.style.display = 'inline-flex';
-            } else {
-                websiteLink.style.display = 'none';
-            }
-        }
+        // Reset display first
+        if (websiteLink) websiteLink.style.display = 'none';
+        if (platformLink) platformLink.style.display = 'none';
 
-        // 2. Handle Bottom Button (Steam / Play Store / Unity)
+        // 1. Bottom Slot (Platform)
         if (platformLink) {
+            let hasPlatform = false;
             if (currentProject.playStoreUrl) {
                 platformLink.href = currentProject.playStoreUrl;
                 if (platformIcon) platformIcon.className = 'fab fa-google-play';
                 if (platformText) platformText.textContent = 'Play Store';
-                platformLink.style.display = 'inline-flex';
+                hasPlatform = true;
             } else if (currentProject.steamUrl) {
                 platformLink.href = currentProject.steamUrl;
-                // Switch icon/text based on whether it's an asset or game
                 if (platformIcon) platformIcon.className = prefix === 'asset' ? 'fab fa-unity' : 'fab fa-steam';
                 if (platformText) platformText.textContent = prefix === 'asset' ? 'Unity Store' : 'Steam Page';
-                platformLink.style.display = 'inline-flex';
-            } else {
-                // If NO specific platform link is provided, HIDE the button
-                platformLink.style.display = 'none';
+                hasPlatform = true;
             }
+            
+            if (hasPlatform) platformLink.style.display = 'inline-flex';
+        }
+
+        // 2. Web Slot (Collapses if Platform is hidden)
+        if (websiteLink && currentProject.webUrl) {
+            websiteLink.href = currentProject.webUrl;
+            websiteLink.style.display = 'inline-flex';
         }
     }
 
@@ -329,17 +324,13 @@ function initializeCarousel(projects, prefix = "") {
         updateLinks();
     });
 
-    // Handle window resize to swap mobile/desktop images
-    window.addEventListener('resize', renderCarousel);
-
     renderCarousel();
 }
 
 window.addEventListener('load', () => {
-    initializeCarousel(gameProjects, '');      // Logic for Games
-    initializeCarousel(assetProjects, 'asset'); // Logic for Assets
+    initializeCarousel(gameProjects, '');
+    initializeCarousel(assetProjects, 'asset');
 });
-
 /* --- END: UNIVERSAL CAROUSEL LOGIC --- */
 
 /* --- START: Custom Multi-Image/Video Gallery --- */
@@ -482,6 +473,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

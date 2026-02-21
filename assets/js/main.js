@@ -241,13 +241,12 @@ const assetProjects = [
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.jpg',
         webUrl: 'https://assetstore.unity.com/...',
-        steamUrl: null,
+        steamUrl: null, // Set to null to hide the Unity Store button
         playStoreUrl: null,
     }
 ];
 
 function initializeCarousel(projects, prefix = "") {
-    // These lines are updated to match your HTML IDs exactly
     const trackId = prefix === 'asset' ? 'assetTrack' : 'carouselTrack';
     const carouselTrack = document.getElementById(trackId);
     
@@ -261,13 +260,10 @@ function initializeCarousel(projects, prefix = "") {
     let currentProjectIndex = 0;
 
     function renderCarousel() {
-        if (!carouselTrack) {
-            console.error("Target div not found:", trackId);
-            return;
-        }
+        if (!carouselTrack) return;
         
         carouselTrack.innerHTML = '';
-        projects.forEach((project, index) => {
+        projects.forEach((project) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
             const isMobile = window.innerWidth <= 736;
@@ -291,11 +287,17 @@ function initializeCarousel(projects, prefix = "") {
         const currentProject = projects[currentProjectIndex];
         if (!currentProject) return;
 
+        // 1. Handle Top Button (Website / Store Page)
         if (websiteLink) {
-            websiteLink.href = currentProject.webUrl || "#";
-            websiteLink.style.display = currentProject.webUrl ? 'inline-flex' : 'none';
+            if (currentProject.webUrl) {
+                websiteLink.href = currentProject.webUrl;
+                websiteLink.style.display = 'inline-flex';
+            } else {
+                websiteLink.style.display = 'none';
+            }
         }
 
+        // 2. Handle Bottom Button (Steam / Play Store / Unity)
         if (platformLink) {
             if (currentProject.playStoreUrl) {
                 platformLink.href = currentProject.playStoreUrl;
@@ -304,13 +306,12 @@ function initializeCarousel(projects, prefix = "") {
                 platformLink.style.display = 'inline-flex';
             } else if (currentProject.steamUrl) {
                 platformLink.href = currentProject.steamUrl;
-                if (platformIcon) platformIcon.className = 'fab fa-steam';
-                if (platformText) platformText.textContent = 'Steam Page';
+                // Switch icon/text based on whether it's an asset or game
+                if (platformIcon) platformIcon.className = prefix === 'asset' ? 'fab fa-unity' : 'fab fa-steam';
+                if (platformText) platformText.textContent = prefix === 'asset' ? 'Unity Store' : 'Steam Page';
                 platformLink.style.display = 'inline-flex';
-            } else if (prefix === 'asset') {
-                // If it's an asset, show the default button if webUrl exists
-                platformLink.style.display = currentProject.webUrl ? 'inline-flex' : 'none';
             } else {
+                // If NO specific platform link is provided, HIDE the button
                 platformLink.style.display = 'none';
             }
         }
@@ -328,6 +329,9 @@ function initializeCarousel(projects, prefix = "") {
         updateLinks();
     });
 
+    // Handle window resize to swap mobile/desktop images
+    window.addEventListener('resize', renderCarousel);
+
     renderCarousel();
 }
 
@@ -337,7 +341,6 @@ window.addEventListener('load', () => {
 });
 
 /* --- END: UNIVERSAL CAROUSEL LOGIC --- */
-	
 
 /* --- START: Custom Multi-Image/Video Gallery --- */
 
@@ -479,6 +482,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

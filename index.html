@@ -85,42 +85,37 @@
 
 		<!--START: GAME PROJECT SECTION -->
 		<section id="projects" class="main style1 dark fullscreen">
-			<div class="carousel-container">
-				<!-- <h1>Game Projects</h1> --> 
-				<div id="carouselTrack" class="carousel-track">
-					<!-- Project slides will be dynamically inserted here -->
-				</div>
+    <div class="carousel-container">
+        <div id="carouselTrack" class="carousel-track">
+            </div>
 
-				<!-- Navigation Buttons -->
-				<button id="prevBtn" class="nav-button absolute top-0 left-0 h-full flex items-center justify-center p-4 z-10">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-					</svg>
-				</button>
-				<button id="nextBtn" class="nav-button absolute top-0 right-0 h-full flex items-center justify-center p-4 z-10">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-					</svg>
-				</button>
-				
-				<!-- web site Link Button, https://unseal.fr/ serves as a fallback link in case the JavaScript fails to load  -->
-				<a id="websiteLink" href="#" target="_blank" class="steam-link absolute" style="bottom: 6rem;">
-					<button class="link-button">
-						<i class="fas fa-globe"></i>
-						<span>Website</span>
-					</button>
-				</a>
+        <button id="prevBtn" class="nav-button absolute top-0 left-0 h-full flex items-center justify-center p-4 z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="nextBtn" class="nav-button absolute top-0 right-0 h-full flex items-center justify-center p-4 z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+        
+        <a id="websiteLink" href="#" target="_blank" class="steam-link absolute z-20">
+            <button class="link-button">
+                <i class="fas fa-globe"></i>
+                <span>Website</span>
+            </button>
+        </a>
 
-				<!-- Steam Link Button -->
-				<a id="platformLink" href="#" target="_blank" class="steam-link absolute">
-					<button class="link-button">
-						<i id="platformIcon" class="fab fa-steam"></i>
-						<span id="platformText">Steam Page</span>
-					</button>
-				</a>
-			</div>
-			<a href="#work" class="button style2 down anchored">Next</a>
-		</section>
+        <a id="platformLink" href="#" target="_blank" class="steam-link absolute z-20">
+            <button class="link-button">
+                <i id="platformIcon" class="fab fa-steam"></i>
+                <span id="platformText">Steam Page</span>
+            </button>
+        </a>
+    </div>
+    <a href="#work" class="button style2 down anchored">Next</a>
+</section>
 		<!-- END: GAME PROJECT SECTION -->
 
 
@@ -140,14 +135,14 @@
             </svg>
         </button>
         
-        <a id="assetWebLink" href="#" target="_blank" class="steam-link absolute" style="bottom: 6rem;">
+        <a id="assetWebLink" href="#" target="_blank" class="steam-link absolute z-20">
             <button class="link-button">
                 <i class="fas fa-shopping-cart"></i>
                 <span>Store Page</span>
             </button>
         </a>
 
-        <a id="assetPlatformLink" href="#" target="_blank" class="steam-link absolute">
+        <a id="assetPlatformLink" href="#" target="_blank" class="steam-link absolute z-20">
             <button class="link-button">
                 <i id="assetPlatformIcon" class="fab fa-unity"></i>
                 <span id="assetPlatformText">Unity Store</span>
@@ -317,6 +312,7 @@
 	</body>
 
 </html>
+
 
 
 

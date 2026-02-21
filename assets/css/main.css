@@ -3,7 +3,7 @@
 
 :root {
     /* Define universal colors */
-    --primary-color: var(--primary-color);    /* The gold/yellow for buttons/highlights */
+    --primary-color: #d1ab2a;    /* The gold/yellow for buttons/highlights */
     --title-color: #ffffff;      /* All H1, H2, H3 etc. */
     --text-color: #bbbbbb;       /* All paragraph/small text */
     --bg-dark: #111111;          /* Your main background */

@@ -240,7 +240,7 @@ const gameProjects = [
 // 2. DATA FOR ASSETS
 const assetProjects = [
     {
-        desktopImage: './images/assets/Asset_01.jpg',
+        desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.jpg',
         webUrl: 'https://assetstore.unity.com/...',
         steamUrl: null,
@@ -484,6 +484,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

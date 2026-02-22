@@ -552,8 +552,18 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 .poptrox-popup {
     box-sizing: content-box;
     background: #fff;
-    padding-bottom: 3em;
+    padding-bottom: 3em; /* Space for the caption */
     box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
+}
+
+/* FIX: This ensures images stay within the viewport bounds */
+.poptrox-popup img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 85vw;  /* Maximum 85% of screen width */
+    max-height: 75vh; /* Maximum 75% of screen height to leave room for caption */
+    margin: 0 auto;
 }
 
 /* Loader icon inside popup */
@@ -615,7 +625,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 }
 
 .poptrox-popup .nav-previous { left: 0; }
-.poptrox-popup .nav-previous:before { left: 0; transform: scaleX(-1); } /* Flips the arrow */
+.poptrox-popup .nav-previous:before { left: 0; transform: scaleX(-1); }
 
 .poptrox-popup .nav-next { right: 0; }
 .poptrox-popup .nav-next:before { right: 0; }
@@ -665,6 +675,12 @@ body.is-touch .poptrox-popup .closer {
 
 /* Mobile Scaling */
 @media screen and (max-width: 736px) {
+    /* Ensure image takes up more screen real estate on mobile but still fits */
+    .poptrox-popup img {
+        max-width: 90vw;
+        max-height: 65vh;
+    }
+
     .poptrox-popup .nav-next:before,
     .poptrox-popup .nav-previous:before {
         width: 48px; height: 32px;

@@ -1320,7 +1320,7 @@ body {
 
 /* START: The Bouncing Circle */
 .bouncing-ball {
-    /* 1. Set your size here once */
+    /* Desktop Size */
     --ball-size: 300px; 
 
     position: absolute;
@@ -1331,9 +1331,19 @@ body {
     z-index: 1;
     pointer-events: none;
     
-    /* 2. Math now uses the variable */
     animation: bounceX 5s linear infinite alternate, 
                bounceY 3.2s linear infinite alternate;
+}
+
+/* Mobile Adjustment */
+@media screen and (max-width: 736px) {
+    .bouncing-ball {
+        /* Smaller size for mobile screens */
+        --ball-size: 100px; 
+        
+        /* Optional: Speed up the animation slightly for smaller distance */
+        animation-duration: 3s, 2s; 
+    }
 }
 
 @keyframes bounceX {

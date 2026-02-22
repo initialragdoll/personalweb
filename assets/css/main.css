@@ -1056,7 +1056,7 @@ body {
     position: absolute;
     top: 10%; left: 10%; right: 10%; bottom: 10%;
     overflow: hidden;
-    background: #333;
+    background: #15151c; /* Dark base to match theme */
     border-radius: 60px; 
     border: 3px solid #8ab4f8; 
     box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
@@ -1078,7 +1078,7 @@ body {
     display: block;
 }
 
-/* Nav Buttons: Placed in the gutters */
+/* Nav Buttons in gutters */
 .nav-button {
     position: absolute;
     top: 50%;
@@ -1101,40 +1101,56 @@ body {
 #nextBtn, #assetNextBtn { right: 3%; }
 .nav-button svg { width: 2.5rem; height: 2.5rem; }
 
-/* --- DYNAMIC BUTTON STACKING FIX --- */
+/* --- DYNAMIC BUTTON STACKING & ALIGNMENT FIX --- */
 .steam-link {
     position: absolute;
     right: 2rem;
     bottom: 2rem;
     z-index: 200;
     
-    /* These rules force the children to stack vertically */
+    /* Force buttons to stack vertically */
     display: flex !important; 
     flex-direction: column !important; 
     align-items: flex-end !important;
     gap: 12px !important;
 }
 
-/* This ensures the individual buttons don't fight the stack */
+/* Fix for Button Pill Shape and Alignment */
 .steam-link .link-button {
-    position: static !important; 
-    margin-bottom: 0 !important;
-    background-color: #8ab4f8;
-    color: #111 !important;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
+    /* Critical: Centers Icon and Text on one line */
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Dark Theme Styling */
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 0.8rem 1.6rem !important;
+    border-radius: 9999px !important; /* Perfect Pill */
     font-weight: bold;
     text-decoration: none;
-    border: 2px solid #000;
+    border: 2px solid #8ab4f8 !important;
     white-space: nowrap;
     transition: transform 0.2s ease;
-    
-    /* Important: Overriding potential JS inline-flex to keep them in the flex flow */
-    display: flex !important; 
+    min-width: 170px; /* Keeps them consistent */
+}
+
+/* Fixes misplaced icons/text inside the button */
+.link-button i, 
+.link-button svg, 
+.link-button img {
+    margin-right: 12px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-size: 1.2rem !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
 }
 
 .link-button:hover {
     transform: scale(1.05);
+    background-color: #111 !important;
 }
 
 /* Mobile Responsiveness */
@@ -1147,6 +1163,6 @@ body {
     #prevBtn, #assetPrevBtn { left: 1%; }
     #nextBtn, #assetNextBtn { right: 1%; }
     .steam-link { right: 1rem; bottom: 1rem; gap: 8px !important; }
-    .link-button { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    .link-button { padding: 0.6rem 1.2rem !important; font-size: 0.85rem; min-width: 140px; }
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

@@ -1054,81 +1054,68 @@ body {
 /* --- START: UNIVERSAL CAROUSEL STYLES --- */
 .carousel-container {
     position: absolute;
-    /* Creates the margin around the box so dots show behind it */
     top: 12%; 
     left: 10%; 
     right: 10%; 
     bottom: 12%;
-    
-    overflow: hidden;
-    background: #333; /* Matches the dark grey in your mockup */
-    
-    /* The Rounded "Card" Look */
+    overflow: hidden; /* Keeps images inside rounded corners */
+    background: #333;
     border-radius: 60px; 
     border: 3px solid var(--primary-color);
-    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5); /* Neubrutalist depth */
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+    z-index: 5;
 }
 
-.carousel-track {
-    display: flex;
-    width: 100%; height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-    /* CRITICAL: Changed from 100vw to 100% to fit the smaller container */
-    flex: 0 0 100%; 
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-/* Nav Buttons: Positioned OUTSIDE the rounded box to match image_1efff7.jpg */
+/* Nav Buttons: Now anchored to the SECTION, not the container */
 .nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 4.5rem; height: 4.5rem; /* Slightly smaller to fit margins */
+    width: 4.5rem; 
+    height: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Higher than container */
-    opacity: 0.7;
+    /* This z-index must be higher than the carousel-container */
+    z-index: 100; 
+    opacity: 0.8;
     transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
+    background-color: rgba(21, 21, 28, 0.9); /* Darker background to pop on dots */
+    border: 2px solid var(--primary-color);
     cursor: pointer;
     color: white;
     border-radius: 50%;
 }
 
-/* Move buttons into the margin space */
-#prevBtn, #assetPrevBtn { left: -6rem; }
-#nextBtn, #assetNextBtn { right: -6rem; }
-
-.nav-button:hover { opacity: 1; background-color: var(--button-color); }
-.nav-button svg { width: 3rem; height: 3rem; }
-
-/* Link Button (Play Store) - Bottom Right of the rounded box */
-.steam-link {
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-    z-index: 200;
+/* We use percentages relative to the screen width 
+   This places them in the "gutters" on the left and right 
+*/
+#prevBtn, #assetPrevBtn { 
+    left: 2%; 
 }
 
-/* ... keep your existing Link Button and Stacking Logic here ... */
+#nextBtn, #assetNextBtn { 
+    right: 2%; 
+}
+
+.nav-button:hover { 
+    opacity: 1; 
+    background-color: var(--primary-color); 
+    transform: translateY(-50%) scale(1.1); 
+}
+
+.nav-button svg { width: 2.5rem; height: 2.5rem; }
+
+/* ... existing Link Button logic ... */
 
 @media screen and (max-width: 768px) {
     .carousel-container {
         top: 8%; left: 4%; right: 4%; bottom: 8%;
         border-radius: 30px;
     }
-    /* Move buttons back inside or hide them on small mobile screens */
-    #prevBtn, #assetPrevBtn { left: 0.5rem; }
-    #nextBtn, #assetNextBtn { right: 0.5rem; }
-    .nav-button { width: 3.5rem; height: 3.5rem; }
+    /* On mobile, move buttons back inside the container edges */
+    #prevBtn, #assetPrevBtn { left: 1rem; }
+    #nextBtn, #assetNextBtn { right: 1rem; }
+    .nav-button { width: 3.5rem; height: 3.5rem; z-index: 200; }
 }
-
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

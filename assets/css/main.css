@@ -1233,36 +1233,45 @@ body {
 
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
-/* --- CAROUSEL SECTION ALIGNMENT --- */
 
-/* Change from center-aligned to top-aligned for Carousel sections */
+/* --- CAROUSEL SECTION ALIGNMENT FIX --- */
+
 #projects.main.style1, 
 #assets.main.style1 {
     display: flex;
-    flex-direction: column; /* Stack Title on top of Carousel */
-    justify-content: flex-start; /* Move content to the top */
-    padding-top: 5em; /* Space for the title */
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 6em; /* Gives space for the title at the top */
 }
 
-/* Ensure the content div takes up enough width */
+/* Ensure the content wrapper expands to fill the screen */
 #projects > .content,
 #assets > .content {
     width: 100%;
-    max-width: 90%; /* Wider than the standard 45em to fit the carousel */
+    max-width: 95%; 
+    height: 80vh; /* This gives the carousel its height back! */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Match the Portfolio title style */
-.main.style1 header h2 {
-    font-size: 3em; 
-    margin-bottom: 1em;
-    letter-spacing: 0.1em;
-}
-
-/* Prevent the carousel from being squashed */
+/* Make sure the container takes up the space inside .content */
 .carousel-container {
-    margin-top: 2em;
     position: relative;
     width: 100%;
+    flex-grow: 1; /* Tells the carousel to take up all remaining vertical space */
+    min-height: 400px; /* Safety minimum height */
+    margin-top: 2em;
+}
+
+/* Match the Portfolio title font (uses your custom font) */
+.main.style1 header h2 {
+    font-size: 3.5em;
+    margin-bottom: 0.5em;
+    color: #ffffff;
+    /* This adds that specific "Initial Ragdoll" font style if you have it loaded */
+    font-family: inherit; 
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 

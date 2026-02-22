@@ -4,7 +4,7 @@
 /* --- UNIVERSAL VARIABLES --- */
 :root {
     --primary-color: #95c3ff;    /* Highlights / Buttons */
-    --title-color: #ffa1f8;      /* Headers */
+    --title-color: #4678b4;      /* Headers */
     --text-color: #9ac8e9;       /* Body Text */
     --button-color: #4ab2ac20;   /* Button Backgrounds */
     --border-color: #ffffff40;   /* Divider Lines */
@@ -1324,7 +1324,7 @@ body {
     line-height: 1.25em !important;
     letter-spacing: -0.05em !important;
     
-    color: #FFFFFF !important;
+    color: var(--primary-color);
     text-align: center !important;
     margin: 0 !important;
 }

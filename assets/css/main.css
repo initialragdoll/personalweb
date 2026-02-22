@@ -376,8 +376,8 @@ input[type="button"]:hover, .button:hover, button:hover {
     transform: translateY(-50%) !important;
     width: 64px !important;
     height: 64px !important;
-    background-color: var(--button-color);
-    border: 2px solid var(--border-color);
+    background-color: rgba(21, 21, 28, 0.8) !important;
+    border: 2px solid #8ab4f8 !important;
     border-radius: 50% !important;
     cursor: pointer;
     z-index: 100;

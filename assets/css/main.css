@@ -301,16 +301,16 @@ p, ul, ol, dl, table {
 
 		}
 
-/* --- BUTTONS & NAV COMPONENTS --- */
+/* --- BUTTONS --- */
 
-/* 1. Base Button Style (Global) */
+/* Base Button Style */
 input[type="button"], input[type="submit"], input[type="reset"], 
 .button, button {
     appearance: none;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     background-color: var(--primary-color);
     border: 0;
-    border-radius: 3.5em;
+    border-radius: 3.5em; /* Set to 0 for Neubrutalism later */
     color: #000000;
     cursor: pointer;
     display: inline-block;
@@ -327,7 +327,48 @@ input[type="button"]:hover, .button:hover, button:hover {
     filter: brightness(1.1);
 }
 
-/* 2. Procedural Nav Module (Carousel & Section Navigation) */
+/* Modifier: "Down" Arrow Buttons */
+.button.down, button.down, input.down {
+    width: 5em;
+    height: 5em;
+    line-height: 4.5em;
+    padding: 0;
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("images/dark-arrow.svg");
+    text-indent: -10em;
+    overflow: hidden;
+}
+
+/* Modifier: Anchored (Bottom of sections) */
+.button.anchored, button.anchored, input.anchored {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Cleaner than margin-left */
+}
+
+.button.down.anchored, button.down.anchored {
+    bottom: 0;
+    border-radius: 3em 3em 0 0;
+    height: 4.5em;
+}
+
+/* Modifier: Style 2 (Outlined / Transparent) */
+.button.style2, button.style2, input.style2 {
+    background-color: transparent;
+    border: solid 2px var(--border-color);
+    color: inherit;
+}
+
+.button.style2:hover { background-color: rgba(74, 178, 172, 0.125); }
+.button.style2:active { background-color: rgba(74, 178, 172, 0.25); }
+
+.button.style2.down {
+    background-image: url("images/Logo_150_150.gif");
+}
+
+/* --- UI COMPONENT: PROCEDURAL NAV BUTTONS --- */
 .nav-button {
     position: absolute;
     width: 60px !important;
@@ -344,7 +385,7 @@ input[type="button"]:hover, .button:hover, button:hover {
     transition: all 0.2s ease;
 }
 
-/* Base Arrow Head */
+/* The Procedural Arrow Head */
 .nav-button::after {
     content: '';
     display: block;
@@ -352,44 +393,27 @@ input[type="button"]:hover, .button:hover, button:hover {
     height: 14px;
     border-bottom: 4px solid white;
     border-left: 4px solid white;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s;
 }
 
-/* --- Directional Rotations --- */
-.prev-arrow::after { transform: rotate(45deg); margin-left: 5px; }
-.next-arrow::after { transform: rotate(-135deg); margin-right: 5px; }
-.down-arrow::after { transform: rotate(-45deg); margin-top: -5px; }
-
-/* --- Hover State --- */
-.nav-button:hover { background-color: #8ab4f8 !important; }
-.nav-button:hover::after { border-color: #111 !important; }
-
-/* 3. Modifier: Minimal (For the floating section transitions) */
-.nav-button.minimal {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-.nav-button.minimal:hover { background: none !important; }
-.nav-button.minimal:hover::after { border-color: #8ab4f8 !important; }
-
-/* 4. Modifier: Anchored (Bottom of sections) */
-.anchored {
-    position: absolute;
-    left: 50% !important;
-    bottom: 30px !important;
-    transform: translateX(-50%) !important;
+/* Directional Rotations */
+.prev-arrow::after {
+    transform: rotate(45deg);
+    margin-left: 5px; /* Visual centering */
 }
 
-/* Simple Bounce Animation for the Down Arrow */
-.down-arrow.anchored {
-    animation: arrowBounce 2s infinite;
+.next-arrow::after {
+    transform: rotate(-135deg);
+    margin-right: 5px; /* Visual centering */
 }
 
-@keyframes arrowBounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
+/* Global Hover State */
+.nav-button:hover {
+    background-color: #8ab4f8 !important;
+}
+
+.nav-button:hover::after {
+    border-color: #111 !important;
 }
 
 /* --- FORM LAYOUT --- */

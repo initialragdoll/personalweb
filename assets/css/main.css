@@ -302,274 +302,125 @@ p, ul, ol, dl, table {
 
 		}
 
-/* Button */
+/* --- 1. BUTTONS --- */
 
-	input[type="button"],
-	input[type="submit"],
-	input[type="reset"],
-	.button,
-	button {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out;
-		background-color: var(--primary-color); /*submit button color, was #98c593*/
-		border: 0;
-		border-radius: 3.5em;
-		color: #000000;/*Submit button text color*/
-		cursor: pointer;
-		display: inline-block;
-		height: 3.5em;
-		line-height: 3.5em;
-		outline: 0;
-		padding: 0 2em 0 2em;
-		position: relative;
-		text-align: center;
-		text-decoration: none;
-	}
+/* Base Button Style */
+input[type="button"], input[type="submit"], input[type="reset"], 
+.button, button {
+    appearance: none;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: 3.5em; /* Set to 0 for Neubrutalism later */
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    height: 3.5em;
+    line-height: 3.5em;
+    padding: 0 2em;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    position: relative;
+}
 
-		input[type="button"].down,
-		input[type="submit"].down,
-		input[type="reset"].down,
-		.button.down,
-		button.down {
-			width: 5em;
-			height: 5em;
-			line-height: 4.5em;
-			padding: 0;
-			/* Scales the GIF down to fit */
-			background-size: contain; 
-			background-image: url("images/dark-arrow.svg");
-			background-position: center center;
-			background-repeat: no-repeat;
-			text-indent: -10em;
-			overflow: hidden;
-		}
+input[type="button"]:hover, .button:hover, button:hover {
+    filter: brightness(1.1);
+}
 
-			input[type="button"].down.anchored,
-			input[type="submit"].down.anchored,
-			input[type="reset"].down.anchored,
-			.button.down.anchored,
-			button.down.anchored {
-				bottom: 0;
-				border-bottom: 0;
-				border-radius: 3em 3em 0 0;
-				height: 4.5em;
-				margin-left: -2.5em;
-			}
+/* Modifier: "Down" Arrow Buttons */
+.button.down, button.down, input.down {
+    width: 5em;
+    height: 5em;
+    line-height: 4.5em;
+    padding: 0;
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("images/dark-arrow.svg");
+    text-indent: -10em;
+    overflow: hidden;
+}
 
-		input[type="button"].anchored,
-		input[type="submit"].anchored,
-		input[type="reset"].anchored,
-		.button.anchored,
-		button.anchored {
-			position: absolute;
-			left: 50%;
-		}
+/* Modifier: Anchored (Bottom of sections) */
+.button.anchored, button.anchored, input.anchored {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Cleaner than margin-left */
+}
 
-		input[type="button"]:hover,
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		.button:hover,
-		button:hover {
-			background-color: var(--primary-color);
-		}
+.button.down.anchored, button.down.anchored {
+    bottom: 0;
+    border-radius: 3em 3em 0 0;
+    height: 4.5em;
+}
 
-		input[type="button"]:active,
-		input[type="submit"]:active,
-		input[type="reset"]:active,
-		.button:active,
-		button:active {
-			background-color: var(--primary-color);
-		}
+/* Modifier: Style 2 (Outlined / Transparent) */
+.button.style2, button.style2, input.style2 {
+    background-color: transparent;
+    border: solid 2px var(--border-color);
+    color: inherit;
+}
 
-		input[type="button"].style2,
-		input[type="submit"].style2,
-		input[type="reset"].style2,
-		.button.style2,
-		button.style2 {
-			background-color: transparent;
-			border: solid 2px var(--border-color);/*Anchored button border color*/
-			color: inherit;
-		}
+.button.style2:hover { background-color: rgba(74, 178, 172, 0.125); }
+.button.style2:active { background-color: rgba(74, 178, 172, 0.25); }
 
-			input[type="button"].style2:hover,
-			input[type="submit"].style2:hover,
-			input[type="reset"].style2:hover,
-			.button.style2:hover,
-			button.style2:hover {
-				background-color: rgba(74, 178, 172, 0.125); /*Section #one button hovered color*/
-			}
+.button.style2.down {
+    background-image: url("images/Logo_150_150.gif");
+}
 
-			input[type="button"].style2:active,
-			input[type="submit"].style2:active,
-			input[type="reset"].style2:active,
-			.button.style2:active,
-			button.style2:active {
-				background-color: rgba(74, 178, 172, 0.25);
-			}
+/* --- 2. FORM LAYOUT --- */
 
-			input[type="button"].style2.down,
-			input[type="submit"].style2.down,
-			input[type="reset"].style2.down,
-			.button.style2.down,
-			button.style2.down {
-				background-image: url("images/Logo_150_150.gif"); /*was images/dark-arrow.svg*/
-			}
+form { margin: 0 0 2em 0; }
+form > :last-child { margin-bottom: 0; }
 
-/* Form */
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 3em);
+    margin: -1.5em 0 2em -1.5em;
+}
 
-	form {
-		margin: 0 0 2em 0;
-	}
+.field {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 1.5em 0 0 1.5em;
+    width: calc(100% - 1.5em);
+}
 
-		form > :last-child {
-			margin-bottom: 0;
-		}
+.field.half    { width: calc(50% - 0.75em); }
+.field.third   { width: calc(33.33% - 1em); }
+.field.quarter { width: calc(25% - 1.125em); }
 
-		form > .fields {
-			display: -moz-flex;
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: flex;
-			-moz-flex-wrap: wrap;
-			-webkit-flex-wrap: wrap;
-			-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
-			width: calc(100% + 3em);
-			margin: -1.5em 0 2em -1.5em;
-		}
+@media screen and (max-width: 480px) {
+    .fields { width: calc(100% + 2em); margin: -1em 0 2em -1em; }
+    .field { padding: 1em 0 0 1em; width: calc(100% - 1em) !important; }
+}
 
-			form > .fields > .field {
-				-moz-flex-grow: 0;
-				-webkit-flex-grow: 0;
-				-ms-flex-grow: 0;
-				flex-grow: 0;
-				-moz-flex-shrink: 0;
-				-webkit-flex-shrink: 0;
-				-ms-flex-shrink: 0;
-				flex-shrink: 0;
-				padding: 1.5em 0 0 1.5em;
-				width: calc(100% - 1.5em);
-			}
+/* --- 3. INPUT FIELDS --- */
 
-				form > .fields > .field.half {
-					width: calc(50% - 0.75em);
-				}
+label { display: block; margin-bottom: 0.5em; }
 
-				form > .fields > .field.third {
-					width: calc(100%/3 - 0.5em);
-				}
+input[type="text"], input[type="password"], input[type="email"],
+input[type="tel"], input[type="search"], input[type="url"],
+select, textarea {
+    appearance: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    display: block;
+    width: 100%;
+    padding: 0.65em 0.75em;
+    background: none;
+    border: solid 2px var(--primary-color);
+    color: inherit;
+    border-radius: 0.5em;
+    outline: none;
+}
 
-				form > .fields > .field.quarter {
-					width: calc(25% - 0.375em);
-				}
+input:focus, textarea:focus { border-color: #9ac8e9; }
+textarea { min-height: 8em; }
 
-		@media screen and (max-width: 480px) {
-
-			form > .fields {
-				width: calc(100% + 2em);
-				margin: -1em 0 2em -1em;
-			}
-
-				form > .fields > .field {
-					padding: 1em 0 0 1em;
-					width: calc(100% - 1em);
-				}
-
-					form > .fields > .field.half {
-						width: calc(100% - 1em);
-					}
-
-					form > .fields > .field.third {
-						width: calc(100% - 1em);
-					}
-
-					form > .fields > .field.quarter {
-						width: calc(100% - 1em);
-					}
-
-		}
-
-	label {
-		display: block;
-	}
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	input[type="search"],
-	input[type="url"],
-	select,
-	textarea {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		-moz-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		color: var(--primary-color); /*was #39454b*/
-		display: block;
-		width: 100%;
-		padding: 0.65em 0.75em;
-		background: none;
-		border: solid 2px var(--primary-color);
-		color: inherit;
-		border-radius: 0.5em;
-		outline: none;
-	}
-
-		input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="email"]:focus,
-		input[type="tel"]:focus,
-		input[type="search"]:focus,
-		input[type="url"]:focus,
-		select:focus,
-		textarea:focus {
-			border-color: #9ac8e9;
-		}
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	input[type="search"],
-	input[type="url"],
-	select {
-		line-height: 1.35em;
-	}
-
-	textarea {
-		min-height: 8em;
-	}
-
-	::-moz-focus-inner {
-		border: 0;
-	}
-
-	::-webkit-input-placeholder {
-		opacity: 0.375;
-	}
-
-	:-moz-placeholder {
-		opacity: 0.375;
-	}
-
-	::-moz-placeholder {
-		opacity: 0.375;
-	}
-
-	:-ms-input-placeholder {
-		opacity: 0.375;
-	}
+/* Placeholder Opacity */
+::placeholder { opacity: 0.375; color: inherit; }
 
 /* Icon */
 

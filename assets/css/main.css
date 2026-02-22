@@ -1103,6 +1103,7 @@ body {
     position: relative;
     overflow: hidden;
     height: 100vh;
+	z-index: 10; /* A high number to stay above the balls */
 }
 
 #intro header h2 { 
@@ -1111,6 +1112,8 @@ body {
     line-height: 1.1;
     position: relative;
     top: -5vh; 
+	/* Invert Color */
+    mix-blend-mode: difference;
     z-index: 2;
 }
 
@@ -1120,6 +1123,8 @@ body {
     line-height: 1.1;
     position: relative;
     top: -5vh; 
+    /* Invert Color */
+    mix-blend-mode: difference;
     z-index: 2;
 }
 

@@ -1325,7 +1325,7 @@ body {
     color: var(--primary-color);
     text-align: center !important;
     margin: 0 !important;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 /* IMPORTANT: Reset the track so it fills the top of the box again */

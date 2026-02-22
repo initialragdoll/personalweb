@@ -1103,44 +1103,52 @@ body {
     position: relative;
     overflow: hidden;
     height: 100vh;
-    display: flex;         /* Use Flex to center the text block */
+    display: flex;         /* Use Flexbox to center the content group */
     align-items: center;
     justify-content: center;
 }
 
 #intro .intro-text {
-    display: flex;         /* Stack H2 and H1 vertically */
+    display: flex;         /* Use Flexbox to stack the titles vertically */
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
-    top: -12vh;           /* Nudge the whole group up to clear the logo */
+    top: -12vh;            /* Nudge the group up to clear the bottom logo */
     z-index: 2;
 }
 
-/* 1. INITIAL RAGDOLL */
+/* 1. INITIAL RAGDOLL - Main Title */
 #intro .intro-text h2 {
-    font-size: 8rem !important; /* Forces past the global 100% reset */
-    line-height: 0.9;           /* Tightens space around the letters */
-    margin: 0 !important;       /* Removes the 25rem or other margins */
+    font-size: 8rem !important; /* Overrides the 100% reset from line 21 */
+    line-height: 0.9 !important;
+    margin: 0 !important;      /* Removes any stray margins */
     padding: 0 !important;
+    display: block !important;
 }
 
-/* 2. GAMES */
+/* 2. GAMES - Secondary Title */
 #intro .intro-text h1 {
-    font-size: 4.5rem !important; /* Larger sub-title */
-    line-height: 1;
+    font-size: 4.5rem !important; /* Large enough to be seen */
+    line-height: 1 !important;
     margin-top: 5px !important;   /* Controlled gap so it doesn't overlap */
-    margin-bottom: 0 !important;  /* Deletes that 25rem conflict */
+    margin-bottom: 0 !important;  /* Deletes the 25rem conflict from line 620 */
     color: #FFFFFF !important;
-    font-weight: 300;
+    font-weight: 300 !important;
+    display: block !important;
 }
 
 /* --- MOBILE SCALING --- */
 @media screen and (max-width: 736px) {
-    #intro .intro-text h2 { font-size: 3.5rem !important; }
-    #intro .intro-text h1 { font-size: 2.2rem !important; }
-    #intro .intro-text { top: -5vh; }
+    #intro .intro-text h2 { 
+        font-size: 3.5rem !important; 
+    }
+    #intro .intro-text h1 { 
+        font-size: 2.2rem !important; 
+    }
+    #intro .intro-text { 
+        top: -5vh; 
+    }
 }
 /* --- INTRO TEXT SECTION END--- */
 

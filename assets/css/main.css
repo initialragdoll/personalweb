@@ -1001,103 +1001,68 @@ body {
     }
 }
 
-/* Intro */
-
+/* --- INTRO (Video Background) --- */
 #intro {
-	position: relative;
-	overflow: hidden;
-	height: 100vh; /* We need to explicitly set the height */
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
 }
 
 #intro .intro-text { 
-	font-size: 2em;
+    font-size: 2em; 
 }
 
 #bg-video {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -100;
-	transform: translate(-50%, -50%);
-	object-fit: cover;
+    position: absolute;
+    top: 50%; left: 50%;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
-	
-/* One */
 
-	#one {
-    /*min-height: 100vh; *//* This sets the minimum height to 100% of the viewport height */
+/* --- SECTION ONE (About) --- */
+#one {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* This centers content vertically */
-    align-items: center; /* This centers content horizontally */
-    background: url("images/overlay.png"),  /*url("../../images/one.jpg");*/
+    justify-content: center;
+    align-items: center;
+    background: url("images/overlay.png"), var(--bg-dark);
     background-size: 256px 256px, cover;
-    background-attachment: fixed, fixed;
+    background-attachment: fixed;
     background-position: top left, center center;
-}  
+}
+
 #one .content p {
     text-align: left; 
-	padding-left: 1vw;
-    /*max-width: 600px; /* Optional: This can help with readability on very wide screens */
+    padding-left: 1vw;
 }
 
-/* --- START: Profile Photo Styling --- */
 .about-profile {
     display: block;
-    border-radius: 50%; /* Makes the photo a perfect circle */
-    max-width: 200px; /* Limits the photo to a maximum size on large screens */
-    width: 20%; /* Sets the photo to take up 20% of the screen's width */
+    border-radius: 50%;
+    max-width: 200px;
+    width: 20%;
     height: auto;
-    margin: 0 auto 2em; /* Centers the photo and adds space below it */
-    border: 3px solid var(--primary-color); /* Optional: Adds a circular border around the photo */
+    margin: 0 auto 2em;
+    border: 3px solid var(--primary-color);
 }
 
-/* Adjust size for very large screens */
-@media screen and (min-width: 1281px) {
-    .about-profile {
-        max-width: 250px;
-    }
-}
-
-/* Adjust size for smaller screens (phones) */
-@media screen and (max-width: 736px) {
-    .about-profile {
-        max-width: 150px; /* Makes the photo a little smaller on phones */
-        width: 35%; /* Increases the percentage to ensure it's visible */
-    }
-}
-/* --- END: Profile Photo Styling --- */
-
-
-/* Two 
-
-	#two {
-		background: url("images/overlay.png"), url("../../images/two.jpg");
-		background-size: 256px 256px, cover;
-		background-attachment: fixed, fixed;
-		background-position: top left, center center;
-	} */
+@media screen and (min-width: 1281px) { .about-profile { max-width: 250px; } }
+@media screen and (max-width: 736px) { .about-profile { max-width: 150px; width: 35%; } }
 
 /* --- START: UNIVERSAL CAROUSEL STYLES --- */
-
 .carousel-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     overflow: hidden;
     background: #111;
 }
 
 .carousel-track {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -1106,23 +1071,21 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     position: relative;
 }
 
-/* Navigation Buttons */
+/* Nav Buttons */
 .nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 6rem;
-    height: 6rem;
+    width: 6rem; height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
     opacity: 0.7;
-    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: all 0.3s ease;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     cursor: pointer;
@@ -1130,42 +1093,25 @@ body {
     border-radius: 50%;
 }
 
-.nav-button:hover {
-    opacity: 1;
-    background-color: var(--button-color);
-}
-
+.nav-button:hover { opacity: 1; background-color: var(--button-color); }
 #prevBtn, #assetPrevBtn { left: 1rem; }
 #nextBtn, #assetNextBtn { right: 1rem; }
+.nav-button svg { width: 4rem; height: 4rem; }
 
-.nav-button svg {
-    width: 4rem;
-    height: 4rem;
-}
-
-/* --- LINK BUTTON STACKING LOGIC --- */
-
+/* Link Button Stacking Logic */
 .steam-link {
     position: absolute;
     right: 1.5rem;
-    bottom: 1.5rem; /* Default to bottom slot */
+    bottom: 1.5rem;
     z-index: 200;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, bottom 0.3s ease;
+    transition: transform 0.3s ease, bottom 0.3s ease;
     display: none; /* Controlled by JS */
 }
 
-/* SMART STACKING: 
-   If a Website button is immediately followed by a Platform button 
-   that is VISIBLE (inline-flex), push the Website button to the top slot.
-*/
+/* Stacking Logic: Push Website button up if Platform button is visible */
 #websiteLink:has(+ #platformLink[style*="inline-flex"]),
 #assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
     bottom: 6rem;
-}
-
-.steam-link:hover {
-    transform: scale(1.05);
 }
 
 .link-button {
@@ -1173,173 +1119,101 @@ body {
     font-weight: bold;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     gap: 0.5rem;
     border: none;
-    cursor: pointer;
     background-color: var(--button-color);
     white-space: nowrap;
 }
 
-.link-button:hover {
-    background-color: var(--primary-color);
-}
+.link-button:hover { background-color: var(--primary-color); }
 
-/* Mobile Adjustments */
 @media screen and (max-width: 768px) {
-    .nav-button {
-        width: 4rem;
-        height: 4rem;
-    }
-    .nav-button svg {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-    .steam-link {
-        right: 1rem;
-        bottom: 1rem;
-    }
+    .nav-button { width: 4rem; height: 4rem; }
+    .nav-button svg { width: 2.5rem; height: 2.5rem; }
     #websiteLink:has(+ #platformLink[style*="inline-flex"]),
     #assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
-        bottom: 4.5rem; /* Lower stack height for mobile */
-    }
-    .link-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        bottom: 4.5rem;
     }
 }
 
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
-/* Contact */
+/* --- CONTACT SECTION --- */
+#contact { overflow: hidden; padding-bottom: 0; }
 
-	#contact {
-		overflow: hidden;
-		padding-bottom: 0;
-	}
+#contact .box {
+    transition: transform 1s ease;
+    transform: translateY(0);
+    position: relative;
+}
 
-		#contact .box {
-			-moz-transition: -moz-transform 1s ease;
-			-webkit-transition: -webkit-transform 1s ease;
-			-ms-transition: -ms-transform 1s ease;
-			transition: transform 1s ease;
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
-			-ms-transform: translateY(0);
-			transform: translateY(0);
-			position: relative;
-		}
+#contact.inactive .box { transform: translateY(100%); }
 
-		#contact.inactive .box {
-			-moz-transform: translateY(100%);
-			-webkit-transform: translateY(100%);
-			-ms-transform: translateY(100%);
-			transform: translateY(100%);
-		}
+@media screen and (max-width: 736px) { #contact .box { padding: 1.5em 1.5em 2em; } }
 
-		@media screen and (max-width: 736px) {
-
-			#contact .box {
-				padding: 1.5em 1.5em 2em 1.5em;
-			}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			#contact .box {
-				padding: 1em 1em 2em 1em;
-			}
-
-		}
-
-/* --- START: Custom Modal Styles --- */
+/* --- CUSTOM MODAL --- */
 .custom-modal {
     display: none;
     position: fixed;
     z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
 }
+
 .custom-modal .modal-content {
     margin: 5% auto;
-    width: 100%;
-    max-width: 1400px; /* <--- MODIFIED: Allows modal to be wider */
+    width: 95%;
+    max-width: 1400px;
     background-color: var(--bg-dark);
     padding: 20px;
     border-radius: 8px;
     position: relative;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .custom-modal .scroll-container {
     max-height: 80vh;
-    overflow-y: scroll;
-    padding-right: 15px;
+    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #555 #333;
 }
-.custom-modal img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 20px;
-}
-/* For YouTube videos */
+
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     margin-bottom: 20px;
 }
+
 .video-wrapper iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
 }
+
 .custom-modal .custom-close-button {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 15px; right: 35px;
     color: #f1f1f1;
     font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
     cursor: pointer;
 }
-/* Custom modal title style */
-#custom-modal-title {
-    color: var(--primary-color);
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 20px;
-}
-/* --- END: Custom Modal Styles --- */
 
+/* --- FLOATING BUTTON (Mobile Only) --- */
+.floating-button { display: none; }
 
-/* Floating Button CSS */
-.floating-button {
-  display: none;
-}
 @media (max-width: 768px) {
-  .floating-button {
-    display: block; /* Make the button visible */
-    position: fixed; /* Fix its position relative to the viewport */
-    bottom: 20px; /* Position it 20 pixels from the bottom */
-    left: 20px; /* Position it 20 pixels from the left */
-    z-index: 1000; /* Ensure it's on top of other content */
-    border-radius: 50%; /* Optional: Make the button perfectly round */
-    width: 60px; /* Optional: Set a fixed width for the circular button */
-    height: 60px; /* Optional: Set a fixed height for the circular button */
-    padding: 0; /* Optional: Remove padding for a tight circular shape */
-    line-height: 60px; /* Optional: Center content vertically */
-    text-align: center; /* Optional: Center content horizontally */
-  }
+    .floating-button {
+        display: block;
+        position: fixed;
+        bottom: 20px; left: 20px;
+        z-index: 1000;
+        border-radius: 50%;
+        width: 60px; height: 60px;
+        line-height: 60px;
+        text-align: center;
+        padding: 0;
+    }
 }

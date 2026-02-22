@@ -2,16 +2,31 @@
 @import url("fontawesome-all.min.css");
 
 /* --- UNIVERSAL VARIABLES --- */
+
+/* Default Dark Mode */
 :root {
-    --primary-color: #95c3ff;    /* Highlights / Buttons */
-    --title-color: #4678b4;      /* Headers */
-    --text-color: #9ac8e9;       /* Body Text */
-    --button-color: #4ab2ac20;   /* Button Backgrounds */
-    --border-color: #99beff9c;   /* Divider Lines */
-    --bg-dark: #15151c;          /* Main Page Background */
-	--shadow-color: #000000;
+    --primary-color: #95c3ff;    
+    --title-color: #4678b4;      
+    --text-color: #9ac8e9;        
+    --button-color: #4ab2ac20;   
+    --border-color: #ffffff40;   
+    --bg-dark: #15151c;          
+    --shadow-color: #000000;
     --dot-grid: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-    --dot-size: 30px 30px; /* Controls the spacing between dots */
+    --dot-size: 30px 30px; 
+}
+
+/* Light Mode Overrides */
+body.light-theme {
+    --primary-color: #95c3ff;
+    --title-color: #4678b4;
+    --text-color: #2a3741;
+    --button-color: #4ab2ac20;
+    --border-color: #99beff9c;
+    --bg-dark: #dfeaeb;
+    --shadow-color: #0000002e;
+    --dot-grid: radial-gradient(rgb(100 100 100 / 63%) 1px, transparent 1px);
+    --dot-size: 30px 30px;
 }
 
 /* --- GLOBAL RESET --- */

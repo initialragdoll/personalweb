@@ -371,8 +371,10 @@ input[type="button"]:hover, .button:hover, button:hover {
 /* --- UI COMPONENT: PROCEDURAL NAV BUTTONS --- */
 .nav-button {
     position: absolute;
-    width: 60px !important;
-    height: 60px !important;
+    top: 50% !important; /* Centers carousel arrows vertically */
+    transform: translateY(-50%) !important;
+    width: 64px !important;
+    height: 64px !important;
     background-color: rgba(21, 21, 28, 0.8) !important;
     border: 2px solid #8ab4f8 !important;
     border-radius: 50% !important;
@@ -385,7 +387,7 @@ input[type="button"]:hover, .button:hover, button:hover {
     transition: all 0.2s ease;
 }
 
-/* The Procedural Arrow Head */
+/* 1. Base Arrow Head */
 .nav-button::after {
     content: '';
     display: block;
@@ -396,49 +398,44 @@ input[type="button"]:hover, .button:hover, button:hover {
     transition: border-color 0.2s, transform 0.2s;
 }
 
-/* Directional Rotations */
-.prev-arrow::after {
-    transform: rotate(45deg);
-    margin-left: 5px; 
-}
+/* 2. Rotations */
+.prev-arrow::after { transform: rotate(45deg); margin-left: 5px; }
+.next-arrow::after { transform: rotate(-135deg); margin-right: 5px; }
+.down-arrow::after { transform: rotate(-45deg); margin-top: -5px; }
 
-.next-arrow::after {
-    transform: rotate(-135deg);
-    margin-right: 5px; 
-}
+/* 3. Global Hover */
+.nav-button:hover { background-color: #8ab4f8 !important; }
+.nav-button:hover::after { border-color: #111 !important; }
 
-/* New: Direction for the Transition Arrow */
-.down-arrow::after {
-    transform: rotate(-45deg);
-    margin-top: -5px; /* Visual center for downward point */
-}
-
-/* Global Hover State */
-.nav-button:hover {
-    background-color: #8ab4f8 !important;
-}
-
-.nav-button:hover::after {
-    border-color: #111 !important;
-}
-
-/* MINIMAL OVERRIDE 
-   Use this to remove the circle/box and just have a floating arrow
-*/
+/* 4. Minimal Override (Floating Arrow) */
 .nav-button.minimal {
     background: none !important;
     border: none !important;
     box-shadow: none !important;
 }
+.nav-button.minimal:hover { background: none !important; }
+.nav-button.minimal:hover::after { border-color: #8ab4f8 !important; }
 
-.nav-button.minimal:hover {
-    background: none !important;
+/* 5. THE ANCHOR FIX 
+   This overrides the vertical centering so it snaps to the bottom
+*/
+.nav-button.anchored {
+    top: auto !important; /* Removes the 50% top setting */
+    bottom: 20px !important; /* Positions it at the very bottom */
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Horizontal center only */
 }
 
-.nav-button.minimal:hover::after {
-    border-color: #8ab4f8 !important; /* Glow blue on hover since there is no circle */
+/* Optional: Subtle Bounce for the transition arrow */
+.nav-button.down-arrow.anchored {
+    animation: bounceDown 2s infinite;
 }
 
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
 
 /* --- FORM LAYOUT --- */
 

@@ -1054,68 +1054,89 @@ body {
 /* --- START: UNIVERSAL CAROUSEL STYLES --- */
 .carousel-container {
     position: absolute;
-    top: 12%; 
-    left: 10%; 
-    right: 10%; 
-    bottom: 12%;
-    overflow: hidden; /* Keeps images inside rounded corners */
+    /* Margins to show the dots */
+    top: 10%; left: 10%; right: 10%; bottom: 10%;
+    
+    overflow: hidden;
     background: #333;
     border-radius: 60px; 
-    border: 3px solid var(--primary-color);
-    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+    border: 3px solid #8ab4f8; /* Matches your light blue border */
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1); /* Hard shadow */
     z-index: 5;
 }
 
-/* Nav Buttons: Now anchored to the SECTION, not the container */
+.carousel-track {
+    display: flex;
+    width: 100%; height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%; 
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* This ensures children like the Play Store button are relative to the slide */
+}
+
+/* Nav Buttons: Positioned relative to the SECTION to bypass overflow:hidden */
 .nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 4.5rem; 
-    height: 4.5rem;
+    width: 4rem; height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* This z-index must be higher than the carousel-container */
     z-index: 100; 
-    opacity: 0.8;
-    transition: all 0.3s ease;
-    background-color: rgba(21, 21, 28, 0.9); /* Darker background to pop on dots */
-    border: 2px solid var(--primary-color);
-    cursor: pointer;
+    background-color: rgba(21, 21, 28, 0.8);
+    border: 2px solid #8ab4f8;
     color: white;
     border-radius: 50%;
+    cursor: pointer;
 }
 
-/* We use percentages relative to the screen width 
-   This places them in the "gutters" on the left and right 
-*/
-#prevBtn, #assetPrevBtn { 
-    left: 2%; 
+#prevBtn, #assetPrevBtn { left: 3%; }
+#nextBtn, #assetNextBtn { right: 3%; }
+
+/* --- BUTTON LAYOUT FIX --- */
+
+/* Top Center Buttons (Website/Steam) */
+.top-links {
+    position: absolute;
+    top: -20px; /* Adjust based on where you want them to sit on the border */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 200;
 }
 
-#nextBtn, #assetNextBtn { 
-    right: 2%; 
+/* Play Store Button (Bottom Right) */
+.steam-link {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 200;
 }
 
-.nav-button:hover { 
-    opacity: 1; 
-    background-color: var(--primary-color); 
-    transform: translateY(-50%) scale(1.1); 
+.link-button {
+    background-color: #8ab4f8;
+    color: #111;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
 }
-
-.nav-button svg { width: 2.5rem; height: 2.5rem; }
-
-/* ... existing Link Button logic ... */
 
 @media screen and (max-width: 768px) {
-    .carousel-container {
-        top: 8%; left: 4%; right: 4%; bottom: 8%;
-        border-radius: 30px;
-    }
-    /* On mobile, move buttons back inside the container edges */
-    #prevBtn, #assetPrevBtn { left: 1rem; }
-    #nextBtn, #assetNextBtn { right: 1rem; }
-    .nav-button { width: 3.5rem; height: 3.5rem; z-index: 200; }
+    .carousel-container { top: 5%; left: 5%; right: 5%; bottom: 12%; }
+    .nav-button { width: 3rem; height: 3rem; }
+    #prevBtn, #assetPrevBtn { left: 1%; }
+    #nextBtn, #assetNextBtn { right: 1%; }
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

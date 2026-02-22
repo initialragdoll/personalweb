@@ -1079,20 +1079,26 @@ body {
 
 /* Nav Buttons */
 .nav-button svg {
-    /* Use width/height percentages to fill the 4rem circle */
-    width: 60% !important;
-    height: 60% !important;
-    display: block !important;
+    /* Fixed size ensures they don't vanish */
+    width: 2.5rem !important; 
+    height: 2.5rem !important;
     
-    /* Ensure the line is thick enough to see clearly */
+    /* Center it inside the circle */
+    display: block !important;
+    margin: auto !important;
+
+    /* Line thickness */
+    stroke: currentColor;
     stroke-width: 3px !important;
+    fill: none;
+    
     transition: transform 0.2s ease;
 }
 
-/* Make them extra chunky on hover */
+/* Hover effect */
 .nav-button:hover svg {
-    transform: scale(1.15);
-    stroke-width: 4px !important;
+    transform: scale(1.2);
+    stroke-width: 3.5px !important;
 }
 
 /* --- DYNAMIC STACKING LOGIC (NO WRAPPER NEEDED) --- */

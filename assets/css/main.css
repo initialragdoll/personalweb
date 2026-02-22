@@ -1122,7 +1122,7 @@ body {
     position: relative;
     padding: 0.5em; 
     background: var(--primary-color);
-    color: var(--text-color);
+    color: #2a3741;
     line-height: 1em;
     overflow: hidden;
 }
@@ -1141,7 +1141,7 @@ body {
 }
 
 #footer ul.menu li {
-    border-left: solid 1px var(--text-color);
+    border-left: solid 1px #2a3741;
     padding-left: 0.5em;
     margin-left: 0.5em;
     font-size: 0.9em;

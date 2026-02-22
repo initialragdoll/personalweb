@@ -184,142 +184,94 @@ body.is-preload:after {
     body:before { line-height: 2.025em; }
 }
 
-/* Type */
+/* --- 1. BASE TYPOGRAPHY --- */
 
-	body, input, textarea, select {
-		font-family: "Source Sans Pro", "sans-serif";
-		font-weight: 300;
-		font-size: 18pt;
-		line-height: 1.75em;
-		color: var(--text-color); 
-		letter-spacing: 0.025em;
-	}
-
-		@media screen and (max-width: 1920px) {
-
-			body, input, textarea, select {
-				font-size: 17pt;
-			}
-
-		}
-
-		@media screen and (max-width: 1680px) {
-
-			body, input, textarea, select {
-				font-size: 15pt;
-			}
-
-		}
-
-		@media screen and (max-width: 1280px) {
-
-			body, input, textarea, select {
-				font-size: 13pt;
-			}
-
-		}
-
-		@media screen and (max-width: 1000px) {
-
-			body, input, textarea, select {
-				font-size: 13pt;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			body, input, textarea, select {
-				font-size: 12pt;
-				line-height: 1.5em;
-			}
-
-		}
-
-	h1, h2, h3, h4, h5, h6 {
-		/*Kirang Haerang fonts*/
-		font-family: "Kirang Haerang", system-ui;
-		font-weight: 400;
-		font-style: normal;
-		/*font-weight: 900;*/
-		color: var(--title-color);
-		letter-spacing: -0.0325em;
-	}
-
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color: #4ab2ac /* Header title text color, was: inherit;*/
-			text-decoration: none;
-		}
-
-	h2 {
-		font-size: 2.25em;
-		line-height: 1.25em;
-		letter-spacing: -0.05em;
-	}
-/*Set intro title text color*/
-.welcome-heading {
-    color: var(--primary-color); 
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+body, input, textarea, select {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    font-size: 18pt;
+    line-height: 1.75em;
+    color: var(--text-color); 
+    letter-spacing: 0.025em;
 }
 
-/*set Content p font
-p {
-    font-weight: 900;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Kirang Haerang", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--title-color);
     letter-spacing: -0.0325em;
-} */
+}
 
+/* Header Links */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #4ab2ac; /* Specific highlight for linked titles */
+    text-decoration: none;
+}
 
-	@media screen and (max-width: 736px) {
+h2 {
+    font-size: 2.25em;
+    line-height: 1.25em;
+    letter-spacing: -0.05em;
+}
 
-		h2 {
-			font-size: 1.5em;
-		}
+.welcome-heading {
+    color: var(--primary-color); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
 
-	}
+/* --- 2. TEXT ELEMENTS --- */
 
-	strong, b {
-		font-weight: 900;
-		color: inherit;
-	}
+a {
+    transition: color 0.2s ease-in-out;
+    color: var(--primary-color);
+}
 
-	em, i {
-		font-style: italic;
-	}
+strong, b { font-weight: 900; color: inherit; }
+em, i { font-style: italic; }
 
-	a {
-		-moz-transition: color 0.2s ease-in-out;
-		-webkit-transition: color 0.2s ease-in-out;
-		-ms-transition: color 0.2s ease-in-out;
-		transition: color 0.2s ease-in-out;
-		color: var(--primary-color); /*Send text color, was #98c593*/
-	}
+sub, sup {
+    position: relative;
+    font-size: 0.8em;
+}
+sub { top: 0.5em; }
+sup { top: -0.5em; }
 
-	sub {
-		position: relative;
-		top: 0.5em;
-		font-size: 0.8em;
-	}
+hr {
+    border: 0;
+    border-top: solid 1px #e5e6e7;
+    margin: 2em 0;
+}
 
-	sup {
-		position: relative;
-		top: -0.5em;
-		font-size: 0.8em;
-	}
+blockquote {
+    border-left: solid 0.5em #e5e6e7;
+    padding: 1em 0 1em 2em;
+    font-style: italic;
+}
 
-	hr {
-		border: 0;
-		border-top: solid 1px #e5e6e7;
-	}
+p, ul, ol, dl, table {
+    margin-bottom: 1em;
+}
 
-	blockquote {
-		border-left: solid 0.5em #e5e6e7;
-		padding: 1em 0 1em 2em;
-		font-style: italic;
-	}
+/* --- 3. RESPONSIVE TEXT SCALING (Grouped Logic) --- */
 
-	p, ul, ol, dl, table {
-		margin-bottom: 1em;
-	}
+/* High-end scaling */
+@media screen and (max-width: 1920px) { body, input, textarea, select { font-size: 17pt; } }
+@media screen and (max-width: 1680px) { body, input, textarea, select { font-size: 15pt; } }
+
+/* Tablet & Smaller Desktop */
+@media screen and (max-width: 1280px), screen and (max-width: 1000px) {
+    body, input, textarea, select { font-size: 13pt; }
+}
+
+/* Mobile scaling */
+@media screen and (max-width: 736px) {
+    body, input, textarea, select { 
+        font-size: 12pt; 
+        line-height: 1.5em; 
+    }
+    h2 { font-size: 1.5em; }
+}
 
 /* Box */
 

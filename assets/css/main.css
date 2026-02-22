@@ -1096,24 +1096,23 @@ body {
 #prevBtn, #assetPrevBtn { left: 3%; }
 #nextBtn, #assetNextBtn { right: 3%; }
 
-/* --- THE SMART STACKING FIX --- */
+/* --- DYNAMIC STACKING LOGIC (NO WRAPPER NEEDED) --- */
 
-/* The new container that manages the buttons */
-.button-stack {
-    position: absolute;
+/* 1. Base position for all buttons - Default to bottom */
+.steam-link {
+    position: absolute !important;
     right: 2rem;
-    bottom: 2rem;
+    bottom: 2rem; /* Both start at the bottom */
     z-index: 200;
-    display: flex;
-    flex-direction: column; /* Stacks them vertically */
-    gap: 12px; /* Gap only exists BETWEEN buttons */
-    align-items: flex-end;
+    text-decoration: none;
+    display: none; /* JS will change this to inline-flex */
 }
 
-/* Base link style - JS handles display: none/inline-flex */
-.steam-link {
-    text-decoration: none;
-    transition: transform 0.2s ease;
+/* 2. THE TRICK: If the Website Link is visible AND followed by a Platform Link, 
+   move the Website Link UP so they don't overlap */
+#websiteLink:has(+ #platformLink[style*="inline-flex"]),
+#assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
+    bottom: 6rem; /* Push the top button up ONLY if the bottom one exists */
 }
 
 /* Internal Button Styling */
@@ -1133,7 +1132,13 @@ body {
 .link-button i { margin-right: 10px; font-size: 1.1rem; }
 
 @media screen and (max-width: 768px) {
-    .button-stack { right: 1rem; bottom: 1.5rem; gap: 8px; }
+    .steam-link { right: 1rem; bottom: 1.5rem; }
+    
+    #websiteLink:has(+ #platformLink[style*="inline-flex"]),
+    #assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
+        bottom: 4.5rem;
+    }
+
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

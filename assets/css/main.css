@@ -1098,12 +1098,11 @@ body {
     }
 }
 
-/* --- INTRO (Video Background) --- */
+/* --- INTRO --- */
 #intro {
     position: relative;
     overflow: hidden;
     height: 100vh;
-	z-index: 10 !important; /* A high number to stay above the balls */
 }
 
 #intro header h2 { 
@@ -1112,8 +1111,6 @@ body {
     line-height: 1.1;
     position: relative;
     top: -5vh; 
-	/* Invert Color */
-    mix-blend-mode: difference;
 }
 
 #intro h1.intro-text { 
@@ -1122,8 +1119,6 @@ body {
     line-height: 1.1;
     position: relative;
     top: -5vh; 
-    /* Invert Color */
-    mix-blend-mode: difference;
 }
 
 @media screen and (max-width: 736px) {
@@ -1354,7 +1349,7 @@ body {
     .blue { --ball-size: 70px; }
     
     .bouncing-ball {
-        animation-duration: 2.5s, 1.5s;
+        animation-duration: 6s, 4s;
     }
 }
 

@@ -1078,29 +1078,46 @@ body {
 }
 
 /* Nav Buttons */
-.nav-button svg {
-    /* Fixed size ensures they don't vanish */
-    width: 2.5rem !important; 
-    height: 2.5rem !important;
-    
-    /* Center it inside the circle */
-    display: block !important;
-    margin: auto !important;
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4rem; 
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100; 
+    background-color: rgba(21, 21, 28, 0.8);
+    border: 2px solid #8ab4f8;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease; /* Smooth transition for hover */
+}
 
-    /* Line thickness */
-    stroke: currentColor;
-    stroke-width: 3px !important;
-    fill: none;
-    
+/* Position the buttons in the gutters */
+#prevBtn, #assetPrevBtn { left: 3%; }
+#nextBtn, #assetNextBtn { right: 3%; }
+
+/* --- THE FIX: Make the arrows bigger --- */
+.nav-button svg {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    stroke-width: 2.5; /* Makes the arrow lines thicker */
+    display: block;
     transition: transform 0.2s ease;
 }
 
-/* Hover effect */
-.nav-button:hover svg {
-    transform: scale(1.2);
-    stroke-width: 3.5px !important;
+/* Interaction: Change color and slight scale on hover */
+.nav-button:hover {
+    background-color: #8ab4f8;
+    color: #111;
 }
 
+.nav-button:hover svg {
+    transform: scale(1.1);
+}
 /* --- DYNAMIC STACKING LOGIC (NO WRAPPER NEEDED) --- */
 
 /* 1. Base position for all buttons - Default to bottom */

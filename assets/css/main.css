@@ -1318,34 +1318,44 @@ body {
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
-/* START: The Bouncing Circle */
+/* START: The Bouncing Balls */
 .bouncing-ball {
-    /* Desktop Size */
-    --ball-size: 300px; 
-
     position: absolute;
-    width: var(--ball-size);
-    height: var(--ball-size);
-    background-color: rgba(255, 0, 0, 0.4);
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
-    
+    width: var(--ball-size);
+    height: var(--ball-size);
+}
+
+/* Red Ball Settings */
+.red {
+    --ball-size: 300px;
+    background-color: rgba(255, 0, 0, 0.4);
     animation: bounceX 5s linear infinite alternate, 
                bounceY 3.2s linear infinite alternate;
 }
 
-/* Mobile Adjustment */
+/* Blue Ball Settings (Smaller and Faster) */
+.blue {
+    --ball-size: 180px;
+    background-color: rgba(0, 123, 255, 0.4);
+    /* Different timings so they don't move in sync */
+    animation: bounceX 3.7s linear infinite alternate-reverse, 
+               bounceY 2.1s linear infinite alternate-reverse;
+}
+
+/* Mobile Scaling for Both */
 @media screen and (max-width: 736px) {
+    .red { --ball-size: 120px; }
+    .blue { --ball-size: 70px; }
+    
     .bouncing-ball {
-        /* Smaller size for mobile screens */
-        --ball-size: 100px; 
-        
-        /* Optional: Speed up the animation slightly for smaller distance */
-        animation-duration: 3s, 2s; 
+        animation-duration: 2.5s, 1.5s;
     }
 }
 
+/* Reuse the same Keyframes from before */
 @keyframes bounceX {
     from { left: 0; }
     to { left: calc(100% - var(--ball-size)); }

@@ -547,7 +547,7 @@ table.default thead { background: var(--bg-dark); color: var(--primary-color); b
 table.default tbody tr:nth-child(2n+2) { background: rgba(255, 255, 255, 0.05); }
 table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 
-/* --- POPTROX --- */
+/* --- 1. POPTROX (Standard Single-Image Popups) --- */
 .poptrox-popup {
     box-sizing: content-box !important;
     background: #fff;
@@ -555,41 +555,80 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
 }
 
-/* This forces the Poptrox image to stay within the screen bounds */
 .poptrox-popup img {
     display: block !important;
-    width: auto !important;
+    width: 100% !important;   /* Makes image fill the width */
     height: auto !important;
-    max-width: 90vw !important;  
-    max-height: 75vh !important; 
+    max-width: 90vw !important; 
+    max-height: none !important; /* Removes the "squashed" height */
     margin: 0 auto !important;
 }
 
-/* --- 2. CUSTOM MODAL (For #multi-image-modal) --- */
+/* --- 2. CUSTOM MODAL (For Projects & Videos) --- */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .custom-modal .modal-content {
-    margin: 2% auto; /* Reduced top margin to fit more content */
+    margin: 2% auto;
     width: 95%;
-    max-width: 1200px;
+    max-width: 1200px; /* This controls the "Cinematic" width you liked */
     background-color: var(--bg-dark);
     padding: 20px;
     border-radius: 8px;
     position: relative;
 }
 
-/* Forces images inside custom scroll-container to fit the window */
+.custom-modal .scroll-container {
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+}
+
+/* Match Image size to Video size */
 .custom-modal .scroll-container img {
-    width: auto !important;
+    width: 100% !important;
     height: auto !important;
     max-width: 100% !important; 
-    max-height: 70vh !important; /* Prevents tall images from pushing modal off-screen */
+    max-height: none !important; /* Removes height limit */
     display: block;
     margin: 0 auto 20px auto;
 }
 
-/* Shared Navigation & Closer Logic */
-.poptrox-popup .nav-next, 
-.poptrox-popup .nav-previous, 
-.poptrox-popup .closer {
+/* Video Wrapper (Matches Image Width) */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    margin: 0 auto 20px auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+}
+
+/* --- 3. SHARED UI ELEMENTS --- */
+.custom-modal .custom-close-button {
+    position: absolute;
+    top: 15px; right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.poptrox-popup .nav-next, .poptrox-popup .nav-previous, .poptrox-popup .closer {
     transition: opacity 0.2s ease-in-out;
     position: absolute;
     opacity: 0;
@@ -597,22 +636,35 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     z-index: 2;
 }
 
-.poptrox-popup:hover .nav-next, 
-.poptrox-popup:hover .nav-previous, 
-.poptrox-popup:hover .closer {
+.poptrox-popup:hover .nav-next, .poptrox-popup:hover .nav-previous, .poptrox-popup:hover .closer {
     opacity: 0.5;
 }
 
-/* Mobile Specific Scaling for both types of popups */
+/* Mobile Adjustments */
 @media screen and (max-width: 736px) {
     .poptrox-popup img {
         max-width: 95vw !important;
-        max-height: 60vh !important;
+        max-height: 70vh !important; /* Limits height on mobile only for usability */
     }
     .custom-modal .modal-content {
         width: 98%;
         padding: 10px;
-        margin-top: 10%;
+    }
+}
+
+/* --- 4. FLOATING BUTTON (Mobile Only) --- */
+.floating-button { display: none; }
+@media (max-width: 768px) {
+    .floating-button {
+        display: block;
+        position: fixed;
+        bottom: 20px; left: 20px;
+        z-index: 1000;
+        border-radius: 50%;
+        width: 60px; height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background-color: var(--primary-color);
     }
 }
 
@@ -1075,99 +1127,3 @@ body {
 }
 
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
-
-/* --- CONTACT SECTION --- */
-#contact { overflow: hidden; padding-bottom: 0; }
-
-#contact .box {
-    transition: transform 1s ease;
-    transform: translateY(0);
-    position: relative;
-}
-
-#contact.inactive .box { transform: translateY(100%); }
-
-@media screen and (max-width: 736px) { #contact .box { padding: 1.5em 1.5em 2em; } }
-
-/* --- CUSTOM MODAL --- */
-.custom-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.custom-modal .modal-content {
-    margin: 2% auto; /* Reduced margin to give more vertical space */
-    width: 95%;
-    max-width: 1200px; /* Aligned with portfolio image constraints */
-    background-color: var(--bg-dark);
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.custom-modal .scroll-container {
-    max-height: 85vh;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #555 #333;
-}
-
-/* --- VIDEO SCALING FIX --- */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    margin: 0 auto 20px auto; /* Centers the video horizontally */
-    
-    /* This forces the video to stay within the same bounds as your images */
-    width: 100%;
-    max-width: 85vw; 
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: 0;
-}
-
-.custom-modal .custom-close-button {
-    position: absolute;
-    top: 15px; right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* Mobile Adjustments for Modal */
-@media screen and (max-width: 736px) {
-    .video-wrapper {
-        max-width: 95vw; /* Fills more width on small screens */
-    }
-    .custom-modal .modal-content {
-        width: 98%;
-        padding: 10px;
-    }
-}
-
-/* --- FLOATING BUTTON (Mobile Only) --- */
-.floating-button { display: none; }
-
-@media (max-width: 768px) {
-    .floating-button {
-        display: block;
-        position: fixed;
-        bottom: 20px; left: 20px;
-        z-index: 1000;
-        border-radius: 50%;
-        width: 60px; height: 60px;
-        line-height: 60px;
-        text-align: center;
-        padding: 0;
-    }
-}

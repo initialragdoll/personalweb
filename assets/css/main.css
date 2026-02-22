@@ -393,8 +393,8 @@ input[type="button"]:hover, .button:hover, button:hover {
     display: block;
     width: 14px; 
     height: 14px;
-    border-bottom: 4px var(--text-color);
-    border-left: 4px var(--text-color);
+    border-bottom: 4px solid var(--text-color);
+    border-left: 4px solid var(--text-color);
     transition: border-color 0.2s, transform 0.2s;
 }
 

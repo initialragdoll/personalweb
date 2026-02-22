@@ -9,6 +9,7 @@
     --button-color: #4ab2ac20;   /* Button Backgrounds */
     --border-color: #ffffff40;   /* Divider Lines */
     --bg-dark: #15151c;          /* Main Page Background */
+	--shadow-color: #000000;
     --dot-grid: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
     --dot-size: 30px 30px; /* Controls the spacing between dots */
 }
@@ -1192,10 +1193,10 @@ body {
     position: absolute;
     top: 10%; left: 10%; right: 10%; bottom: 10%;
     overflow: hidden;
-    background: #15151c;
+    background: var(--bg-dark);
     border-radius: 60px; 
-    border: 3px solid #8ab4f8; 
-    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+    border: 3px solid var(--border-color); 
+    box-shadow: 10px 10px 0px 0px var(--shadow-color);
     z-index: 5;
 }
 

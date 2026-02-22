@@ -773,80 +773,47 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     grid-row: span 2;
 }
 
-/* --- GALLERY ANIMATIONS --- */
+/* --- GALLERY ANIMATIONS & STYLING --- */
 
 .gallery article {
-    transition: transform 1s ease, opacity 1s ease;
+    /* 1. Rounded Styling */
+    border-radius: 30px !important; 
+    overflow: hidden !important;   
+    background-color: #15151c;     
+    border: 2px solid rgba(138, 180, 248, 0.2); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+    /* 2. Combined Transitions */
+    /* This keeps the 1s entrance speed AND the 0.3s hover speed */
+    transition: transform 1s ease, 
+                opacity 1s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease !important;
+
+    /* 3. Initial Animation States */
     transform: none;
     opacity: 1;
 }
 
-/* Initial state before page load */
-.gallery.inactive article {
-    opacity: 0;
-    transform: translateY(2em);
-}
-
-/* Staggered transition delays */
-.gallery article:nth-child(1) { transition-delay: 0s; }
-.gallery article:nth-child(2) { transition-delay: 0.1s; }
-.gallery article:nth-child(3) { transition-delay: 0.2s; }
-.gallery article:nth-child(4) { transition-delay: 0.4s; }
-.gallery article:nth-child(5) { transition-delay: 0.5s; }
-.gallery article:nth-child(6) { transition-delay: 0.6s; }
-.gallery article:nth-child(7) { transition-delay: 0.7s; }
-.gallery article:nth-child(8) { transition-delay: 0.8s; }
-.gallery article:nth-child(9) { transition-delay: 0.9s; }
-
-/* Gallery Mobile Responsiveness */
-@media screen and (max-width: 736px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
-        gap: 0.5em;
-        padding: 0 2.5vw;
-    }
-    .gallery .featured-image { 
-        grid-column: span 2; 
-    }		
-}
-	/* --- PORTFOLIO ROUNDED CORNERS --- */
-
-.gallery article {
-    border-radius: 30px !important; /* Matches the roundness of your Game box */
-    overflow: hidden !important;   /* Crucial: clips the image to the corners */
-    background-color: #15151c;     /* Matches your dark theme */
-    border: 2px solid rgba(138, 180, 248, 0.2); /* Subtle blue border */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-/* Target the image or link inside the article */
-.gallery article a, 
-.gallery article img {
-    border-radius: inherit; /* Inherits the 30px from the parent article */
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures images fill the space without stretching */
-}
-
-/* Hover Effect to match the "Global Style" */
+/* 4. Snappy Hover Override */
 .gallery article:hover {
-    transform: scale(1.03) !important; /* Subtle pop out */
-    border-color: #8ab4f8 !important;   /* Brighter blue on hover */
+    /* We speed up the transform to 0.3s here so the 'pop' feels fast */
+    transition: transform 0.3s ease, border-color 0.3s ease !important;
+    transform: scale(1.03) !important; 
+    border-color: #8ab4f8 !important;   
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     z-index: 10;
 }
-	
-/* Round the images inside the popup modal 
-.scroll-container img, 
-.video-wrapper iframe {
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-*/
 
+/* 5. Images inside 
+.gallery article a, 
+.gallery article img {
+    border-radius: inherit; 
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+} */
 /* ---END: GALLERY / WORK SECTION --- */
 
 

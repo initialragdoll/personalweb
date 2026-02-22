@@ -550,20 +550,20 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* --- POPTROX POPUP (Lightbox) --- */
 
 .poptrox-popup {
-    box-sizing: content-box;
+    box-sizing: content-box !important;
     background: #fff;
-    padding-bottom: 3em; /* Space for the caption */
+    padding-bottom: 3em; 
     box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
 }
 
-/* FIX: This ensures images stay within the viewport bounds */
+/* FORCED FIX: The !important flag overrides the JavaScript's inline sizing */
 .poptrox-popup img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 85vw;  /* Maximum 85% of screen width */
-    max-height: 75vh; /* Maximum 75% of screen height to leave room for caption */
-    margin: 0 auto;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 85vw !important;  
+    max-height: 75vh !important; 
+    margin: 0 auto !important;
 }
 
 /* Loader icon inside popup */
@@ -666,19 +666,11 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     opacity: 1.0 !important;
 }
 
-/* Touch Device adjustments */
-body.is-touch .poptrox-popup .nav-next,
-body.is-touch .poptrox-popup .nav-previous,
-body.is-touch .poptrox-popup .closer {
-    opacity: 1.0 !important;
-}
-
 /* Mobile Scaling */
 @media screen and (max-width: 736px) {
-    /* Ensure image takes up more screen real estate on mobile but still fits */
     .poptrox-popup img {
-        max-width: 90vw;
-        max-height: 65vh;
+        max-width: 90vw !important;
+        max-height: 60vh !important;
     }
 
     .poptrox-popup .nav-next:before,
@@ -695,7 +687,6 @@ body.is-touch .poptrox-popup .closer {
         background-size: contain;
     }
 }
-
 
 /* --- GALLERY / WORK SECTION --- */
 

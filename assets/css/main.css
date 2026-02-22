@@ -798,9 +798,9 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 .gallery article {
     border-radius: 30px; 
     overflow: hidden;   
-    background-color: #15151c;     
-    border: 2px solid rgba(138, 180, 248, 0.2); 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background-color: var(--bg-dark);     
+    border: 2px solid var(--border-color); 
+    box-shadow: 0 4px 15px var(--shadow-color);
 
     /* REMOVED !important: Now the delays can 'talk' to this line */
     transition: transform 1s ease, 

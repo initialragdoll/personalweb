@@ -809,6 +809,43 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     .gallery .featured-image { 
         grid-column: span 2; 
     }
+	
+	/* --- PORTFOLIO ROUNDED CORNERS --- */
+
+.gallery article {
+    border-radius: 30px !important; /* Matches the roundness of your Game box */
+    overflow: hidden !important;   /* Crucial: clips the image to the corners */
+    background-color: #15151c;     /* Matches your dark theme */
+    border: 2px solid rgba(138, 180, 248, 0.2); /* Subtle blue border */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Target the image or link inside the article */
+.gallery article a, 
+.gallery article img {
+    border-radius: inherit; /* Inherits the 30px from the parent article */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the space without stretching */
+}
+
+/* Hover Effect to match the "Global Style" */
+.gallery article:hover {
+    transform: scale(1.03) !important; /* Subtle pop out */
+    border-color: #8ab4f8 !important;   /* Brighter blue on hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+	
+/* Round the images inside the popup modal */
+.scroll-container img, 
+.video-wrapper iframe {
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+	
 }
 
 

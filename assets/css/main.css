@@ -878,7 +878,6 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 
 
 /* --- HEADER --- */
-
 #header {
     position: fixed;
     top: 0; left: 0;
@@ -886,13 +885,17 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     height: 3em;
     z-index: 10000;
     background: var(--bg-dark);
-    /* box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1); */
-    
-    /* Alignment Logic */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5em;
+}
+
+/* Groups Title and Button on the left */
+.header-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 #header h1 {
@@ -903,8 +906,36 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 #header h1 a {
     font-size: 1.25em;
     text-decoration: none;
+    border-bottom: none; /* Removes underline if template added one */
 }
 
+/* Circular Theme Toggle Button */
+.theme-toggle {
+    background: var(--button-color);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--border-color);
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Navigation Links */
 #header nav ul {
     display: flex;
     list-style: none;
@@ -913,7 +944,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 }
 
 #header nav ul li {
-    margin-left: 1em;
+    margin-left: 1.5em;
 }
 
 #header nav ul li a {
@@ -931,28 +962,36 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 @media screen and (max-width: 736px) {
     #header {
         height: 2.5em;
-        justify-content: center; /* Centers the logo when nav is hidden */
+        justify-content: center; /* Centers the logo-area group */
+    }
+
+    .header-logo-area {
+        gap: 10px; /* Tighter spacing for mobile */
     }
 
     #header nav { 
-        display: none; 
+        display: none; /* Hides links on mobile */
     }
 
     #header h1 a { 
         font-size: 1em; 
     }
+
+    .theme-toggle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
     
-    /* Body padding adjustment for smaller header */
     body {
         padding-top: 2.5em;
     }
 }
 
-/* Default Body padding for Desktop header */
+/* Default Body padding */
 body {
     padding-top: 3em;
 }
-
 
 /* --- MAIN SECTION LAYOUTS --- */
 

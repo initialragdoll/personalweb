@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
@@ -723,35 +724,20 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 }
 
 /* --- FLOATING BUTTON (Mobile Only) --- */
-
 .floating-button { display: none; }
-
 @media (max-width: 768px) {
     .floating-button {
-        /* 1. Use Flexbox for perfect centering */
-        display: flex !important;
-        align-items: center;    
-        justify-content: center; 
-        
+        display: block;
         position: fixed;
-        bottom: 20px; 
-        left: 20px;
+        bottom: 20px; left: 20px;
         z-index: 1000;
         border-radius: 50%;
-        width: 60px; 
-        height: 60px;
-        
+        width: 60px; height: 60px;
+        line-height: 60px;
+        text-align: center;
         background-color: var(--primary-color);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-
-    .floating-button i, 
-    .floating-button svg {
-        margin: 0 !important;
-        line-height: 1;
-    }
-} 
-
+}
 
 /* ---START: GALLERY / WORK SECTION --- */
 
@@ -790,17 +776,18 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* --- GALLERY ANIMATIONS & STYLING --- */
 
 .gallery article {
-    border-radius: 30px; 
-    overflow: hidden;   
+    /* 1. Rounded Styling */
+    border-radius: 30px !important; 
+    overflow: hidden !important;   
     background-color: #15151c;     
     border: 2px solid rgba(138, 180, 248, 0.2); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 
-    /* REMOVED !important: Now the delays can 'talk' to this line */
+    /* 2. Entrance Animation Logic */
     transition: transform 1s ease, 
                 opacity 1s ease, 
                 border-color 0.3s ease, 
-                box-shadow 0.3s ease;
+                box-shadow 0.3s ease !important;
     transform: none;
     opacity: 1;
 }
@@ -865,7 +852,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     width: 100%;
     height: 3em;
     z-index: 10000;
-    background: var(--bg-dark);
+    background: rgba(21, 21, 28, 1);
     box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1);
     
     /* Alignment Logic */
@@ -961,7 +948,7 @@ body {
 }
 
 .main.style1 h2 {
-    font-size: 8.25em;
+    font-size: 4.25em;
     line-height: 1em;
 }
 
@@ -1121,22 +1108,8 @@ body {
 }
 
 #intro .intro-text { 
-    font-size: 8rem; /* Using rem/em for better scaling than fixed px */
-    text-align: center;
-    line-height: 1.1;
-    position: relative;
-    top: -5vh; /* This moves it up by 5% of the screen height regardless of device */
-    
-    /* Ensure it stays above other elements */
-    z-index: 2;
+    font-size: 2em; 
 }
-
-/* Responsive adjustment: Shrink the font slightly on mobile */
-@media screen and (max-width: 736px) {
-    #intro .intro-text {
-        font-size: 3.5rem;
-        top: -2vh; /* Less nudge needed on small screens */
-    }
 
 #bg-video {
     position: absolute;
@@ -1315,7 +1288,9 @@ body {
     font-size: 2.25em !important; 
     line-height: 1.25em !important;
     letter-spacing: -0.05em !important;
-	text-align: center !important;
+    
+    color: #FFFFFF !important;
+    text-align: center !important;
     margin: 0 !important;
 }
 
@@ -1325,5 +1300,3 @@ body {
     margin-top: 0 !important;
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
-
-

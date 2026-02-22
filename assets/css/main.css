@@ -9,9 +9,8 @@
     --button-color: #4ab2ac20;   /* Button Backgrounds */
     --border-color: #ffffff40;   /* Divider Lines */
     --bg-dark: #15151c;          /* Main Page Background */
-
-    /* Neubrutalist Grid Addition */
-    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    --dot-size: 30px 30px; /* Controls the spacing between dots */
 }
 
 /* --- 2. GLOBAL RESET --- */
@@ -72,7 +71,7 @@ body {
     background: var(--bg-dark);
     /* Adding the procedural grid here */
     background-image: var(--dot-grid);
-    background-size: 25px 25px;
+    background-size: var(--dot-size);
     background-attachment: fixed;
     
     height: 100%;
@@ -1017,7 +1016,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-dark);
+    background-color: transparent;
 	background-image: none; /* url("images/overlay.png") */
     background-size: 256px 256px, cover;
     background-attachment: fixed;

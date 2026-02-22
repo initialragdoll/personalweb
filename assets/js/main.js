@@ -282,9 +282,10 @@ function initializeCarousel(projects, prefix = "") {
     }
 		
     function updateCarouselPosition() {
-        if (!carouselTrack) return;
-        carouselTrack.style.transform = `translateX(${-currentProjectIndex * 100}vw)`;
-    }
+    if (!carouselTrack) return;
+    /* CHANGE THIS: from 100vw to 100% */
+    carouselTrack.style.transform = `translateX(${-currentProjectIndex * 100}%)`;
+}
 
     function updateLinks() {
         const currentProject = projects[currentProjectIndex];
@@ -493,6 +494,7 @@ window.onclick = function(event) {
 
 
 })(jQuery);
+
 
 
 

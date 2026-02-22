@@ -775,18 +775,17 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* --- GALLERY ANIMATIONS & STYLING --- */
 
 .gallery article {
-    /* 1. Rounded Styling */
-    border-radius: 30px !important; 
-    overflow: hidden !important;   
+    border-radius: 30px; 
+    overflow: hidden;   
     background-color: #15151c;     
     border: 2px solid rgba(138, 180, 248, 0.2); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 
-    /* 2. Entrance Animation Logic */
+    /* REMOVED !important: Now the delays can 'talk' to this line */
     transition: transform 1s ease, 
                 opacity 1s ease, 
                 border-color 0.3s ease, 
-                box-shadow 0.3s ease !important;
+                box-shadow 0.3s ease;
     transform: none;
     opacity: 1;
 }
@@ -817,15 +816,15 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 }
 
 /* 6. Staggered transition delays (REQUIRED for the waterfall effect) */
-.gallery article:nth-child(1) { transition-delay: 0.0s !important; }
-.gallery article:nth-child(2) { transition-delay: 0.1s !important; }
-.gallery article:nth-child(3) { transition-delay: 0.2s !important; }
-.gallery article:nth-child(4) { transition-delay: 0.3s !important; }
-.gallery article:nth-child(5) { transition-delay: 0.4s !important; }
-.gallery article:nth-child(6) { transition-delay: 0.5s !important; }
-.gallery article:nth-child(7) { transition-delay: 0.6s !important; }
-.gallery article:nth-child(8) { transition-delay: 0.7s !important; }
-.gallery article:nth-child(9) { transition-delay: 0.8s !important; }
+.gallery article:nth-child(1) { transition-delay: 0s; }
+.gallery article:nth-child(2) { transition-delay: 0.1s; }
+.gallery article:nth-child(3) { transition-delay: 0.2s; }
+.gallery article:nth-child(4) { transition-delay: 0.3s; }
+.gallery article:nth-child(5) { transition-delay: 0.4s; }
+.gallery article:nth-child(6) { transition-delay: 0.5s; }
+.gallery article:nth-child(7) { transition-delay: 0.6s; }
+.gallery article:nth-child(8) { transition-delay: 0.7s; }
+.gallery article:nth-child(9) { transition-delay: 0.8s; }
 
 /* Gallery Mobile Responsiveness */
 @media screen and (max-width: 736px) {

@@ -1103,7 +1103,7 @@ body {
     position: relative;
     overflow: hidden;
     height: 100vh;
-	z-index: 10; /* A high number to stay above the balls */
+	z-index: 10 !important; /* A high number to stay above the balls */
 }
 
 #intro header h2 { 

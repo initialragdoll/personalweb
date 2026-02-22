@@ -1144,8 +1144,14 @@ body {
     transition: all 0.2s ease;
 }
 
-#prevBtn { left: 20px !important; }
-#nextBtn { right: 20px !important; }
+#prevBtn, #assetPrevBtn { 
+    left: 3% !important; 
+}
+
+/* Both 'Forward' buttons stay right */
+#nextBtn, #assetNextBtn { 
+    right: 3% !important; 
+}
 
 /* 2. The Arrow Icon */
 .nav-button svg {

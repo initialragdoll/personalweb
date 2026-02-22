@@ -728,12 +728,10 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     .floating-button {
         display: block;
         position: fixed;
-        bottom: 20px; 
-        left: 20px;
+        bottom: 20px; left: 20px;
         z-index: 1000;
         border-radius: 50%;
-        width: 60px; 
-        height: 60px;
+        width: 60px; height: 60px;
         line-height: 60px;
         text-align: center;
         background-color: var(--primary-color);
@@ -1100,41 +1098,33 @@ body {
     }
 }
 
-/* --- INTRO SECTION --- */
+/* --- INTRO (Video Background) --- */
 #intro {
     position: relative;
     overflow: hidden;
     height: 100vh;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 }
 
-#intro .intro-text {
-    display: flex !important;
-    flex-direction: column !important; /* Forces H2 and H1 to stack, preventing overlap */
-    align-items: center !important;
+#intro .intro-text { 
+    /* 2. Your massive font size */
+    font-size: 8rem; /* Using rem/em for better scaling than fixed px */
     text-align: center;
+    line-height: 1.1;
+    
+    /* 3. The 'Smart Move' - Nudge it up relative to its center */
     position: relative;
-    top: -15vh !important; /* Increased nudge to clear the logo button */
+    top: -5vh; /* This moves it up by 5% of the screen height regardless of device */
+    
+    /* 4. Ensure it stays above other elements */
     z-index: 2;
 }
-
-#intro .intro-text h2 {
-    font-size: 8rem !important;
-    line-height: 1 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+/* Responsive adjustment: Shrink the font slightly on mobile */
+@media screen and (max-width: 736px) {
+    #intro .intro-text {
+        font-size: 3.5rem;
+        top: -2vh; /* Less nudge needed on small screens */
+    }
 }
-
-#intro .intro-text h1 {
-    font-size: 4.5rem !important;
-    line-height: 1 !important;
-    margin: 10px 0 0 0 !important; /* Small top margin to separate from Initial Ragdoll */
-    color: #FFFFFF !important;
-    font-weight: 300 !important;
-}
-/* --- INTRO TEXT SECTION END--- */
 
 #bg-video {
     position: absolute;

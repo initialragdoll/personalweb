@@ -3,32 +3,21 @@
 @import url("fontawesome-all.min.css");
 
 :root {
-    /* Colors */
-    --primary-color: #95c3ff;    /* Highlight/Buttons */
-    --title-color: #ececec;      /* Headings */
-    --text-color: #9ac8e9;       /* Body Text */
-    --button-bg: #4ab2ac20;
+    --primary-color: #95c3ff;
+    --title-color: #ececec;
+    --text-color: #9ac8e9;
+    --button-color: #4ab2ac20;
     --border-color: #ffffff40;
-    --bg-dark: #15151c;          /* Main Background */
-    --overlay-bg: rgba(21, 21, 28, 0.3);
-    
-    /* Transitions */
+    --bg-dark: #15151c;
     --transition: all 0.2s ease-in-out;
 }
 
-/* --- 2. RESET & BASE STYLES --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%;
-    background: var(--bg-dark);
-}
+/* --- 2. RESET & BASE --- */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
 
 body {
+    background: var(--bg-dark);
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
     font-size: 18pt;
@@ -37,16 +26,9 @@ body {
     letter-spacing: 0.025em;
     min-width: 320px;
     -webkit-text-size-adjust: none;
-    text-decoration: none;
 }
 
-/* Common Element Reset */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-ol, ul { list-style: none; }
-img { max-width: 100%; }
-hr { border: 0; border-top: solid 1px #e5e6e7; }
-
-/* --- 3. TYPOGRAPHY --- */
+/* Common Element Consolidation */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Kirang Haerang", system-ui;
     font-weight: 400;
@@ -54,94 +36,64 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.0325em;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    color: #4ab2ac;
+h2 { font-size: 2.25em; line-height: 1.25em; letter-spacing: -0.05em; }
+
+a {
+    transition: color 0.2s ease-in-out;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
-h2 {
-    font-size: 2.25em;
-    line-height: 1.25em;
-    letter-spacing: -0.05em;
-}
-
-.welcome-heading {
-    color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-a {
-    transition: var(--transition);
-    color: var(--primary-color);
-}
-
 p, ul, ol, dl, table { margin-bottom: 1em; }
-strong, b { font-weight: 900; color: inherit; }
+img { max-width: 100%; }
 
-/* --- 4. TEMPLATE LAYOUT (Header & Sections) --- */
+/* --- 3. TEMPLATE CORE LAYOUT (Sidebar & Main Content) --- */
 
-/* Header Sidebar */
 #header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20%;
+    width: 22em;
     height: 100%;
     background: var(--bg-dark);
     z-index: 10000;
     padding: 3em;
-    /* ... structural styles preserved from template ... */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Main Content Sections */
 .main {
+    padding-left: 22em; /* This offsets content for the sidebar */
     position: relative;
-    overflow: hidden;
-    padding-left: 20%; /* Adjusts for sidebar */
 }
 
 .main.fullscreen {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
-/* Interactive Gallery Logic (Critical for JS) */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    transition: opacity 0.5s ease;
+/* Section Backgrounds & Logic */
+.main.dark { background-color: var(--bg-dark); color: #ffffff; }
+
+/* Transitions (Controlled by main.js) */
+.main.inactive { opacity: 0; }
+.main {
+    transition: opacity 1s ease;
+    opacity: 1;
 }
 
-.gallery.inactive {
-    opacity: 0;
+/* --- 4. COMPONENTS (Buttons, Forms, Box) --- */
+
+.box {
+    background-color: rgba(21, 21, 28, 0.3);
+    color: #ffffff;
+    padding: 3em;
 }
 
-/* --- 5. FORMS & BUTTONS --- */
-
-/* Shared Input Style */
-input[type="text"], input[type="password"], input[type="email"], 
-input[type="tel"], input[type="search"], input[type="url"], 
-select, textarea {
+/* Unified Button Style */
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
     appearance: none;
-    transition: var(--transition);
-    display: block;
-    width: 100%;
-    padding: 0.65em 0.75em;
-    background: none;
-    border: solid 2px var(--primary-color);
-    color: inherit;
-    border-radius: 0.5em;
-    outline: none;
-}
-
-input:focus, textarea:focus { border-color: #9ac8e9; }
-
-/* Shared Button Style */
-.button, button, input[type="submit"] {
-    appearance: none;
-    transition: var(--transition);
+    transition: background-color 0.2s ease-in-out;
     background-color: var(--primary-color);
     border: 0;
     border-radius: 3.5em;
@@ -152,26 +104,69 @@ input:focus, textarea:focus { border-color: #9ac8e9; }
     line-height: 3.5em;
     padding: 0 2em;
     text-align: center;
-    text-decoration: none;
 }
 
 .button:hover { opacity: 0.8; }
 
-/* Special Template Buttons (Down Arrow) */
+.button.style2 {
+    background-color: transparent;
+    border: solid 2px var(--border-color);
+    color: inherit;
+}
+
+/* Down Arrow Button */
 .button.down {
     width: 5em;
     height: 5em;
+    background: url("images/dark-arrow.svg") center no-repeat;
     background-size: contain;
-    background-image: url("images/dark-arrow.svg");
-    background-position: center;
-    background-repeat: no-repeat;
     text-indent: -10em;
     overflow: hidden;
 }
 
-/* --- 6. CUSTOM COMPONENTS (User Added) --- */
+/* Forms */
+input[type="text"], input[type="email"], select, textarea {
+    appearance: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: block;
+    width: 100%;
+    padding: 0.75em;
+    background: transparent;
+    border: solid 2px var(--primary-color);
+    color: inherit;
+    border-radius: 0.5em;
+    outline: none;
+}
 
-/* Floating Button */
+input:focus, textarea:focus { border-color: #ffffff; }
+
+/* --- 5. YOUR CUSTOM ADDITIONS --- */
+
+/* Carousel & Video Wrappers */
+.carousel-container { position: relative; overflow: hidden; }
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-bottom: 20px;
+}
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+/* Custom Modal */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+/* Floating Contact Button */
 .floating-button {
     display: none;
     position: fixed;
@@ -180,40 +175,43 @@ input:focus, textarea:focus { border-color: #9ac8e9; }
     z-index: 999;
 }
 
-/* Custom Modal */
-.custom-modal {
-    display: none;
-    position: fixed;
-    z-index: 100000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-}
-
-/* --- 7. ANIMATIONS --- */
+/* --- 6. ANIMATIONS --- */
 @keyframes spinner-rotate {
-    from { transform: scale(1) rotate(0deg); }
-    to { transform: scale(1) rotate(360deg); }
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1) rotate(360deg); }
 }
 
-/* Combined other keyframes... */
+@keyframes overlay-hide {
+    0% { opacity: 1; z-index: 100000; }
+    100% { opacity: 0; z-index: -1; }
+}
 
-/* --- 8. MEDIA QUERIES --- */
+/* Applying animations to JS-driven classes */
+body.is-preload:after {
+    animation: overlay-hide 1.5s ease-in forwards !important;
+    background: var(--bg-dark);
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+}
 
-/* Font scaling for body and inputs */
+/* --- 7. RESPONSIVE (Media Queries) --- */
+
+/* Desktop Scaling */
 @media screen and (max-width: 1680px) { body { font-size: 15pt; } }
-@media screen and (max-width: 1280px) { body { font-size: 13pt; } }
+@media screen and (max-width: 1280px) { body { font-size: 13pt; } #header { width: 18em; } .main { padding-left: 18em; } }
 
-@media screen and (max-width: 736px) { 
-    #header { position: relative; width: 100%; height: auto; padding: 2em; }
+/* Mobile View (The big layout change) */
+@media screen and (max-width: 736px) {
+    body { font-size: 12pt; line-height: 1.5em; }
+    #header {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2em;
+        text-align: center;
+    }
     .main { padding-left: 0; }
     .floating-button { display: block; }
     h2 { font-size: 1.5em; }

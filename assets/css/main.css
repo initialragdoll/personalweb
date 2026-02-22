@@ -575,9 +575,10 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 }
 
 .custom-modal .modal-content {
-    margin: 2% auto;
-    width: 95%;
-    max-width: 1200px; /* This controls the "Cinematic" width you liked */
+    /* Changed margin: 2% auto; to the version below */
+    margin: 4em auto 2% auto; /* 4em provides clear space below the 3em header */
+    width: 90%;               /* Reduced slightly from 95% for better framing */
+    max-width: 1100px;        /* Reduced slightly for better fit on average screens */
     background-color: var(--bg-dark);
     padding: 20px;
     border-radius: 8px;
@@ -585,7 +586,8 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 }
 
 .custom-modal .scroll-container {
-    max-height: 85vh;
+    /* Reduced from 85vh to 75vh to ensure the bottom doesn't cut off */
+    max-height: 75vh; 
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #555 #333;

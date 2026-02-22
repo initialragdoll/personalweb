@@ -738,7 +738,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     }
 }
 
-/* --- GALLERY / WORK SECTION --- */
+/* ---START: GALLERY / WORK SECTION --- */
 
 #work {
     display: flex;
@@ -808,8 +808,8 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     }
     .gallery .featured-image { 
         grid-column: span 2; 
-    }
-	
+    }		
+}
 	/* --- PORTFOLIO ROUNDED CORNERS --- */
 
 .gallery article {
@@ -845,8 +845,8 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     border-radius: 20px;
     margin-bottom: 20px;
 }
-	
-}
+
+/* ---END: GALLERY / WORK SECTION --- */
 
 
 /* --- HEADER --- */

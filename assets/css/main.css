@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
-/* --- 1. UNIVERSAL VARIABLES --- */
+/* --- UNIVERSAL VARIABLES --- */
 :root {
     --primary-color: #95c3ff;    /* Highlights / Buttons */
     --title-color: #ececec;      /* Headers */
@@ -13,7 +13,7 @@
     --dot-size: 30px 30px; /* Controls the spacing between dots */
 }
 
-/* --- 2. GLOBAL RESET --- */
+/* --- GLOBAL RESET --- */
 /* Groups all elements to strip default browser margins/borders */
 html, body, div, span, applet, object, iframe, 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
@@ -88,7 +88,7 @@ body.is-preload *:after {
     transition: none !important;
 }
 
-/* --- 1. KEYFRAMES --- */
+/* --- KEYFRAMES --- */
 
 /* Rotation for the loading icon */
 @keyframes spinner-rotate {
@@ -116,7 +116,7 @@ body.is-preload *:after {
     100%    { opacity: 0; z-index: -1; }
 }
 
-/* --- 2. LOADER ELEMENTS (Before/After) --- */
+/* --- LOADER ELEMENTS (Before/After) --- */
 
 body {
     text-decoration: none;
@@ -162,7 +162,7 @@ body:after {
     z-index: -1;
 }
 
-/* --- 3. LOADING STATE (Triggered by .is-preload class) --- */
+/* --- LOADING STATE (Triggered by .is-preload class) --- */
 
 /* Show and spin the icon */
 body.is-preload:before {
@@ -219,7 +219,7 @@ h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-/* --- 2. TEXT ELEMENTS --- */
+/* --- TEXT ELEMENTS --- */
 
 a {
     transition: color 0.2s ease-in-out;
@@ -252,7 +252,7 @@ p, ul, ol, dl, table {
     margin-bottom: 1em;
 }
 
-/* --- 3. RESPONSIVE TEXT SCALING (Grouped Logic) --- */
+/* --- RESPONSIVE TEXT SCALING (Grouped Logic) --- */
 
 /* High-end scaling */
 @media screen and (max-width: 1920px) { body, input, textarea, select { font-size: 17pt; } }
@@ -301,7 +301,7 @@ p, ul, ol, dl, table {
 
 		}
 
-/* --- 1. BUTTONS --- */
+/* --- BUTTONS --- */
 
 /* Base Button Style */
 input[type="button"], input[type="submit"], input[type="reset"], 
@@ -368,7 +368,55 @@ input[type="button"]:hover, .button:hover, button:hover {
     background-image: url("images/Logo_150_150.gif");
 }
 
-/* --- 2. FORM LAYOUT --- */
+/* --- UI COMPONENT: PROCEDURAL NAV BUTTONS --- */
+.nav-button {
+    position: absolute;
+    width: 60px !important;
+    height: 60px !important;
+    background-color: rgba(21, 21, 28, 0.8) !important;
+    border: 2px solid #8ab4f8 !important;
+    border-radius: 50% !important;
+    cursor: pointer;
+    z-index: 100;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    transition: all 0.2s ease;
+}
+
+/* The Procedural Arrow Head */
+.nav-button::after {
+    content: '';
+    display: block;
+    width: 14px; 
+    height: 14px;
+    border-bottom: 4px solid white;
+    border-left: 4px solid white;
+    transition: border-color 0.2s;
+}
+
+/* Directional Rotations */
+.prev-arrow::after {
+    transform: rotate(45deg);
+    margin-left: 5px; /* Visual centering */
+}
+
+.next-arrow::after {
+    transform: rotate(-135deg);
+    margin-right: 5px; /* Visual centering */
+}
+
+/* Global Hover State */
+.nav-button:hover {
+    background-color: #8ab4f8 !important;
+}
+
+.nav-button:hover::after {
+    border-color: #111 !important;
+}
+
+/* --- FORM LAYOUT --- */
 
 form { margin: 0 0 2em 0; }
 form > :last-child { margin-bottom: 0; }
@@ -396,7 +444,7 @@ form > :last-child { margin-bottom: 0; }
     .field { padding: 1em 0 0 1em; width: calc(100% - 1em) !important; }
 }
 
-/* --- 3. INPUT FIELDS --- */
+/* --- INPUT FIELDS --- */
 
 label { display: block; margin-bottom: 0.5em; }
 
@@ -537,7 +585,7 @@ ul.actions.fit li > * { width: 100%; }
     ul.actions:not(.fixed) li > * { width: 100%; }
 }
 
-/* --- 5. TABLES --- */
+/* --- TABLES --- */
 table { width: 100%; border-collapse: collapse; }
 table.default td, table.default th { padding: 0.5em 1em; }
 table.default th { text-align: left; font-weight: 900; }
@@ -546,7 +594,7 @@ table.default thead { background: var(--bg-dark); color: var(--primary-color); b
 table.default tbody tr:nth-child(2n+2) { background: rgba(255, 255, 255, 0.05); }
 table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 
-/* --- 1. POPTROX (Standard Single-Image Popups) --- */
+/* --- POPTROX (Standard Single-Image Popups) --- */
 .poptrox-popup {
     box-sizing: content-box !important;
     background: #fff;
@@ -563,7 +611,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     margin: 0 auto !important;
 }
 
-/* --- 2. CUSTOM MODAL (For Projects & Videos) --- */
+/* --- CUSTOM MODAL (For Projects & Videos) --- */
 .custom-modal {
     display: none;
     position: fixed;
@@ -619,7 +667,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     border: 0;
 }
 
-/* --- 3. SHARED UI ELEMENTS --- */
+/* --- SHARED UI ELEMENTS --- */
 .custom-modal .custom-close-button {
     position: absolute;
     top: 15px; right: 35px;
@@ -653,7 +701,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     }
 }
 
-/* --- 4. FLOATING BUTTON (Mobile Only) --- */
+/* --- FLOATING BUTTON (Mobile Only) --- */
 .floating-button { display: none; }
 @media (max-width: 768px) {
     .floating-button {

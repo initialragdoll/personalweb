@@ -1128,7 +1128,7 @@ body {
 }
 
 #footer a { 
-    color: var(--text-color); 
+    color: #2a3741; 
     transition: color 0.2s;
 }
 

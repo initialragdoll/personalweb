@@ -1119,7 +1119,7 @@ body {
 .link-button {
     display: flex !important;
     align-items: center !important;
-    background-color: var(--primary-color);
+    background-color: var(--button-color);
     color: var(--text-color);
     padding: 0.7rem 1.5rem !important;
     border-radius: 9999px !important;

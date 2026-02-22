@@ -1103,52 +1103,34 @@ body {
     position: relative;
     overflow: hidden;
     height: 100vh;
-    display: flex;         /* Use Flexbox to center the content group */
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 #intro .intro-text {
-    display: flex;         /* Use Flexbox to stack the titles vertically */
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important; /* Forces H2 and H1 to stack, preventing overlap */
+    align-items: center !important;
     text-align: center;
     position: relative;
-    top: -12vh;            /* Nudge the group up to clear the bottom logo */
+    top: -15vh !important; /* Increased nudge to clear the logo button */
     z-index: 2;
 }
 
-/* 1. INITIAL RAGDOLL - Main Title */
 #intro .intro-text h2 {
-    font-size: 8rem !important; /* Overrides the 100% reset from line 21 */
-    line-height: 0.9 !important;
-    margin: 0 !important;      /* Removes any stray margins */
+    font-size: 8rem !important;
+    line-height: 1 !important;
+    margin: 0 !important;
     padding: 0 !important;
-    display: block !important;
 }
 
-/* 2. GAMES - Secondary Title */
 #intro .intro-text h1 {
-    font-size: 4.5rem !important; /* Large enough to be seen */
+    font-size: 4.5rem !important;
     line-height: 1 !important;
-    margin-top: 5px !important;   /* Controlled gap so it doesn't overlap */
-    margin-bottom: 0 !important;  /* Deletes the 25rem conflict from line 620 */
+    margin: 10px 0 0 0 !important; /* Small top margin to separate from Initial Ragdoll */
     color: #FFFFFF !important;
     font-weight: 300 !important;
-    display: block !important;
-}
-
-/* --- MOBILE SCALING --- */
-@media screen and (max-width: 736px) {
-    #intro .intro-text h2 { 
-        font-size: 3.5rem !important; 
-    }
-    #intro .intro-text h1 { 
-        font-size: 2.2rem !important; 
-    }
-    #intro .intro-text { 
-        top: -5vh; 
-    }
 }
 /* --- INTRO TEXT SECTION END--- */
 

@@ -21,8 +21,8 @@ body.light-theme {
     --primary-color: #95c3ff;
     --title-color: #4678b4;
     --text-color: #2a3741;
-    --button-color: #4ab2ac20;
-    --border-color: #99beff9c;
+    --button-color: #ffffff70;
+    --border-color: #ffffffc2;
     --bg-color: #d2d9d9;
     --shadow-color: #0000002e;
     --dot-grid: radial-gradient(rgb(100 100 100 / 63%) 1px, transparent 1px);
@@ -494,7 +494,7 @@ select, textarea {
     width: 100%;
     padding: 0.65em 0.75em;
     background: none;
-    border: solid 2px var(--primary-color);
+    border: solid 2px var(--border-color);
     color: inherit;
     border-radius: 0.5em;
     outline: none;

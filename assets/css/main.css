@@ -1096,50 +1096,44 @@ body {
 #prevBtn, #assetPrevBtn { left: 3%; }
 #nextBtn, #assetNextBtn { right: 3%; }
 
-/* --- THE DUAL BUTTON FIX --- */
+/* --- THE SMART STACKING FIX --- */
 
-/* This targets the <a> tags seen in your Inspector */
-.steam-link {
-    position: absolute !important;
+/* The new container that manages the buttons */
+.button-stack {
+    position: absolute;
     right: 2rem;
-    z-index: 200;
-    display: inline-flex !important; /* Matches your JS output */
-    text-decoration: none;
-}
-
-/* Position the Bottom button (Platform/Steam) */
-#platformLink, #assetPlatformLink {
     bottom: 2rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column; /* Stacks them vertically */
+    gap: 12px; /* Gap only exists BETWEEN buttons */
+    align-items: flex-end;
 }
 
-/* Position the Top button (Website) and push it up */
-#websiteLink, #assetWebLink {
-    bottom: 6rem; /* Places it exactly above the other button */
+/* Base link style - JS handles display: none/inline-flex */
+.steam-link {
+    text-decoration: none;
+    transition: transform 0.2s ease;
 }
 
-/* Internal Button Styling (The Pill) */
+/* Internal Button Styling */
 .link-button {
     display: flex !important;
-    flex-direction: row !important;
     align-items: center !important;
     background-color: #000 !important;
     color: #fff !important;
-    padding: 0.6rem 1.4rem !important;
+    padding: 0.7rem 1.5rem !important;
     border-radius: 9999px !important;
     border: 2px solid #8ab4f8 !important;
     font-weight: bold;
     white-space: nowrap;
-    transition: transform 0.2s ease;
     min-width: 160px;
 }
 
 .link-button i { margin-right: 10px; font-size: 1.1rem; }
 
-/* Mobile Adjustments */
 @media screen and (max-width: 768px) {
-    .steam-link { right: 1rem; }
-    #platformLink, #assetPlatformLink { bottom: 1.5rem; }
-    #websiteLink, #assetWebLink { bottom: 4.5rem; }
+    .button-stack { right: 1rem; bottom: 1.5rem; gap: 8px; }
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

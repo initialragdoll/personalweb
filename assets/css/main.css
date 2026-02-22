@@ -680,64 +680,57 @@ body.is-touch .poptrox-popup .closer {
     }
 }
 
-/* Gallery */
 
-/* Work Section Styling - This is the new part to add */
+/* --- GALLERY / WORK SECTION --- */
+
 #work {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*justify-content: flex-start;*/
-    padding: 3em 0 3em 0; 
+    padding: 3em 0 0 0 !important;
     box-sizing: border-box;
-    padding-bottom: 0 !important; 
 }
 
-#work h2 {
-    margin-bottom: 0.5em;
+#work h2 { 
+    margin-bottom: 0.5em; 
 }
 
-/* Override content div to fix horizontal gaps */
 #work > .content {
     max-width: none;
     width: 100%;
 }
 
-/* Gallery Layout */
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
+    grid-auto-flow: dense;
     gap: 1.5em;
     width: 100%;
-    max-width: none; /* <--- CHANGED THIS TO REMOVE THE LIMIT */
-    margin: 0 auto;
-    flex-grow: 1;
-    grid-auto-flow: dense;
-    padding-left: 5vw; /* <--- ADDED PADDING FOR SPACING */
-    padding-right: 5vw; /* <--- ADDED PADDING FOR SPACING */
+    padding: 0 5vw;
 }
 
-/* Featured Image */
+/* Featured Item (Spans 2 columns/rows) */
 .gallery .featured-image {
     grid-column: span 2;
     grid-row: span 2;
 }
 
-/* Animation State 1: Inactive (off-screen) */
-.gallery.inactive article {
-    opacity: 0;
-    transform: translateY(2em);
-}
+/* --- GALLERY ANIMATIONS --- */
 
-/* Animation State 2: Active (on-screen) */
 .gallery article {
     transition: transform 1s ease, opacity 1s ease;
     transform: none;
     opacity: 1;
 }
 
-/* Add staggered transition delay for each image */
+/* Initial state before page load */
+.gallery.inactive article {
+    opacity: 0;
+    transform: translateY(2em);
+}
+
+/* Staggered transition delays */
 .gallery article:nth-child(1) { transition-delay: 0s; }
 .gallery article:nth-child(2) { transition-delay: 0.1s; }
 .gallery article:nth-child(3) { transition-delay: 0.2s; }
@@ -748,120 +741,96 @@ body.is-touch .poptrox-popup .closer {
 .gallery article:nth-child(8) { transition-delay: 0.8s; }
 .gallery article:nth-child(9) { transition-delay: 0.9s; }
 
-/* Mobile Layout - REPLACING the old media query */
+/* Gallery Mobile Responsiveness */
 @media screen and (max-width: 736px) {
-    #work {
-        min-height: auto;
-    }
     .gallery {
-        grid-template-columns: 1fr 1fr;
-        width: 95vw;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
         gap: 0.5em;
-        margin-top: 0;
-        grid-auto-flow: dense; /* Add this to your mobile rule as well */
-        padding-left: 2.5vw; /* <--- MODIFIED PADDING FOR MOBILE */
-        padding-right: 2.5vw; /* <--- MODIFIED PADDING FOR MOBILE */
+        padding: 0 2.5vw;
     }
-    .gallery .featured-image {
-        grid-column: span 2;
+    .gallery .featured-image { 
+        grid-column: span 2; 
     }
 }
 
 
-/* Header */
+/* --- HEADER --- */
 
-	#header {
-		position: fixed;
-		z-index: 10000;
-		left: 0;
-		top: 0;
-		width: 100%;
-		background: rgba(21, 21, 28, 1);/* Header color */
-		height: 3em;
-		line-height: 3em;
-		box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1);
-	}
+#header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3em;
+    z-index: 10000;
+    background: rgba(21, 21, 28, 1);
+    box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1);
+    
+    /* Alignment Logic */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5em;
+}
 
-		#header h1 {
-			position: absolute;
-			left: 1em;
-			top: 0;
-			height: 3em;
-			line-height: 3em;
-			cursor: default;
-		}
+#header h1 {
+    margin: 0;
+    line-height: 1;
+}
 
-			#header h1 a {
-				font-size: 1.25em;
-			}
+#header h1 a {
+    font-size: 1.25em;
+    text-decoration: none;
+}
 
+#header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-		#header nav {
-			position: absolute;
-			right: 0.5em;
-			top: 0;
-			height: 3em;
-			line-height: 3em;
-		}
+#header nav ul li {
+    margin-left: 1em;
+}
 
-			#header nav ul {
-				margin: 0;
-			}
+#header nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.2s ease;
+}
 
-				#header nav ul li {
-					display: inline-block;
-					margin-left: 0.5em;
-					font-size: 0.9em;
-				}
+#header nav ul li a:hover {
+    color: var(--primary-color);
+}
 
-					#header nav ul li a {
-						display: block;
-						color: var(--text-color); /*nav link text color, was: inherit;*/
-						text-decoration: none;
-						height: 3em;
-						line-height: 3em;
-						padding: 0 0.5em 0 0.5em;
-						outline: 0;
-					}
+/* Header & Body Mobile Responsiveness */
+@media screen and (max-width: 736px) {
+    #header {
+        height: 2.5em;
+        justify-content: center; /* Centers the logo when nav is hidden */
+    }
 
-		@media screen and (max-width: 736px) {
+    #header nav { 
+        display: none; 
+    }
 
-			#header {
-				height: 2.5em;
-				line-height: 2.5em;
-			}
+    #header h1 a { 
+        font-size: 1em; 
+    }
+    
+    /* Body padding adjustment for smaller header */
+    body {
+        padding-top: 2.5em;
+    }
+}
 
-				#header h1 {
-					text-align: center;
-					position: relative;
-					left: 0;
-					top: 0;
-					height: 2.5em;
-					line-height: 2.5em;
-				}
+/* Default Body padding for Desktop header */
+body {
+    padding-top: 3em;
+}
 
-					#header h1 a {
-						font-size: 1em;
-					}
-
-				#header nav {
-					display: none;
-				}
-
-		}
-
-
-	body {
-		padding-top: 3em;
-	}
-
-		@media screen and (max-width: 736px) {
-
-			body {
-				padding-top: 2.5em;
-			}
-
-		}
 
 /* Main */
 

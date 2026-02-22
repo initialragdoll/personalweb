@@ -1,117 +1,93 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
+/* --- 1. UNIVERSAL VARIABLES --- */
 :root {
-    /* Define universal colors */
-    --primary-color: #95c3ff;    /* The gold/yellow for buttons/highlights e.g.#d1ab2a */
-    --title-color: #ececec;      /* All H1, H2, H3 etc. */
-    --text-color: #9ac8e9;       /* All paragraph/small text */
-	--button-color: #4ab2ac20;
-	--border-color: #ffffff40;
-    --bg-dark: #15151c;          /* Your main background */
-}  
+    --primary-color: #95c3ff;    /* Highlights / Buttons */
+    --title-color: #ececec;      /* Headers */
+    --text-color: #9ac8e9;       /* Body Text */
+    --button-color: #4ab2ac20;   /* Button Backgrounds */
+    --border-color: #ffffff40;   /* Divider Lines */
+    --bg-dark: #15151c;          /* Main Page Background */
 
-html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
-pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	min-height: auto;/*remove button gap*/
+    /* Neubrutalist Grid Addition */
+    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;}
-
-body {
-	line-height: 1;
+/* --- 2. GLOBAL RESET --- */
+/* Groups all elements to strip default browser margins/borders */
+html, body, div, span, applet, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
+a, abbr, acronym, address, big, cite, code, 
+del, dfn, em, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, b, u, i, center, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td, 
+article, aside, canvas, details, embed, figure, figcaption, 
+footer, header, hgroup, menu, nav, output, ruby, section, 
+summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    min-height: auto; /* Fixes button gaps */
 }
 
-ol, ul {
-	list-style: none;
+/* Structural Reset */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
 }
 
-blockquote, q {
-	quotes: none;
-}
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+mark { background-color: transparent; color: inherit; }
 
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-body {
-	-webkit-text-size-adjust: none;
-}
-
-mark {
-	background-color: transparent;
-	color: inherit;
-}
-
-input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-}
-
+/* Form Reset */
 input, select, textarea {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: none;
+}
+input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* --- 3. BASELINE LAYOUT --- */
+@-ms-viewport { width: device-width; }
+
+html {
+    height: 100%;
+    box-sizing: border-box;
 }
 
-/* Basic */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
-	@-ms-viewport {
-		width: device-width;
-	}
+body {
+    background: var(--bg-dark);
+    /* Adding the procedural grid here */
+    background-image: var(--dot-grid);
+    background-size: 25px 25px;
+    background-attachment: fixed;
+    
+    height: 100%;
+    min-width: 320px;
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+}
 
-	html {
-		height: 100%;
-	}
-
-	html {
-		box-sizing: border-box;
-	}
-
-	*, *:before, *:after {
-		box-sizing: inherit;
-	}
-
-	body {
-		background: var(--bg-dark);
-		height: 100%;
-		min-width: 320px;
-	}
-
-		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-			-moz-animation: none !important;
-			-webkit-animation: none !important;
-			-ms-animation: none !important;
-			animation: none !important;
-			-moz-transition: none !important;
-			-webkit-transition: none !important;
-			-ms-transition: none !important;
-			transition: none !important;
-		}
+/* Prevents animations/transitions during initial page load */
+body.is-preload *, 
+body.is-preload *:before, 
+body.is-preload *:after {
+    animation: none !important;
+    transition: none !important;
+}
 
 /* Spinner */
 

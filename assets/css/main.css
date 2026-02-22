@@ -839,12 +839,13 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     z-index: 10;
 }
 	
-/* Round the images inside the popup modal */
+/* Round the images inside the popup modal 
 .scroll-container img, 
 .video-wrapper iframe {
     border-radius: 20px;
     margin-bottom: 20px;
 }
+*/
 
 /* ---END: GALLERY / WORK SECTION --- */
 

@@ -512,7 +512,7 @@ input, select, textarea {
 		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
-		color: #4ab2ac20; 
+		color: var(--text-color); 
 		letter-spacing: 0.025em;
 	}
 

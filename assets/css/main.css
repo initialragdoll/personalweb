@@ -1119,11 +1119,11 @@ body {
 .link-button {
     display: flex !important;
     align-items: center !important;
-    background-color: #000 !important;
-    color: #fff !important;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     padding: 0.7rem 1.5rem !important;
     border-radius: 9999px !important;
-    border: 2px solid #8ab4f8 !important;
+    border: 2px solid var(--border-color) !important;
     font-weight: bold;
     white-space: nowrap;
     min-width: 160px;

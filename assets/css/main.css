@@ -725,18 +725,33 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* --- FLOATING BUTTON (Mobile Only) --- */
 
 .floating-button { display: none; }
+
 @media (max-width: 768px) {
-	.floating-button {
-		display: block;
-		position: fixed;
-		bottom: 20px; left: 20px;
-		z-index: 1000;
+    .floating-button {
+        /* 1. Use Flexbox for perfect centering */
+        display: flex !important;
+        align-items: center;    
+        justify-content: center; 
+        
+        position: fixed;
+        bottom: 20px; 
+        left: 20px;
+        z-index: 1000;
         border-radius: 50%;
-        width: 60px; height: 60px;
-        line-height: 60px;
-        text-align: center;
+        width: 60px; 
+        height: 60px;
+        
         background-color: var(--primary-color);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
+
+    .floating-button i, 
+    .floating-button svg {
+        margin: 0 !important;
+        line-height: 1;
+    }
+} 
+
 
 /* ---START: GALLERY / WORK SECTION --- */
 

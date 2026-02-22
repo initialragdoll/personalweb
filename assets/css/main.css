@@ -9,7 +9,7 @@
     --button-color: #4ab2ac20;   /* Button Backgrounds */
     --border-color: #ffffff40;   /* Divider Lines */
     --bg-dark: #15151c;          /* Main Page Background */
-    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
     --dot-size: 30px 30px; /* Controls the spacing between dots */
 }
 
@@ -887,10 +887,21 @@ body {
 .main.style3 {
     text-align: center;
     padding: 6em 0;
+    /* This ensures the section doesn't hide the dots on the body */
+    background: transparent !important;
 }
 
-.main.style3 .content > header { margin-bottom: 2em; }
-.main.style3.primary, .main.style3.secondary { background: var(--bg-dark); }
+.main.style3 .content > header { 
+    margin-bottom: 2em; 
+}
+
+/* FIX: We remove the solid var(--bg-dark) background. 
+   If you want a slight tint to make text readable, use rgba instead of solid.
+*/
+.main.style3.primary, 
+.main.style3.secondary { 
+    background: transparent; 
+}
 
 /* Dark Theme Overrides */
 .main.dark { color: #4ab2ac; }
@@ -904,7 +915,6 @@ body {
     text-align: left;
     padding-left: 1rem;
 }
-
 /* --- MAIN RESPONSIVENESS --- */
 
 @media screen and (max-width: 1920px) { .main.style2 .content { width: 40%; } }

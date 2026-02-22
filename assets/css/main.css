@@ -565,7 +565,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     margin: 0 auto !important;
 }
 
-/* --- 2. CUSTOM MODAL FIX (For #multi-image-modal) --- */
+/* --- 2. CUSTOM MODAL (For #multi-image-modal) --- */
 .custom-modal .modal-content {
     margin: 2% auto; /* Reduced top margin to fit more content */
     width: 95%;
@@ -576,7 +576,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     position: relative;
 }
 
-/* Forces images inside your custom scroll-container to fit the window */
+/* Forces images inside custom scroll-container to fit the window */
 .custom-modal .scroll-container img {
     width: auto !important;
     height: auto !important;
@@ -1100,9 +1100,9 @@ body {
 }
 
 .custom-modal .modal-content {
-    margin: 5% auto;
+    margin: 2% auto; /* Reduced margin to give more vertical space */
     width: 95%;
-    max-width: 1400px;
+    max-width: 1200px; /* Aligned with portfolio image constraints */
     background-color: var(--bg-dark);
     padding: 20px;
     border-radius: 8px;
@@ -1110,23 +1110,29 @@ body {
 }
 
 .custom-modal .scroll-container {
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #555 #333;
 }
 
+/* --- VIDEO SCALING FIX --- */
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto; /* Centers the video horizontally */
+    
+    /* This forces the video to stay within the same bounds as your images */
+    width: 100%;
+    max-width: 85vw; 
 }
 
 .video-wrapper iframe {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
+    border: 0;
 }
 
 .custom-modal .custom-close-button {
@@ -1135,6 +1141,18 @@ body {
     color: #f1f1f1;
     font-size: 40px;
     cursor: pointer;
+    z-index: 10;
+}
+
+/* Mobile Adjustments for Modal */
+@media screen and (max-width: 736px) {
+    .video-wrapper {
+        max-width: 95vw; /* Fills more width on small screens */
+    }
+    .custom-modal .modal-content {
+        width: 98%;
+        padding: 10px;
+    }
 }
 
 /* --- FLOATING BUTTON (Mobile Only) --- */

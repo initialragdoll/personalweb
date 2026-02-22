@@ -7,7 +7,7 @@
     --title-color: #4678b4;      /* Headers */
     --text-color: #9ac8e9;       /* Body Text */
     --button-color: #4ab2ac20;   /* Button Backgrounds */
-    --border-color: #ffffff40;   /* Divider Lines */
+    --border-color: #99beff9c;   /* Divider Lines */
     --bg-dark: #15151c;          /* Main Page Background */
 	--shadow-color: #000000;
     --dot-grid: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
@@ -829,7 +829,6 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* 5. Images inside */
 .gallery article a, 
 .gallery article img {
-    border-radius: inherit; 
     display: block;
     width: 100%;
     height: 100%;

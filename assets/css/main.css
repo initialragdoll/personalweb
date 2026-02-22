@@ -1054,14 +1054,16 @@ body {
 /* --- START: UNIVERSAL CAROUSEL STYLES --- */
 .carousel-container {
     position: absolute;
-    /* Margins to show the dots */
+    /* Margins to show the dot grid background */
     top: 10%; left: 10%; right: 10%; bottom: 10%;
     
     overflow: hidden;
     background: #333;
+    
+    /* The Rounded "Card" Aesthetic */
     border-radius: 60px; 
-    border: 3px solid #8ab4f8; /* Matches your light blue border */
-    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1); /* Hard shadow */
+    border: 3px solid #8ab4f8; /* Your light blue border color */
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1); /* Hard Neubrutalist shadow */
     z-index: 5;
 }
 
@@ -1077,10 +1079,10 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    /* This ensures children like the Play Store button are relative to the slide */
+    display: block;
 }
 
-/* Nav Buttons: Positioned relative to the SECTION to bypass overflow:hidden */
+/* Nav Buttons: Anchored to the section (gutter) so they aren't cut off */
 .nav-button {
     position: absolute;
     top: 50%;
@@ -1095,48 +1097,81 @@ body {
     color: white;
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: #8ab4f8;
+    color: #111;
 }
 
 #prevBtn, #assetPrevBtn { left: 3%; }
 #nextBtn, #assetNextBtn { right: 3%; }
 
-/* --- BUTTON LAYOUT FIX --- */
+.nav-button svg { width: 2.5rem; height: 2.5rem; }
 
-/* Top Center Buttons (Website/Steam) */
-.top-links {
-    position: absolute;
-    top: -20px; /* Adjust based on where you want them to sit on the border */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 200;
-}
+/* --- DYNAMIC BUTTON STACKING (The Fix for image_1f1de1.jpg) --- */
 
-/* Play Store Button (Bottom Right) */
 .steam-link {
     position: absolute;
     right: 2rem;
     bottom: 2rem;
     z-index: 200;
+    
+    /* Forces JS-generated buttons to stack vertically in the corner */
+    display: flex !important; 
+    flex-direction: column !important;
+    align-items: flex-end;
+    gap: 12px;
 }
 
 .link-button {
-    background-color: #8ab4f8;
-    color: #111;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    background-color: #8ab4f8; /* Matches your theme blue */
+    color: #111 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px; /* Pill shape */
     font-weight: bold;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     text-decoration: none;
+    border: 2px solid #000;
+    white-space: nowrap;
+    transition: transform 0.2s ease;
 }
 
+.link-button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Icon scaling inside buttons */
+.link-button i, .link-button svg {
+    font-size: 1.2rem;
+    width: 1.2rem;
+}
+
+/* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-    .carousel-container { top: 5%; left: 5%; right: 5%; bottom: 12%; }
-    .nav-button { width: 3rem; height: 3rem; }
+    .carousel-container { 
+        top: 5%; left: 5%; right: 5%; bottom: 12%; 
+        border-radius: 30px;
+    }
+    
+    .nav-button { width: 3.5rem; height: 3.5rem; }
+    
     #prevBtn, #assetPrevBtn { left: 1%; }
     #nextBtn, #assetNextBtn { right: 1%; }
+
+    .steam-link {
+        right: 1.25rem;
+        bottom: 1.25rem;
+        gap: 8px;
+    }
+
+    .link-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */

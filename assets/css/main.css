@@ -393,18 +393,24 @@ input[type="button"]:hover, .button:hover, button:hover {
     height: 14px;
     border-bottom: 4px solid white;
     border-left: 4px solid white;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, transform 0.2s;
 }
 
 /* Directional Rotations */
 .prev-arrow::after {
     transform: rotate(45deg);
-    margin-left: 5px; /* Visual centering */
+    margin-left: 5px; 
 }
 
 .next-arrow::after {
     transform: rotate(-135deg);
-    margin-right: 5px; /* Visual centering */
+    margin-right: 5px; 
+}
+
+/* New: Direction for the Transition Arrow */
+.down-arrow::after {
+    transform: rotate(-45deg);
+    margin-top: -5px; /* Visual center for downward point */
 }
 
 /* Global Hover State */
@@ -415,6 +421,24 @@ input[type="button"]:hover, .button:hover, button:hover {
 .nav-button:hover::after {
     border-color: #111 !important;
 }
+
+/* MINIMAL OVERRIDE 
+   Use this to remove the circle/box and just have a floating arrow
+*/
+.nav-button.minimal {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.nav-button.minimal:hover {
+    background: none !important;
+}
+
+.nav-button.minimal:hover::after {
+    border-color: #8ab4f8 !important; /* Glow blue on hover since there is no circle */
+}
+
 
 /* --- FORM LAYOUT --- */
 

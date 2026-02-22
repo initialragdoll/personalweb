@@ -1103,49 +1103,44 @@ body {
     position: relative;
     overflow: hidden;
     height: 100vh;
-    display: flex;        /* Center the whole group */
+    display: flex;         /* Use Flex to center the text block */
     align-items: center;
     justify-content: center;
 }
 
 #intro .intro-text {
-    display: flex;        /* Stack titles vertically */
+    display: flex;         /* Stack H2 and H1 vertically */
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
-    top: -10vh;          /* Moves both up away from the logo */
+    top: -12vh;           /* Nudge the whole group up to clear the logo */
     z-index: 2;
 }
 
-/* --- THE MAIN TITLE (Initial Ragdoll) --- */
+/* 1. INITIAL RAGDOLL */
 #intro .intro-text h2 {
-    font-size: 8rem !important;  /* Force past the 100% reset */
-    line-height: 1;
-    margin: 0;
-    padding: 0;
+    font-size: 8rem !important; /* Forces past the global 100% reset */
+    line-height: 0.9;           /* Tightens space around the letters */
+    margin: 0 !important;       /* Removes the 25rem or other margins */
+    padding: 0 !important;
 }
 
-/* --- THE SECONDARY TITLE (Games) --- */
+/* 2. GAMES */
 #intro .intro-text h1 {
-    font-size: 4rem !important;  /* Much bigger now */
+    font-size: 4.5rem !important; /* Larger sub-title */
     line-height: 1;
-    margin-top: 10px;            /* Controlled gap so they don't touch */
-    color: #FFFFFF;
+    margin-top: 5px !important;   /* Controlled gap so it doesn't overlap */
+    margin-bottom: 0 !important;  /* Deletes that 25rem conflict */
+    color: #FFFFFF !important;
     font-weight: 300;
 }
 
 /* --- MOBILE SCALING --- */
 @media screen and (max-width: 736px) {
-    #intro .intro-text h2 {
-        font-size: 3.5rem !important;
-    }
-    #intro .intro-text h1 {
-        font-size: 2rem !important;
-    }
-    #intro .intro-text {
-        top: -5vh;
-    }
+    #intro .intro-text h2 { font-size: 3.5rem !important; }
+    #intro .intro-text h1 { font-size: 2.2rem !important; }
+    #intro .intro-text { top: -5vh; }
 }
 /* --- INTRO TEXT SECTION END--- */
 

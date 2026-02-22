@@ -1317,3 +1317,29 @@ body {
     margin-top: 0 !important;
 }
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
+
+/* START: The Bouncing Circle */
+.bouncing-ball {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 0, 0, 0.4); /* Translucent Red */
+    border-radius: 50%;
+    z-index: 1; /* Sits behind the text (z-index: 2) but above the video */
+    pointer-events: none; /* So it doesn't block clicks on buttons */
+    
+    /* Dual animations create the diagonal bounce */
+    animation: bounceX 5s linear infinite alternate, 
+               bounceY 3.2s linear infinite alternate;
+}
+
+@keyframes bounceX {
+    from { left: 0; }
+    to { left: calc(100% - 150px); }
+}
+
+@keyframes bounceY {
+    from { top: 0; }
+    to { top: calc(100% - 150px); }
+}
+/* END: The Bouncing Circle */

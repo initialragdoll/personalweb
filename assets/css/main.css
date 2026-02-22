@@ -1233,6 +1233,38 @@ body {
 
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
+/* --- INTERNAL CAROUSEL TITLE REFINEMENT --- */
+
+/* 1. Target the header inside the carousel  */
+.carousel-container header {
+    position: absolute !important;
+    top: 25px !important; /* Positions it nicely at the top of the rounded box */
+    left: 0;
+    width: 100%;
+    background: transparent !important; /* Removes the black bar/strip */
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 50;
+    border: none !important;
+}
+
+/* 2. Reset the font size */
+.carousel-container header h2 {
+    /* We match the values from your image_2d96c3.png screenshot */
+    font-size: 2.25em !important; 
+    line-height: 1.25em !important;
+    letter-spacing: -0.05em !important;
+    
+    color: #FFFFFF !important;
+    text-align: center;
+    margin: 0 !important;
+    text-transform: none; /* Keeps the Ragdoll font's natural look */
+}
+
+/* 3. Ensure the carousel content doesn't collide with the floating title */
+.carousel-track {
+    padding-top: 60px !important;
+}
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
 

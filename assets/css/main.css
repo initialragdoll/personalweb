@@ -1121,7 +1121,7 @@ body {
     justify-content: space-between;
     position: relative;
     padding: 0.5em; 
-    background: var(--primary-color);
+    background: var(--bg-color);
     color: var(--text-color);
     line-height: 1em;
     overflow: hidden;

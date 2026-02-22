@@ -1114,7 +1114,6 @@ body {
     top: -5vh; 
 	/* Invert Color */
     mix-blend-mode: difference;
-    z-index: 2;
 }
 
 #intro h1.intro-text { 
@@ -1125,7 +1124,6 @@ body {
     top: -5vh; 
     /* Invert Color */
     mix-blend-mode: difference;
-    z-index: 2;
 }
 
 @media screen and (max-width: 736px) {

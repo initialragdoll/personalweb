@@ -1028,7 +1028,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url("images/overlay.png"), var(--bg-dark);
+    background-color: var(--bg-dark);
+	background-image: none; /* url("images/overlay.png") */
     background-size: 256px 256px, cover;
     background-attachment: fixed;
     background-position: top left, center center;

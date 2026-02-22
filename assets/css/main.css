@@ -1106,8 +1106,22 @@ body {
 }
 
 #intro .intro-text { 
-    font-size: 4em; 
+    font-size: 8rem; /* Using rem/em for better scaling than fixed px */
+    text-align: center;
+    line-height: 1.1;
+    position: relative;
+    top: -5vh; /* This moves it up by 5% of the screen height regardless of device */
+    
+    /* Ensure it stays above other elements */
+    z-index: 2;
 }
+
+/* Responsive adjustment: Shrink the font slightly on mobile */
+@media screen and (max-width: 736px) {
+    #intro .intro-text {
+        font-size: 3.5rem;
+        top: -2vh; /* Less nudge needed on small screens */
+    }
 
 #bg-video {
     position: absolute;

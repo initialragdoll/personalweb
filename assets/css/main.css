@@ -494,7 +494,7 @@ select, textarea {
     width: 100%;
     padding: 0.65em 0.75em;
     background: none;
-    border: solid 2px var(--border-color);
+    border: solid 2px var(--primary-color);
     color: inherit;
     border-radius: 0.5em;
     outline: none;
@@ -1121,7 +1121,7 @@ body {
     justify-content: space-between;
     position: relative;
     padding: 0.5em; 
-    background: var(--bg-color);
+    background: var(--primary-color);
     color: var(--text-color);
     line-height: 1em;
     overflow: hidden;
@@ -1235,7 +1235,7 @@ body {
     width: 20%;
     height: auto;
     margin: 0 auto 2em;
-    border: 3px solid var(--primary-color);
+    border: 3px solid var(--title-color);
 }
 
 @media screen and (min-width: 1281px) { .about-profile { max-width: 250px; } }

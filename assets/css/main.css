@@ -1319,14 +1319,13 @@ body {
 }
 
 .carousel-container header h2 {
-    /* Matches your Portfolio size exactly */
     font-size: 2.25em !important; 
     line-height: 1.25em !important;
     letter-spacing: -0.05em !important;
-    
     color: var(--primary-color);
     text-align: center !important;
     margin: 0 !important;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* IMPORTANT: Reset the track so it fills the top of the box again */

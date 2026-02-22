@@ -1082,7 +1082,8 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 4rem; height: 4rem;
+    width: 4rem; 
+    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1092,9 +1093,30 @@ body {
     color: white;
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.2s ease; /* Smooth transition for hover */
 }
+
+/* Position the buttons in the gutters */
 #prevBtn, #assetPrevBtn { left: 3%; }
 #nextBtn, #assetNextBtn { right: 3%; }
+
+.nav-button svg {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    stroke-width: 2.5; /* Makes the arrow lines thicker */
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+/* Interaction: Change color and slight scale on hover */
+.nav-button:hover {
+    background-color: #8ab4f8;
+    color: #111;
+}
+
+.nav-button:hover svg {
+    transform: scale(1.1);
+}
 
 /* --- DYNAMIC STACKING LOGIC (NO WRAPPER NEEDED) --- */
 

@@ -1023,7 +1023,7 @@ body {
 }
 
 /* Dark Theme Overrides */
-.main.dark { color: #4ab2ac; }
+.main.dark { color: var(--bg-dark); }
 .main.dark a { color: inherit; }
 .main.dark .button.style2 { border-color: var(--border-color); }
 .main.dark .button.style2:hover { background-color: rgba(74, 178, 172, 0.125); }

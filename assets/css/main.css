@@ -1233,4 +1233,37 @@ body {
 
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
+/* --- CAROUSEL SECTION ALIGNMENT --- */
+
+/* Change from center-aligned to top-aligned for Carousel sections */
+#projects.main.style1, 
+#assets.main.style1 {
+    display: flex;
+    flex-direction: column; /* Stack Title on top of Carousel */
+    justify-content: flex-start; /* Move content to the top */
+    padding-top: 5em; /* Space for the title */
+}
+
+/* Ensure the content div takes up enough width */
+#projects > .content,
+#assets > .content {
+    width: 100%;
+    max-width: 90%; /* Wider than the standard 45em to fit the carousel */
+}
+
+/* Match the Portfolio title style */
+.main.style1 header h2 {
+    font-size: 3em; 
+    margin-bottom: 1em;
+    letter-spacing: 0.1em;
+}
+
+/* Prevent the carousel from being squashed */
+.carousel-container {
+    margin-top: 2em;
+    position: relative;
+    width: 100%;
+}
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
+
+

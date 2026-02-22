@@ -736,6 +736,10 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
         text-align: center;
         background-color: var(--primary-color);
     }
+	.floating-button i {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 /* ---START: GALLERY / WORK SECTION --- */

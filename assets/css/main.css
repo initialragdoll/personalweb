@@ -18,7 +18,7 @@
 
 /* Light Mode Overrides */
 body.light-theme {
-    --primary-color: #95c3ff;
+    --primary-color: #ff6e6e;
     --title-color: #4678b4;
     --text-color: #2a3741;
     --button-color: #ffffff70;

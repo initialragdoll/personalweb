@@ -1120,6 +1120,12 @@ body {
     /* 4. Ensure it stays above other elements */
     z-index: 2;
 }
+/* Responsive adjustment: Shrink the font slightly on mobile */
+@media screen and (max-width: 736px) {
+    #intro .intro-text {
+        font-size: 3.5rem;
+        top: -2vh; /* Less nudge needed on small screens */
+    }
 
 #bg-video {
     position: absolute;

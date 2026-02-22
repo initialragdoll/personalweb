@@ -1233,46 +1233,6 @@ body {
 
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
-
-/* --- CAROUSEL SECTION ALIGNMENT FIX --- */
-
-#projects.main.style1, 
-#assets.main.style1 {
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 6em; /* Gives space for the title at the top */
-}
-
-/* Ensure the content wrapper expands to fill the screen */
-#projects > .content,
-#assets > .content {
-    width: 100%;
-    max-width: 95%; 
-    height: 80vh; /* This gives the carousel its height back! */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Make sure the container takes up the space inside .content */
-.carousel-container {
-    position: relative;
-    width: 100%;
-    flex-grow: 1; /* Tells the carousel to take up all remaining vertical space */
-    min-height: 400px; /* Safety minimum height */
-    margin-top: 2em;
-}
-
-/* Match the Portfolio title font (uses your custom font) */
-.main.style1 header h2 {
-    font-size: 3.5em;
-    margin-bottom: 0.5em;
-    color: #ffffff;
-    /* This adds that specific "Initial Ragdoll" font style if you have it loaded */
-    font-family: inherit; 
-}
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
 

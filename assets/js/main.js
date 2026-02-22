@@ -491,10 +491,27 @@ window.onclick = function(event) {
 })(jQuery);
 
 
+/* Color Theme Switch */
+
+const body = document.body;
+const hour = new Date().getHours();
+
+// Auto-switch by time: Light mode between 7 AM and 7 PM
+if (hour >= 7 && hour < 19) {
+    body.classList.add('light-theme');
+}
+
+// Function to toggle manually via button
+function toggleTheme() {
+    body.classList.toggle('light-theme');
+}
+
+
 /*
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

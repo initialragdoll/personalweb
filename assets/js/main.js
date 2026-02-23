@@ -226,7 +226,6 @@ const gameProjects = [
     },
     {
         title: 'Incoming Project',
-        /* FIXED BELOW: Removed the extra leading " */
         titleFont: "'Source Sans Pro', sans-serif", 
         desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
         mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF',
@@ -239,7 +238,6 @@ const gameProjects = [
 const assetProjects = [
     {
         title: 'Kerosene Lamps', 
-        /* FIXED BELOW */
         titleFont: "'Source Sans Pro', sans-serif",  
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.png',
@@ -248,8 +246,7 @@ const assetProjects = [
         playStoreUrl: null,
     },
     {
-        title: '19th Century Bedroom 1', 
-        /* FIXED BELOW */
+        title: '19th Century Bedroom VOL.1', 
         titleFont: "'Source Sans Pro', sans-serif",  
         desktopImage: './images/assets/Asset_02.png',
         mobileImage: './images/assets/Asset_02_mobile.png',
@@ -545,6 +542,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

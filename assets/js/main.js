@@ -246,7 +246,7 @@ const assetProjects = [
         playStoreUrl: null,
     },
     {
-        title: '19th Century Bedroom VOL.1', 
+        title: "19th Century furniture VOL.1 - Child's Bedroom",
         titleFont: "'Source Sans Pro', sans-serif",  
         desktopImage: './images/assets/Asset_02.png',
         mobileImage: './images/assets/Asset_02_mobile.png',
@@ -542,6 +542,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

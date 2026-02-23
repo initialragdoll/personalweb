@@ -1439,6 +1439,16 @@ body {
     pointer-events: none;
     width: var(--ball-size);
     height: var(--ball-size);
+	
+	/* Blur */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+
+    /* The visual 'edge' of the glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Optimization: Tells the browser this moves and blurs */
+    will-change: transform, left, top;
 }
 
 /* Red Ball Settings */

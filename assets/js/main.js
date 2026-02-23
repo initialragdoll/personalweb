@@ -216,8 +216,8 @@
 
 const gameProjects = [
     {
-		title: 'UNSEAL', // The text to show on mobile
-        titleFont: "'Cinzel Decorative', cursive", // Optional specific font 
+        title: 'UNSEAL',
+        titleFont: "'Cinzel Decorative', cursive", 
         desktopImage: './images/games/GameProject_01.jpg',
         mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
@@ -225,8 +225,9 @@ const gameProjects = [
         playStoreUrl: null,
     },
     {
-		title: 'Incoming Project', // The text to show on mobile
-        titleFont: ""Source Sans Pro', sans-serif", // Optional specific font 
+        title: 'Incoming Project',
+        /* FIXED BELOW: Removed the extra leading " */
+        titleFont: "'Source Sans Pro', sans-serif", 
         desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
         mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF',
         webUrl: null,
@@ -237,23 +238,25 @@ const gameProjects = [
 
 const assetProjects = [
     {
-		title: 'Kerosene Lamps', 
-        titleFont: ""Source Sans Pro', sans-serif", 
+        title: 'Kerosene Lamps', 
+        /* FIXED BELOW */
+        titleFont: "'Source Sans Pro', sans-serif",  
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.png',
         webUrl: 'https://assetstore.unity.com/...',
         steamUrl: null,
         playStoreUrl: null,
     },
-	{
-		title: '19th Century Bedroom 1', 
-        titleFont: ""Source Sans Pro', sans-serif", 
+    {
+        title: '19th Century Bedroom 1', 
+        /* FIXED BELOW */
+        titleFont: "'Source Sans Pro', sans-serif",  
         desktopImage: './images/assets/Asset_02.png',
         mobileImage: './images/assets/Asset_02_mobile.png',
         webUrl: null,
         steamUrl: null,
         playStoreUrl: null,
-    },
+    }
 ];
 
 function initializeCarousel(projects, prefix = "") {
@@ -542,6 +545,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

@@ -1387,6 +1387,9 @@ body {
 }
 
 /* MOBILE ADJUSTMENT */
+	.carousel-container .mobile-only-title {
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
     .carousel-container header {
@@ -1397,10 +1400,7 @@ body {
     .carousel-container header h2 {
         font-size: 1.4rem !important;
     }
-	
-	.carousel-container .mobile-only-title {
-    display: none;
-}
+
 	.carousel-container .mobile-only-title {
         display: block;
         position: absolute;

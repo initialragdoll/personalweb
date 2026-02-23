@@ -1360,11 +1360,11 @@ body {
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
 
-/* --- UPDATED: CAROUSEL TITLE (BOTTOM-LEFT & CLEAN FONT) --- */
+/* --- UPDATED: CAROUSEL TITLE (MIRRORING BUTTON LOGIC) --- */
 .carousel-container header {
     position: absolute !important;
-    bottom: 2rem !important; 
-    left: 2rem !important;   
+    bottom: 2rem !important; /* Matches .steam-link desktop bottom */
+    left: 2rem !important;   /* Matches .steam-link desktop right */
     width: auto !important;   
     background: transparent !important;
     border: none !important;
@@ -1379,26 +1379,21 @@ body {
     font-weight: 300 !important; 
     line-height: 1.1em !important;
     letter-spacing: 0.02em !important; 
-    
-    /* Fixed double-dash variable */
     color: var(--border-color) !important;
-    
     text-align: left !important; 
     margin: 0 !important;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
     text-transform: none !important;
 }
 
-/* MOBILE ADJUSTMENT: Lifts the title up slightly on small screens */
+/* MOBILE ADJUSTMENT: Mirroring the .steam-link mobile rules */
 @media screen and (max-width: 768px) {
     .carousel-container header {
-        /* Moving it slightly higher (1.2rem) and tighter to the left */
-        bottom: 1.2rem !important;
-        left: 1.2rem !important;
+        bottom: 1.5rem !important; /* Matched to .steam-link mobile bottom */
+        left: 1rem !important;     /* Matched to .steam-link mobile right */
     }
     
     .carousel-container header h2 {
-        /* Scaling down font size for small screens */
         font-size: 1.4rem !important;
     }
 }

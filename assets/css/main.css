@@ -325,10 +325,10 @@ input[type="button"], input[type="submit"], input[type="reset"],
 .button, button {
     appearance: none;
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    background: color-mix(in srgb, var(--primary-color), transparent 60%);
+    background: var(--primary-color);
     border: 0;
     border-radius: 3.5em; /* Set to 0 for Neubrutalism later */
-    color: #000000;
+    color: var(--text-color);
     cursor: pointer;
     display: inline-block;
     height: 3.5em;
@@ -1139,13 +1139,13 @@ body {
     position: relative;
     padding: 0.5em; 
     background: color-mix(in srgb, var(--primary-color), transparent 60%);
-    color: #2a3741;
+    color: var(--text-color);
     line-height: 1em;
     overflow: hidden;
 }
 
 #footer a { 
-    color: #2a3741; 
+    color: var(--text-color); 
     transition: color 0.2s;
 }
 
@@ -1158,7 +1158,7 @@ body {
 }
 
 #footer ul.menu li {
-    border-left: solid 1px #2a3741;
+    border-left: solid 1px var(--text-color); 
     padding-left: 0.5em;
     margin-left: 0.5em;
     font-size: 0.9em;

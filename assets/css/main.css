@@ -1096,11 +1096,24 @@ body {
 }
 
 /* Dark Theme Overrides */
-.main.dark { color: #4ab2ac; }
+.main.dark { color: var(--bg-color); }
 .main.dark a { color: inherit; }
-.main.dark .button.style2 { border-color: var(--border-color); }
-.main.dark .button.style2:hover { background-color: rgba(74, 178, 172, 0.125); }
-.main.dark .button.style2.down  { background-image: url("images/Logo_150_150.gif"); }
+.main.dark .button.style2 { border-color: var(--button-color); }
+.main.dark .button.style2:hover { background-color: var(--border-color); }
+.main.dark .button.style2.down { 
+    background-image: url("images/Logo_150_150.gif"); 
+
+    /* --- PERFORMANCE FIXES START --- */
+    /* Moves the rendering of this button/GIF to the GPU */
+    transform: translateZ(0);
+    
+    /* Tells the browser to stay ready for updates */
+    will-change: transform, background-image;
+    
+    /* Prevents flicker during animation */
+    backface-visibility: hidden;
+    /* --- PERFORMANCE FIXES END --- */
+}
 
 /* Custom Project Title Alignment */
 #projects h1 {

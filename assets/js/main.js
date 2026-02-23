@@ -216,8 +216,8 @@
 
 const gameProjects = [
     {
-		title: 'UNSEAL', 
-        titleFont: "'Cinzel Decorative', cursive",
+		title: 'UNSEAL', // The text to show on mobile
+        titleFont: "'Cinzel Decorative', cursive", // Optional specific font 
         desktopImage: './images/games/GameProject_01.jpg',
         mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
@@ -226,7 +226,7 @@ const gameProjects = [
     },
     {
 		title: 'Incoming Project', // The text to show on mobile
-        titleFont: 'Kirang Haerang', // Optional specific font
+        titleFont: ""Source Sans Pro', sans-serif", // Optional specific font 
         desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
         mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF',
         webUrl: null,
@@ -237,8 +237,8 @@ const gameProjects = [
 
 const assetProjects = [
     {
-		title: 'Kerosene Lamps', // The text to show on mobile
-        titleFont: 'Kirang Haerang', // Optional specific font
+		title: 'Kerosene Lamps', 
+        titleFont: ""Source Sans Pro', sans-serif", 
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.png',
         webUrl: 'https://assetstore.unity.com/...',
@@ -246,8 +246,8 @@ const assetProjects = [
         playStoreUrl: null,
     },
 	{
-		title: '19th Century Bedroom 1', // The text to show on mobile
-        titleFont: 'Kirang Haerang', // Optional specific font
+		title: '19th Century Bedroom 1', 
+        titleFont: ""Source Sans Pro', sans-serif", 
         desktopImage: './images/assets/Asset_02.png',
         mobileImage: './images/assets/Asset_02_mobile.png',
         webUrl: null,
@@ -542,6 +542,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

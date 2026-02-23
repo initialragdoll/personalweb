@@ -1363,8 +1363,8 @@ body {
 /* --- UPDATED: CAROUSEL TITLE (MIRRORING BUTTON LOGIC) --- */
 .carousel-container header {
     position: absolute !important;
-    bottom: 2rem !important; /* Matches .steam-link desktop bottom */
-    left: 2rem !important;   /* Matches .steam-link desktop right */
+    bottom: 2rem !important; 
+    left: 3rem !important;   
     width: auto !important;   
     background: transparent !important;
     border: none !important;
@@ -1389,8 +1389,8 @@ body {
 /* MOBILE ADJUSTMENT: Mirroring the .steam-link mobile rules */
 @media screen and (max-width: 768px) {
     .carousel-container header {
-        bottom: 1.5rem !important; /* Matched to .steam-link mobile bottom */
-        left: 1rem !important;     /* Matched to .steam-link mobile right */
+        bottom: 1.5rem !important; 
+        left: 1.5rem !important;    
     }
     
     .carousel-container header h2 {

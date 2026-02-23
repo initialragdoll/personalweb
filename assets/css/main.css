@@ -1388,10 +1388,6 @@ body {
 
 /* MOBILE ADJUSTMENT */
 
-.mobile-only-title {
-    display: none;
-}
-
 @media screen and (max-width: 768px) {
     .carousel-container header {
         bottom: 1.5rem !important; 
@@ -1403,23 +1399,25 @@ body {
     }
 	
 	.mobile-only-title {
+    display: none;
+}
+	.mobile-only-title {
         display: block;
         position: absolute;
-        top: 15%;          /* Adjust this to move it up or down */
+        top: 15%;
         left: 50%;
-        transform: translateX(-50%); /* Perfectly centers it */
+        transform: translateX(-50%);
         width: 90%;
         text-align: center;
         z-index: 150;
         
-        /* 3. Adjustable Font Logic */
-        /* It uses the variable from HTML, or defaults to sans-serif */
-        font-family: var(--mobile-font), sans-serif;
+        /* Uses the variable from JS or defaults to inherit */
+        font-family: var(--mobile-font, inherit);
         
-        font-size: 3rem;   /* Large and impactful */
+        font-size: 2.5rem;
         color: white;
         text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
-        pointer-events: none; /* So it doesn't block clicking buttons */
+        pointer-events: none;
         margin: 0;
     }
 }

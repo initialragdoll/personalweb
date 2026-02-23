@@ -325,7 +325,7 @@ input[type="button"], input[type="submit"], input[type="reset"],
 .button, button {
     appearance: none;
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color), transparent 60%;
     border: 0;
     border-radius: 3.5em; /* Set to 0 for Neubrutalism later */
     color: #000000;
@@ -342,6 +342,7 @@ input[type="button"], input[type="submit"], input[type="reset"],
 
 input[type="button"]:hover, .button:hover, button:hover {
     filter: brightness(1.1);
+	background-color: var(--primary-color);
 }
 
 /* Modifier: "Down" Arrow Buttons */
@@ -495,13 +496,13 @@ select, textarea {
     width: 100%;
     padding: 0.65em 0.75em;
     background: none;
-    border: solid 2px var(--primary-color);
+    border: solid 2px var(--primary-color), transparent 60%;
     color: inherit;
     border-radius: 0.5em;
     outline: none;
 }
 
-input:focus, textarea:focus { border-color: #9ac8e9; }
+input:focus, textarea:focus { border-color: var(--primary-color); }
 textarea { min-height: 8em; }
 
 /* Placeholder Opacity */
@@ -1136,7 +1137,7 @@ body {
     justify-content: space-between;
     position: relative;
     padding: 0.5em; 
-    background: var(--primary-color);
+    background: var(--primary-color), transparent 60%;
     color: #2a3741;
     line-height: 1em;
     overflow: hidden;

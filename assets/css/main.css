@@ -328,7 +328,7 @@ input[type="button"], input[type="submit"], input[type="reset"],
     background: var(--primary-color);
     border: 0;
     border-radius: 3.5em; /* Set to 0 for Neubrutalism later */
-    color: var(--text-color);
+    color: #15151c;
     cursor: pointer;
     display: inline-block;
     height: 3.5em;

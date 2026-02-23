@@ -1360,12 +1360,12 @@ body {
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
 
-/* --- UPDATED: CAROUSEL TITLE (BOTTOM-LEFT) --- */
+/* --- UPDATED: CAROUSEL TITLE (BOTTOM-LEFT & CLEAN FONT) --- */
 .carousel-container header {
     position: absolute !important;
-    bottom: 2rem !important; /* Anchored to bottom instead of top */
-    left: 2rem !important;   /* Anchored to left */
-    width: auto !important;   /* No longer stretches across the whole top */
+    bottom: 2rem !important; 
+    left: 2rem !important;   
+    width: auto !important;   
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
@@ -1374,26 +1374,34 @@ body {
 }
 
 .carousel-container header h2 {
-    /* Using system-ui to match your button font style */
-    font-family: inherit !important;
-    font-size: 1.75em !important; /* Slightly smaller for better bottom-corner fit */
-    line-height: 1.25em !important;
-    letter-spacing: 0.05em !important; /* Cleaner spacing than the title font */
+    /* Using 'inherit' ensures it grabs the clean site-wide font (like 'About') */
+    font-family: inherit !important; 
+    
+    /* These settings mimic the "About" screenshot style */
+    font-size: 2rem !important; 
+    font-weight: 300 !important; /* Lighter weight for that 'elegant' look */
+    line-height: 1.1em !important;
+    letter-spacing: 0.02em !important; 
+    
     color: var(--primary-color);
-    text-align: left !important; /* Aligned left for the corner */
+    text-align: left !important; 
     margin: 0 !important;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Stronger shadow for readability over images */
-    text-transform: uppercase; /* Optional: gives it a sharp UI feel */
+    
+    /* Soft shadow */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); 
+    
+    /* Keeps it as standard text (not all caps) to match 'About' */
+    text-transform: none !important; 
 }
 
-/* Mobile adjustments for the corner title */
+/* Mobile adjustments */
 @media screen and (max-width: 768px) {
     .carousel-container header {
-        bottom: 1.5rem !important;
-        left: 1.5rem !important;
+        bottom: 1.2rem !important;
+        left: 1.2rem !important;
     }
     .carousel-container header h2 {
-        font-size: 1.25em !important;
+        font-size: 1.4rem !important;
     }
 }
 

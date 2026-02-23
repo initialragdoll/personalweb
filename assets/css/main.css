@@ -1282,10 +1282,10 @@ body {
 
 /* Nav Buttons */
 .nav-button {
-    position: absolute !important; /* Force it to stay relative to carousel */
+    position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 64px !important;  /* Fixed size in pixels to be safe */
+    width: 64px !important; 
     height: 64px !important;
     display: flex !important;
     align-items: center;
@@ -1299,49 +1299,36 @@ body {
     transition: all 0.2s ease;
 }
 
-#prevBtn, #assetPrevBtn { 
-    left: 3% !important; 
-}
+#prevBtn, #assetPrevBtn { left: 3% !important; }
+#nextBtn, #assetNextBtn { right: 3% !important; }
 
-/* Both 'Forward' buttons stay right */
-#nextBtn, #assetNextBtn { 
-    right: 3% !important; 
-}
-
-/* 2. The Arrow Icon */
 .nav-button svg {
-    width: 32px !important; /* Half the size of the button */
+    width: 32px !important;
     height: 32px !important;
     display: block !important;
-    stroke-width: 3px !important; /* Thick lines */
+    stroke-width: 3px !important;
 }
 
-/* 3. Hover State */
 .nav-button:hover {
     background-color: #8ab4f8;
     color: #111;
 }
 
-/* --- DYNAMIC STACKING LOGIC (NO WRAPPER NEEDED) --- */
-
-/* 1. Base position for all buttons - Default to bottom */
+/* --- DYNAMIC STACKING LOGIC --- */
 .steam-link {
     position: absolute !important;
     right: 2rem;
-    bottom: 2rem; /* Both start at the bottom */
+    bottom: 2rem; 
     z-index: 200;
     text-decoration: none;
-    display: none; /* JS will change this to inline-flex */
+    display: none; 
 }
 
-/* 2. THE TRICK: If the Website Link is visible AND followed by a Platform Link, 
-   move the Website Link UP so they don't overlap */
 #websiteLink:has(+ #platformLink[style*="inline-flex"]),
 #assetWebLink:has(+ #assetPlatformLink[style*="inline-flex"]) {
-    bottom: 6rem; /* Push the top button up ONLY if the bottom one exists */
+    bottom: 6rem; 
 }
 
-/* Internal Button Styling */
 .link-button {
     display: flex !important;
     align-items: center !important;
@@ -1353,6 +1340,8 @@ body {
     font-weight: bold;
     white-space: nowrap;
     min-width: 160px;
+    /* This font matches the system font used for a 'cleaner' look */
+    font-family: "system-ui", sans-serif; 
 }
 
 .link-button i { margin-right: 10px; font-size: 1.1rem; }
@@ -1368,16 +1357,12 @@ body {
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
 
-/* ---  CAROUSEL TITLE  --- */
-
+/* --- UPDATED: CAROUSEL TITLE (BOTTOM-LEFT) --- */
 .carousel-container header {
-    /* This 'absolute' lift is what removes the bar */
     position: absolute !important;
-    top: 20px !important;
-    left: 0 !important;
-    width: 100% !important;
-    
-    /* Ensure no background or borders are creating lines */
+    bottom: 2rem !important; /* Anchored to bottom instead of top */
+    left: 2rem !important;   /* Anchored to left */
+    width: auto !important;   /* No longer stretches across the whole top */
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
@@ -1386,16 +1371,29 @@ body {
 }
 
 .carousel-container header h2 {
-    font-size: 2.25em !important; 
+    /* Using system-ui to match your button font style */
+    font-family: "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 1.75em !important; /* Slightly smaller for better bottom-corner fit */
     line-height: 1.25em !important;
-    letter-spacing: -0.05em !important;
-    color: var(--title-color);
-    text-align: center !important;
+    letter-spacing: 0.05em !important; /* Cleaner spacing than the title font */
+    color: var(--primary-color);
+    text-align: left !important; /* Aligned left for the corner */
     margin: 0 !important;
-	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Stronger shadow for readability over images */
+    text-transform: uppercase; /* Optional: gives it a sharp UI feel */
 }
 
-/* IMPORTANT: Reset the track so it fills the top of the box again */
+/* Mobile adjustments for the corner title */
+@media screen and (max-width: 768px) {
+    .carousel-container header {
+        bottom: 1.5rem !important;
+        left: 1.5rem !important;
+    }
+    .carousel-container header h2 {
+        font-size: 1.25em !important;
+    }
+}
+
 .carousel-track {
     padding-top: 0 !important;
     margin-top: 0 !important;

@@ -975,7 +975,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* Header & Body Mobile Responsiveness */
 @media screen and (max-width: 736px) {
     #header {
-        height: 2.5em;
+        height: 3em;
         justify-content: center; /* Centers the logo-area group */
     }
 

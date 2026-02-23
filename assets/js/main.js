@@ -216,8 +216,8 @@
 
 const gameProjects = [
     {
-		title: 'UNSEAL', // The text to show on mobile
-        titleFont: 'Kirang Haerang', // Optional specific font
+		title: 'UNSEAL', 
+        titleFont: "'Cinzel Decorative', cursive",
         desktopImage: './images/games/GameProject_01.jpg',
         mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
@@ -535,6 +535,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

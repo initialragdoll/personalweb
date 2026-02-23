@@ -269,30 +269,37 @@ function initializeCarousel(projects, prefix = "") {
 
     let currentProjectIndex = 0;
 
-    function renderCarousel() {
+	function renderCarousel() {
     if (!carouselTrack) return;
     carouselTrack.innerHTML = '';
+
+    const isMobile = window.innerWidth <= 736;
+
     projects.forEach((project) => {
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         
-        const isMobile = window.innerWidth <= 736;
         const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
         slide.style.backgroundImage = `url('${imageUrl}')`;
 
-        // NEW: Create and add the mobile-only title
-        if (project.title) {
+        // --- NEW LOGIC START ---
+        // 1. Show title if it's Mobile (all sections)
+        // 2. Show title if it's Desktop AND the section is 'asset'
+        const shouldShowTitle = isMobile || (prefix === 'asset');
+
+        if (project.title && shouldShowTitle) {
             const mobileTitle = document.createElement('h3');
-            mobileTitle.className = 'mobile-only-title';
+            // We'll keep the class name but use it for both mobile/asset titles
+            mobileTitle.className = 'carousel-item-title'; 
             mobileTitle.textContent = project.title;
             
-            // Apply the custom font variable if provided
             if (project.titleFont) {
                 mobileTitle.style.setProperty('--mobile-font', project.titleFont);
             }
             
             slide.appendChild(mobileTitle);
         }
+        // --- NEW LOGIC END ---
 
         carouselTrack.appendChild(slide);
     });
@@ -535,6 +542,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

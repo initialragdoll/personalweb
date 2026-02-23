@@ -1378,7 +1378,29 @@ body {
     .link-button { padding: 0.5rem 1rem !important; min-width: 130px; font-size: 0.8rem; }
 }
 
-/* --- UPDATED: CAROUSEL TITLE --- */
+/* --- CAROUSEL TITLE LOGIC --- */
+
+/* 1. Base slide title styling (Appears on Mobile & Desktop Assets) */
+.carousel-item-title {
+    display: block; /* Shown by default when JS creates it */
+    position: absolute;
+    top: 15%; /* Your mobile placement */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    z-index: 150;
+    
+    /* Font Handling */
+    font-family: var(--mobile-font, inherit);
+    font-size: 3rem; /* Desktop Asset size */
+    color: white;
+    text-shadow: 0px 0px 15px var(--border-color);
+    pointer-events: none;
+    margin: 0;
+}
+
+/* 2. Section Header Styling (The 'GAMES' or 'ASSETS' text at bottom-left) */
 .carousel-container header {
     position: absolute !important;
     bottom: 2rem !important; 
@@ -1404,11 +1426,7 @@ body {
     text-transform: none !important;
 }
 
-/* MOBILE ADJUSTMENT */
-	.carousel-container .mobile-only-title {
-    display: none;
-}
-
+/* 3. Mobile Adjustments */
 @media screen and (max-width: 768px) {
     .carousel-container header {
         bottom: 1.5rem !important; 
@@ -1419,24 +1437,9 @@ body {
         font-size: 1.4rem !important;
     }
 
-	.carousel-container .mobile-only-title {
-        display: block;
-        position: absolute;
-        top: 15%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        text-align: center;
-        z-index: 150;
-        
-        /* Uses the variable from JS or defaults to inherit */
-        font-family: var(--mobile-font, inherit);
-        
-        font-size: 2.5rem;
-        color: white;
-        text-shadow: 0px 0px 15px var(--border-color);
-        pointer-events: none;
-        margin: 0;
+    .carousel-item-title {
+        font-size: 2.2rem; /* Slightly smaller for mobile screens */
+        top: 12%; /* Adjusted for smaller height */
     }
 }
 
@@ -1444,6 +1447,7 @@ body {
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
+
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
 /* START: The Bouncing Balls */

@@ -914,6 +914,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 #header h1 {
     margin: 0;
     line-height: 1;
+	font-family: "Kirang Haerang", system-ui;
 }
 
 #header h1 a {

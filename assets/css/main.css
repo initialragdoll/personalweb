@@ -1398,10 +1398,10 @@ body {
         font-size: 1.4rem !important;
     }
 	
-	.mobile-only-title {
+	.carousel-container .mobile-only-title {
     display: none;
 }
-	.mobile-only-title {
+	.carousel-container .mobile-only-title {
         display: block;
         position: absolute;
         top: 15%;

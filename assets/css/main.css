@@ -889,8 +889,8 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     /* Original solid background (Commented out): */
     /* background: var(--bg-color); */
     
-    /* New Transparent Background: Takes your theme color and makes it 50% opaque */
-    background: color-mix(in srgb, var(--primary-color), transparent 50%);
+    /* New Transparent Background: Takes your theme color and makes it 40% opaque */
+    background: color-mix(in srgb, var(--primary-color), transparent 60%);
     
     /* The Blur: Blurs the content passing underneath the header */
     backdrop-filter: blur(10px);

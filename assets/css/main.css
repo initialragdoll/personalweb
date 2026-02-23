@@ -1386,7 +1386,12 @@ body {
     text-transform: none !important;
 }
 
-/* MOBILE ADJUSTMENT: Mirroring the .steam-link mobile rules */
+/* MOBILE ADJUSTMENT */
+
+.mobile-only-title {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     .carousel-container header {
         bottom: 1.5rem !important; 
@@ -1395,6 +1400,27 @@ body {
     
     .carousel-container header h2 {
         font-size: 1.4rem !important;
+    }
+	
+	.mobile-only-title {
+        display: block;
+        position: absolute;
+        top: 15%;          /* Adjust this to move it up or down */
+        left: 50%;
+        transform: translateX(-50%); /* Perfectly centers it */
+        width: 90%;
+        text-align: center;
+        z-index: 150;
+        
+        /* 3. Adjustable Font Logic */
+        /* It uses the variable from HTML, or defaults to sans-serif */
+        font-family: var(--mobile-font), sans-serif;
+        
+        font-size: 3rem;   /* Large and impactful */
+        color: white;
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+        pointer-events: none; /* So it doesn't block clicking buttons */
+        margin: 0;
     }
 }
 

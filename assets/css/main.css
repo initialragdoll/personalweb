@@ -883,28 +883,30 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 /* --- HEADER --- */
 #header {
     position: fixed;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     width: 100%;
     height: 3em;
     z-index: 10000;
-    
-    /* --- GLASS EFFECTS START --- */
-    /* Original solid background (Commented out): */
-    /* background: var(--bg-color); */
-    
-    /* New Transparent Background: Takes your theme color and makes it 40% opaque */
-    background: color-mix(in srgb, var(--primary-color), transparent 60%);
-    
-    /* The Blur: Blurs the content passing underneath the header */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Support for Safari */
-    
-    /* --- GLASS EFFECTS END --- */
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5em;
+
+    /* --- SAFE FALLBACK: For old/slow browsers --- */
+    background-color: var(--primary-color); 
+}
+
+/* --- PERFORMANCE: Only runs if the browser is fast enough for blur --- */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    #header {
+        /* New Transparent Background */
+        background: color-mix(in srgb, var(--primary-color), transparent 60%);
+        
+        /* The Blur */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
 }
 
 /* Groups Title and Button on the left */
@@ -1439,16 +1441,20 @@ body {
     pointer-events: none;
     width: var(--ball-size);
     height: var(--ball-size);
-	
-	/* Blur */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px); 
 
-    /* The visual 'edge' of the glass */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    /* Optimization: Tells the browser this moves and blurs */
+    /* Optimization: Tells the browser this moves */
     will-change: transform, left, top;
+}
+
+/* Performance: Only apply 'expensive' effects if the browser supports them */
+@supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
+    .bouncing-ball {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px); 
+        
+        /* The glass 'edge' only appears if blur is possible */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }
 
 /* Red Ball Settings */

@@ -1374,16 +1374,13 @@ body {
 }
 
 .carousel-container header h2 {
-    /* Using 'inherit' ensures it grabs the clean site-wide font (like 'About') */
     font-family: inherit !important; 
-    
-    /* These settings mimic the "About" screenshot style */
     font-size: 2rem !important; 
-    font-weight: 300 !important; /* Lighter weight for that 'elegant' look */
+    font-weight: 300 !important; /* Lighter weight */
     line-height: 1.1em !important;
     letter-spacing: 0.02em !important; 
     
-    color: var(--primary-color);
+    color: var(-border-color);
     text-align: left !important; 
     margin: 0 !important;
     

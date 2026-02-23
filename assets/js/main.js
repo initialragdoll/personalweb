@@ -228,7 +228,7 @@ const gameProjects = [
 		title: 'Incoming Project', // The text to show on mobile
         titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
-        mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF?text=Incoming+Project',
+        mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF',
         webUrl: null,
         steamUrl: null,
         playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.projectb',
@@ -240,7 +240,7 @@ const assetProjects = [
 		title: 'Kerosene Lamps', // The text to show on mobile
         titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: './images/assets/Asset_01.png',
-        mobileImage: './images/assets/Asset_01_mobile.jpg',
+        mobileImage: './images/assets/Asset_01_mobile.png',
         webUrl: 'https://assetstore.unity.com/...',
         steamUrl: null,
         playStoreUrl: null,
@@ -249,7 +249,7 @@ const assetProjects = [
 		title: '19th Century Bedroom 1', // The text to show on mobile
         titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: './images/assets/Asset_02.png',
-        mobileImage: './images/assets/Asset_02_mobile.jpg',
+        mobileImage: './images/assets/Asset_02_mobile.png',
         webUrl: null,
         steamUrl: null,
         playStoreUrl: null,
@@ -535,6 +535,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

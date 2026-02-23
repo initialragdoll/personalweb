@@ -1390,7 +1390,7 @@ body {
     width: 90%;
     text-align: center;
     z-index: 150;
-    
+    line-height: 1.2em; /* Prevents vertical overlapping */
     /* Font Handling */
     font-family: var(--mobile-font, inherit);
     font-size: 3rem; /* Desktop Asset size */

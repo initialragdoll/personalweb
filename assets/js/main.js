@@ -216,6 +216,8 @@
 
 const gameProjects = [
     {
+		title: 'UNSEAL', // The text to show on mobile
+        titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: './images/games/GameProject_01.jpg',
         mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
@@ -223,6 +225,8 @@ const gameProjects = [
         playStoreUrl: null,
     },
     {
+		title: 'Incoming Project', // The text to show on mobile
+        titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: 'https://placehold.co/1920x1080/5a5a5a/FFFFFF?text=Incoming+Project',
         mobileImage: 'https://placehold.co/1080x1920/5a5a5a/FFFFFF?text=Incoming+Project',
         webUrl: null,
@@ -233,6 +237,8 @@ const gameProjects = [
 
 const assetProjects = [
     {
+		title: 'Kerosene Lamps', // The text to show on mobile
+        titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.jpg',
         webUrl: 'https://assetstore.unity.com/...',
@@ -240,6 +246,8 @@ const assetProjects = [
         playStoreUrl: null,
     },
 	{
+		title: '19th Century Bedroom 1', // The text to show on mobile
+        titleFont: 'Kirang Haerang', // Optional specific font
         desktopImage: './images/assets/Asset_02.png',
         mobileImage: './images/assets/Asset_02_mobile.jpg',
         webUrl: null,
@@ -262,19 +270,35 @@ function initializeCarousel(projects, prefix = "") {
     let currentProjectIndex = 0;
 
     function renderCarousel() {
-        if (!carouselTrack) return;
-        carouselTrack.innerHTML = '';
-        projects.forEach((project) => {
-            const slide = document.createElement('div');
-            slide.className = 'carousel-slide';
-            const isMobile = window.innerWidth <= 736;
-            const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
-            slide.style.backgroundImage = `url('${imageUrl}')`;
-            carouselTrack.appendChild(slide);
-        });
-        updateCarouselPosition();
-        updateLinks();
-    }
+    if (!carouselTrack) return;
+    carouselTrack.innerHTML = '';
+    projects.forEach((project) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        
+        const isMobile = window.innerWidth <= 736;
+        const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+        slide.style.backgroundImage = `url('${imageUrl}')`;
+
+        // NEW: Create and add the mobile-only title
+        if (project.title) {
+            const mobileTitle = document.createElement('h3');
+            mobileTitle.className = 'mobile-only-title';
+            mobileTitle.textContent = project.title;
+            
+            // Apply the custom font variable if provided
+            if (project.titleFont) {
+                mobileTitle.style.setProperty('--mobile-font', project.titleFont);
+            }
+            
+            slide.appendChild(mobileTitle);
+        }
+
+        carouselTrack.appendChild(slide);
+    });
+    updateCarouselPosition();
+    updateLinks();
+}
 		
     function updateCarouselPosition() {
     if (!carouselTrack) return;
@@ -511,6 +535,7 @@ function toggleTheme() {
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

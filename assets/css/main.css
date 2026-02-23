@@ -1194,6 +1194,7 @@ body {
 }
 
 #intro header h2 { 
+	font-family: "Kirang Haerang", system-ui;
     font-size: 8rem; 
     text-align: center;
     line-height: 1.1;
@@ -1202,6 +1203,7 @@ body {
 }
 
 #intro h1.intro-text { 
+	font-family: "Kirang Haerang", system-ui;
     font-size: 4rem; /* Adjust this value as needed */
     text-align: center;
     line-height: 1.1;
@@ -1373,7 +1375,7 @@ body {
 
 .carousel-container header h2 {
     /* Using system-ui to match your button font style */
-    font-family: "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: inherit !important;
     font-size: 1.75em !important; /* Slightly smaller for better bottom-corner fit */
     line-height: 1.25em !important;
     letter-spacing: 0.05em !important; /* Cleaner spacing than the title font */

@@ -1395,7 +1395,7 @@ body {
     font-family: var(--mobile-font, inherit);
     font-size: 2.5rem; /* Desktop Asset size */
     color: white;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
     pointer-events: none;
     margin: 0;
 }
@@ -1422,7 +1422,7 @@ body {
     color: #ffffff;
     text-align: left !important; 
     margin: 0 !important;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     text-transform: none !important;
 }
 

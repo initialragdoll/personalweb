@@ -1419,10 +1419,10 @@ body {
     font-weight: 300 !important; 
     line-height: 1.1em !important;
     letter-spacing: 0.02em !important; 
-    color: var(--border-color) !important;
+    color: #ffffff;
     text-align: left !important; 
     margin: 0 !important;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
     text-transform: none !important;
 }
 

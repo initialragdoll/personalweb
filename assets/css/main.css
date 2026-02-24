@@ -1393,7 +1393,7 @@ body {
     line-height: 1.2em; /* Prevents vertical overlapping */
     /* Font Handling */
     font-family: var(--mobile-font, inherit);
-    font-size: 3rem; /* Desktop Asset size */
+    font-size: 2.5rem; /* Desktop Asset size */
     color: white;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
     pointer-events: none;
@@ -1438,7 +1438,7 @@ body {
     }
 
     .carousel-item-title {
-        font-size: 2.2rem; /* Slightly smaller for mobile screens */
+        font-size: 1.5rem; /* Slightly smaller for mobile screens */
         top: 12%; /* Adjusted for smaller height */
     }
 }

@@ -902,6 +902,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     #header {
         /* New Transparent Background */
         background: color-mix(in srgb, var(--primary-color), transparent 60%);
+		box-shadow: 0 1px 5px var(--shadow-color);
         
         /* The Blur */
         backdrop-filter: blur(10px);

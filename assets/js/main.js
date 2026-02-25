@@ -267,61 +267,46 @@ function initializeCarousel(projects, prefix = "") {
     const platformIcon = document.getElementById(prefix ? prefix + 'PlatformIcon' : 'platformIcon');
     const platformText = document.getElementById(prefix ? prefix + 'PlatformText' : 'platformText');
 
-    let currentProjectIndex = 0;
+    let currentProjectIndex = 0; // KEEP THIS ONE
 
-	function renderCarousel() {
-    if (!carouselTrack) return;
-    carouselTrack.innerHTML = '';
+    function renderCarousel() {
+        if (!carouselTrack) return;
+        carouselTrack.innerHTML = '';
+        const isMobile = window.innerWidth <= 736;
 
-    const isMobile = window.innerWidth <= 736;
+        projects.forEach((project) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
+            slide.style.backgroundImage = `url('${imageUrl}')`;
 
-    projects.forEach((project) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        
-        const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
-        slide.style.backgroundImage = `url('${imageUrl}')`;
-
-        // --- Show Title ---
-        // 1. Show title if it's Mobile (all sections)
-        // 2. Show title if it's Desktop AND the section is 'asset'
-        const shouldShowTitle = isMobile || (prefix === 'asset');
-
-        if (project.title && shouldShowTitle) {
-            const mobileTitle = document.createElement('h3');
-            // We'll keep the class name but use it for both mobile/asset titles
-            mobileTitle.className = 'carousel-item-title'; 
-            mobileTitle.textContent = project.title;
-            
-            if (project.titleFont) {
-                mobileTitle.style.setProperty('--mobile-font', project.titleFont);
+            const shouldShowTitle = isMobile || (prefix === 'asset');
+            if (project.title && shouldShowTitle) {
+                const mobileTitle = document.createElement('h3');
+                mobileTitle.className = 'carousel-item-title'; 
+                mobileTitle.textContent = project.title;
+                if (project.titleFont) {
+                    mobileTitle.style.setProperty('--mobile-font', project.titleFont);
+                }
+                slide.appendChild(mobileTitle);
             }
-            
-            slide.appendChild(mobileTitle);
-        }
-        // --- NEW LOGIC END ---
-
-        carouselTrack.appendChild(slide);
-    });
-    updateCarouselPosition();
-    updateLinks();
-}
-		
+            carouselTrack.appendChild(slide);
+        });
+        updateCarouselPosition();
+        updateLinks();
+    }
+        
     function updateCarouselPosition() {
-    if (!carouselTrack) return;
-    /* CHANGE THIS: from 100vw to 100% */
-    carouselTrack.style.transform = `translateX(${-currentProjectIndex * 100}%)`;
-}
+        if (!carouselTrack) return;
+        carouselTrack.style.transform = `translateX(${-currentProjectIndex * 100}%)`;
+    }
 
     function updateLinks() {
         const currentProject = projects[currentProjectIndex];
         if (!currentProject) return;
-
-        // Reset display first
         if (websiteLink) websiteLink.style.display = 'none';
         if (platformLink) platformLink.style.display = 'none';
 
-        // 1. Bottom Slot (Platform)
         if (platformLink) {
             let hasPlatform = false;
             if (currentProject.playStoreUrl) {
@@ -335,31 +320,14 @@ function initializeCarousel(projects, prefix = "") {
                 if (platformText) platformText.textContent = prefix === 'asset' ? 'Unity Store' : 'Steam Page';
                 hasPlatform = true;
             }
-            
             if (hasPlatform) platformLink.style.display = 'inline-flex';
         }
 
-        // 2. Web Slot (Collapses if Platform is hidden)
         if (websiteLink && currentProject.webUrl) {
             websiteLink.href = currentProject.webUrl;
             websiteLink.style.display = 'inline-flex';
         }
     }
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-        currentProjectIndex = (currentProjectIndex > 0) ? currentProjectIndex - 1 : projects.length - 1;
-        updateCarouselPosition();
-        updateLinks();
-    });
-
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-        currentProjectIndex = (currentProjectIndex + 1) % projects.length;
-        updateCarouselPosition();
-        updateLinks();
-    });
-	
-/* --- SWIPE LOGIC START --- */
-let currentProjectIndex = 0;
 
     // --- HELPER FUNCTIONS ---
     const showNext = () => {
@@ -378,7 +346,7 @@ let currentProjectIndex = 0;
     if (prevBtn) prevBtn.addEventListener('click', showPrev);
     if (nextBtn) nextBtn.addEventListener('click', showNext);
 
-    // --- SWIPE  ---
+    // --- SWIPE LOGIC ---
     let touchStartX = 0;
     let touchEndX = 0;
     const swipeThreshold = 50;
@@ -395,10 +363,10 @@ let currentProjectIndex = 0;
             else if (swipeDistance < -swipeThreshold) showNext();
         }, { passive: true });
     }
-/* --- SWIPE LOGIC END --- */
-	
+    
     renderCarousel();
 }
+	
 	
 // Function to shuffle any array randomly
 function shuffleArray(array) {
@@ -585,6 +553,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

@@ -658,7 +658,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     z-index: 9999;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: color-mix(in srgb, var(--bg-color), transparent 60%);;
+    background-color: color-mix(in srgb, var(--bg-color), transparent 30%);;
 }
 
 .custom-modal .modal-content {

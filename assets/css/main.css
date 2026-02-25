@@ -714,7 +714,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
 .custom-modal .custom-close-button {
     position: absolute;
     top: 15px; right: 35px;
-    color: #f1f1f1;
+    color: var(--border-color);
     font-size: 40px;
     cursor: pointer;
     z-index: 10;

@@ -282,7 +282,7 @@ function initializeCarousel(projects, prefix = "") {
         const imageUrl = isMobile ? project.mobileImage : project.desktopImage;
         slide.style.backgroundImage = `url('${imageUrl}')`;
 
-        // --- NEW LOGIC START ---
+        // --- Show Title ---
         // 1. Show title if it's Mobile (all sections)
         // 2. Show title if it's Desktop AND the section is 'asset'
         const shouldShowTitle = isMobile || (prefix === 'asset');
@@ -357,7 +357,46 @@ function initializeCarousel(projects, prefix = "") {
         updateCarouselPosition();
         updateLinks();
     });
+	
+/* --- SWIPE LOGIC START --- */
+let currentProjectIndex = 0;
 
+    // --- HELPER FUNCTIONS ---
+    const showNext = () => {
+        currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+        updateCarouselPosition();
+        updateLinks();
+    };
+
+    const showPrev = () => {
+        currentProjectIndex = (currentProjectIndex > 0) ? currentProjectIndex - 1 : projects.length - 1;
+        updateCarouselPosition();
+        updateLinks();
+    };
+
+    // --- BUTTON LISTENERS ---
+    if (prevBtn) prevBtn.addEventListener('click', showPrev);
+    if (nextBtn) nextBtn.addEventListener('click', showNext);
+
+    // --- SWIPE  ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    if (carouselTrack) {
+        carouselTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const swipeDistance = touchEndX - touchStartX;
+            if (swipeDistance > swipeThreshold) showPrev();
+            else if (swipeDistance < -swipeThreshold) showNext();
+        }, { passive: true });
+    }
+/* --- SWIPE LOGIC END --- */
+	
     renderCarousel();
 }
 	
@@ -546,6 +585,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

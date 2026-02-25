@@ -680,7 +680,7 @@ table.default tfoot { background: rgba(255, 255, 255, 0.1); }
     max-height: 75vh; 
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: #555 #333;
+    scrollbar-color: var(--border-color) var(--bg-color);
 }
 
 /* Match Image size to Video size */

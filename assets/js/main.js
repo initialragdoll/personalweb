@@ -241,7 +241,7 @@ const assetProjects = [
         titleFont:  "'system-ui', sans-serif", 
         desktopImage: './images/assets/Asset_01.png',
         mobileImage: './images/assets/Asset_01_mobile.png',
-        webUrl: 'https://www.fab.com/listings/05274237-b343-40c5-b866-c763315b06d8',
+        webUrl: 'https://fab.com/s/389a8bc7dafd',
         steamUrl: null,
         playStoreUrl: null,
     },
@@ -553,6 +553,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 	Origin Template Design by HTML5 UP
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 
 
 

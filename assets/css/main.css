@@ -1456,16 +1456,11 @@ body {
 
 /* START: The Bouncing Balls */
 :root {
-    /* Lower value = Faster balls (because duration is shorter) */
-    /* Higher value = Slower balls (because duration is longer) */
     --speed-factor: 2.5; 
 }
 
-/* Mobile Scaling: Shorter distances need shorter durations */
 @media screen and (max-width: 736px) {
-    :root {
-        --speed-factor: 1; 
-    }
+    :root { --speed-factor: 1; }
     .red { --ball-size: 120px; }
     .blue { --ball-size: 70px; }
 }
@@ -1479,9 +1474,7 @@ body {
     pointer-events: none;
     width: var(--ball-size);
     height: var(--ball-size);
-    
-    /* Optimization: Smooth 60fps+ movement */
-    will-change: transform;
+    will-change: translate; /* Updated for modern performance */
 }
 
 /* Glass Effect */
@@ -1493,32 +1486,48 @@ body {
     }
 }
 
-/* Red Ball Settings */
+/* Red Ball: Starts Right, moves Left */
 .red {
     --ball-size: 300px;
     background-color: rgba(255, 0, 0, 0.4);
-    /* Duration = Base seconds * Speed Factor */
-    animation: bounceX calc(5s * var(--speed-factor)) linear infinite alternate, 
+    /* Animates from 100% width back to 0 */
+    animation: bounceX-Reverse calc(5s * var(--speed-factor)) linear infinite alternate, 
                bounceY calc(3.2s * var(--speed-factor)) linear infinite alternate;
 }
 
-/* Blue Ball Settings */
+/* Blue Ball: Starts Left, moves Right */
 .blue {
     --ball-size: 180px;
     background-color: rgba(0, 123, 255, 0.4);
-    animation: bounceX calc(3.7s * var(--speed-factor)) linear infinite alternate-reverse, 
-               bounceY calc(2.1s * var(--speed-factor)) linear infinite alternate-reverse;
+    /* Animates from 0 to 100% width */
+    animation: bounceX-Forward calc(3.7s * var(--speed-factor)) linear infinite alternate, 
+               bounceY-Reverse calc(2.1s * var(--speed-factor)) linear infinite alternate;
 }
 
-/* GPU-Accelerated Keyframes */
-@keyframes bounceX {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(100vw - var(--ball-size))); }
+/* --- KEYFRAMES --- */
+
+/* Horizontal: Left to Right */
+@keyframes bounceX-Forward {
+    from { translate: 0 0; }
+    to   { translate: calc(100vw - var(--ball-size)) 0; }
 }
 
+/* Horizontal: Right to Left */
+@keyframes bounceX-Reverse {
+    from { translate: calc(100vw - var(--ball-size)) 0; }
+    to   { translate: 0 0; }
+}
+
+/* Vertical: Top to Bottom */
 @keyframes bounceY {
-    from { transform: translateY(0); }
-    to { transform: translateY(calc(100vh - var(--ball-size))); }
+    from { margin-top: 0; }
+    to   { margin-top: calc(100vh - var(--ball-size)); }
+}
+
+/* Vertical: Bottom to Top */
+@keyframes bounceY-Reverse {
+    from { margin-top: calc(100vh - var(--ball-size)); }
+    to   { margin-top: 0; }
 }
 /* END: The Bouncing Balls */
 

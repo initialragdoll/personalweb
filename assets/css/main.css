@@ -1456,16 +1456,13 @@ body {
 
 /* START: The Bouncing Balls */
 :root {
-    --speed-factor: 2.5; /* Desktop: Higher number = Slower movement */
+    --speed-factor: 2.5; /* Desktop: Higher = Slower */
 }
 
 @media screen and (max-width: 736px) {
     :root {
-        --speed-factor: 1; /* Mobile: Lower number = Faster movement */
+        --speed-factor: 1.1; /* Mobile: Lower = Faster */
     }
-    /* Restoring your mobile sizes */
-    .red { --ball-size: 120px; }
-    .blue { --ball-size: 70px; }
 }
 
 .bouncing-ball {
@@ -1487,24 +1484,29 @@ body {
     }
 }
 
-/* Red Ball: Large, starts Top-Right */
+/* Red Ball Settings */
 .red {
     --ball-size: 300px;
     background-color: rgba(255, 0, 0, 0.4);
-    /* Adding 'reverse' here makes it start from the right/bottom */
-    animation: bounceX calc(5s * var(--speed-factor)) linear infinite alternate-reverse, 
+    animation: bounceX calc(5s * var(--speed-factor)) linear infinite alternate, 
                bounceY calc(3.2s * var(--speed-factor)) linear infinite alternate;
 }
 
-/* Blue Ball: Small, starts Top-Left */
+/* Blue Ball Settings */
 .blue {
     --ball-size: 180px;
     background-color: rgba(0, 123, 255, 0.4);
-    animation: bounceX calc(3.7s * var(--speed-factor)) linear infinite alternate, 
+    animation: bounceX calc(3.7s * var(--speed-factor)) linear infinite alternate-reverse, 
                bounceY calc(2.1s * var(--speed-factor)) linear infinite alternate-reverse;
 }
 
-/* YOUR ORIGINAL KEYFRAMES (Simplified) */
+/* Mobile Scaling - This section fixes the "Too Big" issue */
+@media screen and (max-width: 736px) {
+    .red { --ball-size: 120px; }
+    .blue { --ball-size: 70px; }
+}
+
+/* Your Original Simple Keyframes */
 @keyframes bounceX {
     from { left: 0; }
     to { left: calc(100% - var(--ball-size)); }

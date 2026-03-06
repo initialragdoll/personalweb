@@ -1455,25 +1455,40 @@ body {
 /* --- END: UNIVERSAL CAROUSEL STYLES --- */
 
 /* START: The Bouncing Balls */
+:root {
+    /* Lower value = Faster balls (because duration is shorter) */
+    /* Higher value = Slower balls (because duration is longer) */
+    --speed-factor: 2.5; 
+}
+
+/* Mobile Scaling: Shorter distances need shorter durations */
+@media screen and (max-width: 736px) {
+    :root {
+        --speed-factor: 1; 
+    }
+    .red { --ball-size: 120px; }
+    .blue { --ball-size: 70px; }
+}
+
 .bouncing-ball {
     position: absolute;
+    top: 0;
+    left: 0;
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
     width: var(--ball-size);
     height: var(--ball-size);
-
-    /* Optimization: Tells the browser this moves */
-    will-change: transform, left, top;
+    
+    /* Optimization: Smooth 60fps+ movement */
+    will-change: transform;
 }
 
-/* Performance: Only apply 'expensive' effects if the browser supports them */
+/* Glass Effect */
 @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
     .bouncing-ball {
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px); 
-        
-        /* The glass 'edge' only appears if blur is possible */
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
@@ -1482,40 +1497,30 @@ body {
 .red {
     --ball-size: 300px;
     background-color: rgba(255, 0, 0, 0.4);
-    animation: bounceX 5s linear infinite alternate, 
-               bounceY 3.2s linear infinite alternate;
+    /* Duration = Base seconds * Speed Factor */
+    animation: bounceX calc(5s * var(--speed-factor)) linear infinite alternate, 
+               bounceY calc(3.2s * var(--speed-factor)) linear infinite alternate;
 }
 
-/* Blue Ball Settings (Smaller and Faster) */
+/* Blue Ball Settings */
 .blue {
     --ball-size: 180px;
     background-color: rgba(0, 123, 255, 0.4);
-    /* Different timings so they don't move in sync */
-    animation: bounceX 3.7s linear infinite alternate-reverse, 
-               bounceY 2.1s linear infinite alternate-reverse;
+    animation: bounceX calc(3.7s * var(--speed-factor)) linear infinite alternate-reverse, 
+               bounceY calc(2.1s * var(--speed-factor)) linear infinite alternate-reverse;
 }
 
-/* Mobile Scaling for Both */
-@media screen and (max-width: 736px) {
-    .red { --ball-size: 120px; }
-    .blue { --ball-size: 70px; }
-    
-    .bouncing-ball {
-        animation-duration: 6s, 4s;
-    }
-}
-
-/* Reuse the same Keyframes from before */
+/* GPU-Accelerated Keyframes */
 @keyframes bounceX {
-    from { left: 0; }
-    to { left: calc(100% - var(--ball-size)); }
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw - var(--ball-size))); }
 }
 
 @keyframes bounceY {
-    from { top: 0; }
-    to { top: calc(100% - var(--ball-size)); }
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(100vh - var(--ball-size))); }
 }
-/* END: The Bouncing Circle */
+/* END: The Bouncing Balls */
 
 
 /*

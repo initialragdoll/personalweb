@@ -1461,7 +1461,7 @@ body {
 
 @media screen and (max-width: 736px) {
     :root {
-        --speed-factor: 1.1; /* Mobile: Lower = Faster */
+        --speed-factor: 1.5; /* Mobile: Lower = Faster */
     }
 }
 

@@ -221,7 +221,7 @@ const gameProjects = [
         desktopImage: './images/games/GameProject_01.jpg',
         mobileImage: './images/games/GameProject_01_mobile.jpg',
         webUrl: 'https://unseal.fr/',
-        steamUrl: 'https://store.steampowered.com/app/YOUR_APP_ID/',
+        steamUrl: 'https://store.steampowered.com/app/4034440/Unseal/',
         playStoreUrl: null,
     },
     {

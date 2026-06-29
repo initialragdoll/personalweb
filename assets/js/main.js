@@ -262,6 +262,15 @@ const assetProjects = [
         webUrl: 'https://fab.com/s/19646439748f',
         steamUrl: null,
         playStoreUrl: null,
+    },
+	{
+        title: "Interactive Safe & Combination Lock System",
+        titleFont:  "'system-ui', sans-serif",  
+        desktopImage: './images/assets/Asset_04.png',
+        mobileImage: './images/assets/Asset_04_mobile.png',
+        webUrl: 'https://fab.com/s/40e43b334698',
+        steamUrl: null,
+        playStoreUrl: null,
     }
 ];
 
